@@ -478,7 +478,41 @@ export default function Home() {
     { name: "الخدمات الأخرى", icon: "＋" },
   ];
 
-  const searchItems = [...landmarks, ...facilities];
+  const proposedPlaces: Facility[] = [
+    {
+      name: "مقصد قباء",
+      icon: "📍",
+      description: "مكان مقترح في المدينة المنورة",
+      category: "الكل",
+      googleQuery: "مقصد قباء المدينة المنورة",
+    },
+    {
+      name: "المنطقة المركزية",
+      icon: "📍",
+      description: "المنطقة المركزية في المدينة المنورة",
+      category: "الكل",
+      googleQuery: "المنطقة المركزية المدينة المنورة",
+    },
+  ];
+
+  // Search is intentionally limited to the site's six top-level categories
+  // and the places that belong to them. As new places are added, they are
+  // added to the corresponding category and become searchable automatically.
+  const searchCategories: Facility[] = [
+    { name: "الكل", icon: "⌘", description: "الأماكن المقترحة", category: "الكل" },
+    { name: "المناطق السياحية", icon: "⌖", description: "المناطق السياحية في المدينة المنورة", category: "المناطق السياحية" },
+    { name: "المطاعم والمقاهي", icon: "☕", description: "المطاعم والمقاهي في المدينة المنورة", category: "المطاعم والمقاهي" },
+    { name: "المشي والتنقل", icon: "🚶", description: "المشي والتنقل في المدينة المنورة", category: "المشي والتنقل" },
+    { name: "المعالم الرئيسية", icon: "🕌", description: "المعالم الرئيسية في المدينة المنورة", category: "المعالم الرئيسية" },
+    { name: "الخدمات الأخرى", icon: "＋", description: "الخدمات الأخرى في المدينة المنورة", category: "الخدمات الأخرى" },
+  ];
+
+  const searchItems = [
+    ...searchCategories,
+    ...proposedPlaces,
+    ...landmarks.map((landmark) => ({ ...landmark, category: landmark.category || "المعالم الرئيسية" })),
+  ];
+
   const visibleFacilities = facilities.filter((facility) => {
     const matchesCategory =
       activeCategory === "الكل" ||
@@ -497,14 +531,25 @@ export default function Home() {
 
   const searchResults = searchQuery.trim()
     ? searchItems.filter((item) => {
+        const query = normalizeSearchTerm(searchQuery);
+        const words = query.split(" ").filter(Boolean);
         const searchableText = normalizeSearchTerm([
-          item.name, item.description, t(item.name), t(item.description),
-          "المدينة المنورة Madinah Medina",
-          ...(facilitySearchAliases[item.name] || []),
-          ...(landmarks.some((landmark) => landmark.name === item.name) ? ["المناطق السياحية", "منطقة سياحية", "tourist", "tourist areas"] : []),
-          ...generalServiceTerms,
+          item.name,
+          item.description,
+          t(item.name),
+          t(item.description),
+          item.category || "",
+          item.name === "مقصد قباء" ? "مقصد قباء Quba Destination" : "",
+          item.name === "المنطقة المركزية" ? "المنطقة المركزية Central Area" : "",
         ].join(" "));
-        const words = normalizeSearchTerm(searchQuery).split(" ").filter(Boolean);
+
+        // Category searches return the category itself. Place searches return
+        // only places belonging to the requested/top-level category.
+        if (item.category && item.name !== item.category) {
+          // Keep places discoverable by their exact/partial name.
+          return words.every((word) => searchableText.includes(word));
+        }
+
         return words.every((word) => searchableText.includes(word));
       })
     : [];
@@ -513,6 +558,13 @@ export default function Home() {
     setActiveCategory(item.category || "الكل");
     setSearchQuery(item.name);
     closeModal();
+
+    // Category results are navigation/filter results, not places to send to Google Maps.
+    if (item.name === item.category) {
+      setActiveCategory(item.name);
+      return;
+    }
+
     window.open(
       `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.googleQuery || item.name + ", المدينة المنورة")}`,
       "_blank",
