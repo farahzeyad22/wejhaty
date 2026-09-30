@@ -3323,3 +3323,159 @@ textarea:focus-visible {
     max-height: 52vh !important;
   }
 }
+
+
+/* Desktop discovery panel beside the map */
+.desktop-explore-panel {
+  min-height: 600px !important;
+  height: 600px !important;
+  padding: 28px 24px !important;
+  border-radius: 17px !important;
+  background: #fbf8f1 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.desktop-explore-heading > span {
+  color: #9b7aa0;
+  font-size: 11px;
+  font-weight: 700;
+}
+.desktop-explore-heading h2 {
+  margin: 6px 0 5px;
+  color: #3f3044;
+  font-size: 25px;
+  line-height: 1.25;
+}
+.desktop-explore-heading p {
+  margin: 0;
+  color: #858077;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.desktop-explore-categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+}
+.desktop-explore-category {
+  min-width: 0;
+  min-height: 68px;
+  padding: 10px 11px;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 8px;
+  text-align: right;
+  border: 1px solid #e3d8e5;
+  border-radius: 13px;
+  background: #fffdf9;
+  color: #4b3a50;
+  cursor: pointer;
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+.desktop-explore-category:hover,
+.desktop-explore-category:focus-visible {
+  border-color: #b89abd;
+  background: #f8f0fa;
+  transform: translateY(-1px);
+  outline: none;
+}
+.desktop-explore-category > span {
+  grid-row: 1 / 3;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #f0e5f2;
+  font-size: 16px;
+}
+.desktop-explore-category strong {
+  font-size: 11px;
+  line-height: 1.35;
+}
+.desktop-explore-category small {
+  color: #a19a9e;
+  font-size: 9px;
+}
+.desktop-explore-divider {
+  height: 1px;
+  margin: 20px 0 15px;
+  background: #e5ddd2;
+}
+.desktop-suggested-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.desktop-suggested-heading h3 {
+  margin: 0;
+  color: #4a394d;
+  font-size: 15px;
+}
+.desktop-suggested-heading span {
+  color: #aaa19b;
+  font-size: 9px;
+}
+.desktop-suggested-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+.desktop-suggested-item {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  padding: 10px;
+  border: 1px solid #e6ddd2;
+  border-radius: 12px;
+  background: #fffdf9;
+  color: inherit;
+  text-decoration: none;
+}
+.desktop-suggested-item:hover {
+  border-color: #c4a7c9;
+}
+.desktop-suggested-item > span:nth-child(2) {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.desktop-suggested-item strong {
+  color: #4b3a50;
+  font-size: 11px;
+}
+.desktop-suggested-item small {
+  color: #9a938e;
+  font-size: 9px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.desktop-suggested-item > b {
+  color: #8e6995;
+  font-size: 14px;
+}
+.desktop-suggested-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #f0e5f2;
+  color: #795080;
+  font-size: 17px;
+}
+.desktop-suggested-disabled {
+  opacity: .72;
+}
+@media (max-width: 760px) {
+  .desktop-explore-panel { display: none !important; }
+}
