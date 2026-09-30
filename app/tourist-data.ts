@@ -5,7 +5,7 @@ const touristRows: [string, number, string, string][] = [
 
 const touristCategory = (name: string) => {
   if (["الحافلة السياحية في المدينة المنورة","محطة قطار الحرمين السريع","مطار الأمير محمد بن عبد العزيز الدولي - المدينة المنورة"].includes(name)) return "المشي والتنقل";
-  if (["المغيسلة","وادي العقيق المبارك","جبل عير","سوق الطباخة مجمع مطاعم","سوق التمور","جادة قباء","مطل العزيزية","المربد","سوق الخضار المركزي بالمدينة المنورة","واجهة قباء","منتزه البيضاء البري"].includes(name)) return "المناطق السياحية";
+  if (["المغيسلة","متحف خير الخلق","وادي العقيق المبارك","جبل عير","سوق الطباخة مجمع مطاعم","سوق التمور","جادة قباء","مطل العزيزية","المربد","سوق الخضار المركزي بالمدينة المنورة","واجهة قباء","منتزه البيضاء البري"].includes(name)) return "المناطق السياحية";
   return "المعالم الرئيسية";
 };
 export const touristDestinations: TouristDestination[] = touristRows.map(([name, reviewCount, collectionStatus, collectionDate]) => ({ name, reviewCount, collectionStatus, collectionDate, category: touristCategory(name) }));
