@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9b78a0"/><stop offset=".58" stop-color="#e3a77d"/><stop offset="1" stop-color="#6d526f"/></linearGradient>
+</defs>
+<rect width="720" height="900" fill="url(#sky)"/>
+<circle cx="545" cy="170" r="54" fill="#f1c98e" opacity=".9"/>
+<path d="M0 570 Q120 500 220 565 T430 545 T720 535 V900 H0Z" fill="#6a526d"/>
+<path d="M0 635 Q150 565 290 635 T520 610 T720 625 V900 H0Z" fill="#463b50" opacity=".95"/>
+<g fill="#3e3544">
+  <rect x="125" y="585" width="470" height="210" rx="5"/>
+  <path d="M245 590 Q360 470 475 590Z"/>
+  <path d="M300 590 Q360 515 420 590Z" fill="#2f6b55"/>
+  <g>
+    <rect x="92" y="440" width="32" height="355" rx="7"/><path d="M82 440h52l-26-42z"/>
+    <rect x="596" y="455" width="32" height="340" rx="7"/><path d="M586 455h52l-26-42z"/>
+    <rect x="205" y="505" width="24" height="290" rx="6"/><path d="M197 505h40l-20-31z"/>
+    <rect x="491" y="505" width="24" height="290" rx="6"/><path d="M483 505h40l-20-31z"/>
+  </g>
+</g>
+<g fill="#5d495e" opacity=".8"><rect x="0" y="770" width="720" height="130"/></g>
+<g fill="#fff" font-family="Arial, sans-serif" text-anchor="end">
+  <text x="650" y="100" font-size="18" opacity=".78">REAL REVIEWS, REAL PLACES</text>
+  <text x="650" y="205" font-size="58" font-weight="700">وش قالوا الناس؟</text>
+  <text x="650" y="250" font-size="25" opacity=".92">شوف المكان بعيون زواره.</text>
+</g>
+<g transform="translate(55 720)">
+  <rect width="610" height="105" rx="22" fill="#fff" opacity=".9"/>
+  <circle cx="58" cy="52" r="25" fill="#714486"/>
+  <path d="M48 54h20v15H48zM46 54l12-12 12 12" fill="#fff"/>
+  <text x="535" y="62" fill="#493f48" font-size="24" font-family="Arial,sans-serif" font-weight="700" text-anchor="end">تجارب حقيقية من زوار المدينة</text>
+</g>
+</svg>
