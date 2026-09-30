@@ -3242,3 +3242,16 @@ textarea:focus-visible {
   inset: 0 6px;
   border-width: 1px;
 }
+
+
+/* Main page: use the exact same 18px patterned frame as Quba */
+.app-shell {
+  padding: 18px !important;
+  background: #704486 url("/roshan-border.svg") repeat !important;
+  background-size: 72px 72px !important;
+  box-shadow: none !important;
+}
+
+.app-shell > .roshan-edge {
+  display: none !important;
+}
