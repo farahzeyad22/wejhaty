@@ -601,8 +601,7 @@ export default function Home() {
       </header>
 
       <section className="service-strip" id="services" aria-label={t("تصنيفات الخدمات")}>
-        <div className="service-strip-inner"><Link className="category-chip" href="/quba">مقصد قباء</Link>
-          {categories.map((category) => (
+        <div className="service-strip-inner">{categories.map((category) => (
             <button
               className={`category-chip${activeCategory === category.name ? " category-active" : ""}`}
               key={category.name}
@@ -630,6 +629,11 @@ export default function Home() {
           <div className="location-summary">
             <span className="location-icon">⌖</span>
             <span><strong>{t("المنطقة المركزية")}</strong><small>{t("المدينة المنورة")}</small></span>
+            <Link className="location-destination" href="/quba" aria-label="فتح مقصد قباء">
+              <span className="location-destination-icon">⌖</span>
+              <span><strong>مقصد قباء</strong><small>موقع للاستكشاف</small></span>
+              <span className="location-destination-arrow" aria-hidden="true">↗</span>
+            </Link>
             <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
           </div>
         </section>
