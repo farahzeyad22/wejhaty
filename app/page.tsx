@@ -264,7 +264,24 @@ export default function Home() {
 
     });
 
-    return () => window.cancelAnimationFrame(frame);
+    const categoryPlaces =
+    activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
+      ? touristDestinations
+          .filter((place) => place.category === activeCategory)
+          .map((place) => ({
+            name: place.name,
+            type: "وجهة",
+            reviewCount: place.reviewCount,
+          }))
+      : activeCategory === "المطاعم والمقاهي"
+        ? foodPlaces.map((place) => ({
+            name: place.name,
+            type: place.type,
+            reviewCount: place.reviewCount,
+          }))
+        : [];
+
+  return () => window.cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
@@ -786,15 +803,9 @@ export default function Home() {
                 </div>
               ) : (
                 <div className="suggested-place-grid">
-                  {(activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
-                    ? touristDestinations.filter((place) => place.category === activeCategory)
-                    : activeCategory === "المطاعم والمقاهي"
-                      ? foodPlaces
-                      : []
-                  ).map((place) => {
-                    const tourist = "reviewCount" in place;
+                  {categoryPlaces.map((place) => {
                     const name = place.name;
-                    const count = tourist ? place.reviewCount : place.reviewCount;
+                    const count = place.reviewCount;
                     return (
                       <Link
                         key={name}
@@ -802,10 +813,10 @@ export default function Home() {
                         href={`/tourist?name=${encodeURIComponent(name)}`}
                         aria-label={`فتح تفاصيل ${name}`}
                       >
-                        <span className="location-icon">{tourist ? "⌖" : place.type === "مقهى" ? "☕" : "🍽️"}</span>
+                        <span className="location-icon">{place.type === "وجهة" ? "⌖" : place.type === "مقهى" ? "☕" : "🍽️"}</span>
                         <span className="location-copy">
                           <strong>{name}</strong>
-                          <small>{tourist ? `${activeCategory} · ${count.toLocaleString("ar-SA")} تعليق` : `${place.type} · ${count.toLocaleString("ar-SA")} تعليق`}</small>
+                          <small>${place.type} · ${count.toLocaleString("ar-SA")} تعليق</small>
                         </span>
                         <span className="location-rating"><b>{count.toLocaleString("ar-SA")}</b><small>تعليق</small></span>
                       </Link>
