@@ -488,7 +488,7 @@ export default function Home() {
     const searchableText = normalizeSearchTerm([
       facility.name, facility.description, t(facility.name), t(facility.description),
       "المنطقة المركزية المدينة المنورة Central Area Madinah",
-      ...facilitySearchAliases[facility.name] || [],
+      ...(facilitySearchAliases[facility.name] || []),
       ...generalServiceTerms,
     ].join(" "));
     const queryWords = normalizeSearchTerm(searchQuery).split(" ").filter(Boolean);
@@ -828,7 +828,7 @@ export default function Home() {
         <footer className="site-footer" id="about">
           <a className="brand footer-brand" href="#home" aria-label={`${t("وجهتك")} ${t("من الداخل")}`}><span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 3 45 24 24 45 3 24 24 3Z" /><path d="m24 10 14 14-14 14-14-14 14-14Z" /><path d="M24 10v28M10 24h28M14 14l20 20m0-20L14 34" /></svg></span><span className="brand-copy"><strong>{t("وجهتك")}</strong><span>{t("من الداخل")}</span></span></a>
           <p>{t("اعرف المكان من الداخل.")}</p>
-          <span>{t("المدينة المنورة")} · {t("المملكة العربية السعودية")}</span>
+          <span>مدينة نور · المملكة العربية السعودية</span>
         </footer>
       </div>
       {statusMessage && <div className="status-toast" role="status" aria-live="polite">{t(statusMessage)}</div>}
