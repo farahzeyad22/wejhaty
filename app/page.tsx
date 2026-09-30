@@ -508,10 +508,17 @@ export default function Home() {
     { name: "الخدمات الأخرى", icon: "＋", description: "الخدمات الأخرى في المدينة المنورة", category: "الخدمات الأخرى" },
   ];
 
-  const searchItems = [
+  const searchItems: Facility[] = [
     ...searchCategories,
     ...proposedPlaces,
     ...landmarks.map((landmark) => ({ ...landmark, category: landmark.category || "المعالم الرئيسية" })),
+    ...touristDestinations.map((destination) => ({
+      name: destination.name,
+      icon: "⌖",
+      description: "وجهة سياحية في المدينة المنورة",
+      category: "المناطق السياحية",
+      googleQuery: destination.name + ", المدينة المنورة",
+    })),
   ];
 
   const visibleFacilities = facilities.filter((facility) => {
