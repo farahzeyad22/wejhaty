@@ -775,9 +775,9 @@ export default function Home() {
                   <span className="location-copy"><strong>مقصد قباء</strong><small>{t("المدينة المنورة")}</small></span>
                   <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
                 </Link>
-                <Link className="location-summary location-summary-link suggested-place-card" href="/maqyas" aria-label="فتح مشروع مقياس">
+                <Link className="location-summary location-summary-link suggested-place-card" href="/maqyas" aria-label="فتح مشروع الحي المغسلة">
                   <span className="location-icon">⌖</span>
-                  <span className="location-copy"><strong>مشروع مقياس</strong><small>مشروع الحي المغيسلة · 412 مراجعة</small></span>
+                  <span className="location-copy"><strong>مشروع مقياس</strong><small>مشروع الحي المغسلة · 412 مراجعة</small></span>
                   <span className="location-rating"><b>4.57</b> <i>★</i><small>متوسط التقييم</small></span>
                 </Link>
               </div>
