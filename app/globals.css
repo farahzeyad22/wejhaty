@@ -2940,3 +2940,141 @@ textarea:focus-visible {
 }
 .search-empty-wrap { display: flex; flex-direction: column; }
 .tourist-toggle { gap: 7px; }
+
+
+/* Homepage discovery layout — categories and suggested places under the title */
+.service-strip {
+  display: none !important;
+}
+
+.dashboard-intro {
+  display: block !important;
+  padding: 34px 8px 28px !important;
+}
+
+.dashboard-title {
+  margin-bottom: 22px;
+}
+
+.home-categories {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.home-category-card {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid #ded5c9;
+  border-radius: 16px;
+  background: #fffdfa;
+  color: #5f5960;
+  padding: 12px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 7px 18px rgb(68 47 74 / 5%);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.home-category-card:hover {
+  transform: translateY(-2px);
+  border-color: #c7afc9;
+  background: #faf5fb;
+  box-shadow: 0 10px 22px rgb(68 47 74 / 8%);
+}
+
+.home-category-active {
+  border-color: #a987ae !important;
+  background: #eee3f1 !important;
+  color: #65436f !important;
+  box-shadow: 0 9px 22px rgb(101 67 111 / 10%);
+}
+
+.home-category-icon {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 10px;
+  background: #e8eddf;
+  color: #59694f;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.home-category-active .home-category-icon {
+  background: #dfcfe3;
+  color: #6b4774;
+}
+
+.suggested-places {
+  width: 100%;
+}
+
+.suggested-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.suggested-heading h2 {
+  margin: 0;
+  color: #443c45;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.suggested-place-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.suggested-place-card {
+  width: 100% !important;
+  min-height: 78px;
+  background: #fffdf8 !important;
+}
+
+.suggested-place-card .location-copy {
+  flex: 1;
+}
+
+.suggested-place-card .location-rating {
+  margin-right: auto;
+}
+
+@media (max-width: 1120px) {
+  .home-categories {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard-intro {
+    padding: 24px 2px 20px !important;
+  }
+
+  .home-categories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .home-category-card {
+    min-height: 68px;
+    font-size: 11px;
+  }
+
+  .suggested-place-grid {
+    grid-template-columns: 1fr;
+  }
+}
