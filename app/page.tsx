@@ -743,55 +743,62 @@ export default function Home() {
 
           {activeCategory === "الكل" ? (
             <div className="suggested-places">
-              <div className="suggested-heading">
-                <h2>أماكن مقترحة</h2>
-              </div>
+              <div className="suggested-heading"><h2>أماكن مقترحة</h2></div>
               <div className="suggested-place-grid">
                 <Link className="location-summary location-summary-link suggested-place-card" href="/quba" aria-label="فتح مقصد قباء">
                   <span className="location-icon location-icon-quba">⌖</span>
-                  <span className="location-copy">
-                    <strong>مقصد قباء</strong>
-                    <small>{t("المدينة المنورة")}</small>
-                  </span>
+                  <span className="location-copy"><strong>مقصد قباء</strong><small>{t("المدينة المنورة")}</small></span>
                   <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
                 </Link>
-                <div className="location-summary suggested-place-card">
+                <Link className="location-summary location-summary-link suggested-place-card" href="/tourist?name=%D9%85%D8%AA%D8%AD%D9%81%20%D8%AE%D9%8A%D8%B1%20%D8%A7%D9%84%D8%AE%D9%84%D9%82" aria-label="فتح متحف خير الخلق">
                   <span className="location-icon">⌖</span>
-                  <span className="location-copy">
-                    <strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong>
-                    <small>{t("المدينة المنورة")}</small>
-                  </span>
-                </div>
-                {touristDestinations.map((destination) => (
-                  <Link
-                    className="location-summary location-summary-link suggested-place-card tourist-home-card"
-                    href={`/tourist?name=${encodeURIComponent(destination.name)}`}
-                    key={destination.name}
-                    aria-label={`فتح تفاصيل ${destination.name}`}
-                  >
-                    <span className="location-icon">⌖</span>
-                    <span className="location-copy">
-                      <strong>{destination.name}</strong>
-                      <small>منطقة سياحية · {destination.reviewCount.toLocaleString("ar-SA")} تعليق</small>
-                    </span>
-                  </Link>
-                ))}
+                  <span className="location-copy"><strong>متحف خير الخلق</strong><small>معلم رئيسي · 133 تعليق</small></span>
+                </Link>
               </div>
             </div>
           ) : (
-            <div className="category-empty-state" role="status">
-              <span className="category-empty-icon" aria-hidden="true">{categories.find((category) => category.name === activeCategory)?.icon}</span>
-              <strong>
-                {activeCategory === "المناطق السياحية"
-                  ? "لم يتم إضافة مناطق سياحية بعد"
-                  : activeCategory === "المطاعم والمقاهي"
-                    ? "لم يتم إضافة مطاعم ومقاهي بعد"
-                    : activeCategory === "المشي والتنقل"
-                      ? "لم يتم إضافة مشي وتنقل بعد"
-                      : activeCategory === "المعالم الرئيسية"
-                        ? "لم يتم إضافة معالم رئيسية بعد"
-                        : "لم يتم إضافة خدمات أخرى بعد"}
-              </strong>
+            <div className="suggested-places category-place-section">
+              <div className="suggested-heading">
+                <h2>{t(activeCategory)}</h2>
+                <span className="category-place-count">
+                  {activeCategory === "المناطق السياحية" || activeCategory === "المعالم الرئيسية" || activeCategory === "المشي والتنقل"
+                    ? touristDestinations.filter((place) => place.category === activeCategory).length
+                    : facilities.filter((facility) => facility.category === activeCategory).length} مكان
+                </span>
+              </div>
+              <div className="suggested-place-grid">
+                {(activeCategory === "المناطق السياحية" || activeCategory === "المعالم الرئيسية" || activeCategory === "المشي والتنقل"
+                  ? touristDestinations.filter((place) => place.category === activeCategory)
+                  : facilities.filter((facility) => facility.category === activeCategory)
+                ).map((place) => {
+                  const tourist = "reviewCount" in place;
+                  const name = place.name;
+                  const count = tourist ? place.reviewCount : null;
+                  return (
+                    <Link
+                      key={name}
+                      className="location-summary location-summary-link suggested-place-card tourist-home-card"
+                      href={tourist ? `/tourist?name=${encodeURIComponent(name)}` : "#"}
+                      aria-label={`فتح تفاصيل ${name}`}
+                    >
+                      <span className="location-icon">⌖</span>
+                      <span className="location-copy">
+                        <strong>{name}</strong>
+                        <small>{tourist ? `${activeCategory} · ${count?.toLocaleString("ar-SA")} تعليق` : place.description}</small>
+                      </span>
+                      {tourist && <span className="location-rating"><b>{count?.toLocaleString("ar-SA")}</b><small>تعليق</small></span>}
+                    </Link>
+                  );
+                })}
+              </div>
+              {((activeCategory === "المناطق السياحية" || activeCategory === "المعالم الرئيسية" || activeCategory === "المشي والتنقل")
+                ? touristDestinations.filter((place) => place.category === activeCategory).length
+                : facilities.filter((facility) => facility.category === activeCategory).length) === 0 && (
+                <div className="category-empty-state" role="status">
+                  <span className="category-empty-icon" aria-hidden="true">{categories.find((category) => category.name === activeCategory)?.icon}</span>
+                  <strong>لم يتم إضافة عناصر ضمن هذا التصنيف بعد</strong>
+                </div>
+              )}
             </div>
           )}
         </section>
