@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent } from "react";
-import { touristDestinations } from "./tourist-data";
+import { touristDestinations, touristDatasetStats } from "./tourist-data";
 import { foodPlaces } from "./food-data";
 
 type Facility = {
