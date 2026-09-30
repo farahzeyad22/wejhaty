@@ -769,42 +769,48 @@ export default function Home() {
               <div className="suggested-heading">
                 <h2>{t(activeCategory)}</h2>
                 <span className="category-place-count">
-                  {activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
-                    ? touristDestinations.filter((place) => place.category === activeCategory).length
-                    : facilities.filter((facility) => facility.category === activeCategory).length} مكان
+                  {activeCategory === "الخدمات الأخرى"
+                    ? ""
+                    : activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
+                      ? touristDestinations.filter((place) => place.category === activeCategory).length + " مكان"
+                      : activeCategory === "المطاعم والمقاهي"
+                        ? foodPlaces.length + " مكان"
+                        : ""}
                 </span>
               </div>
-              <div className="suggested-place-grid">
-                {(activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
-                  ? touristDestinations.filter((place) => place.category === activeCategory)
-                  : facilities.filter((facility) => facility.category === activeCategory)
-                ).map((place) => {
-                  const tourist = "reviewCount" in place;
-                  const name = place.name;
-                  const count = tourist ? place.reviewCount : null;
-                  return (
-                    <Link
-                      key={name}
-                      className="location-summary location-summary-link suggested-place-card tourist-home-card"
-                      href={tourist ? `/tourist?name=${encodeURIComponent(name)}` : "#"}
-                      aria-label={`فتح تفاصيل ${name}`}
-                    >
-                      <span className="location-icon">⌖</span>
-                      <span className="location-copy">
-                        <strong>{name}</strong>
-                        <small>{tourist ? `${activeCategory} · ${count?.toLocaleString("ar-SA")} تعليق` : place.description}</small>
-                      </span>
-                      {tourist && <span className="location-rating"><b>{count?.toLocaleString("ar-SA")}</b><small>تعليق</small></span>}
-                    </Link>
-                  );
-                })}
-              </div>
-              {((activeCategory === "المناطق السياحية" || activeCategory === "المعالم الرئيسية" || activeCategory === "المشي والتنقل")
-                ? touristDestinations.filter((place) => place.category === activeCategory).length
-                : facilities.filter((facility) => facility.category === activeCategory).length) === 0 && (
+
+              {activeCategory === "الخدمات الأخرى" ? (
                 <div className="category-empty-state" role="status">
-                  <span className="category-empty-icon" aria-hidden="true">{categories.find((category) => category.name === activeCategory)?.icon}</span>
-                  <strong>لم يتم إضافة عناصر ضمن هذا التصنيف بعد</strong>
+                  <span className="category-empty-icon" aria-hidden="true">＋</span>
+                  <strong>لم يتم إدراج خدمات بعد</strong>
+                </div>
+              ) : (
+                <div className="suggested-place-grid">
+                  {(activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
+                    ? touristDestinations.filter((place) => place.category === activeCategory)
+                    : activeCategory === "المطاعم والمقاهي"
+                      ? foodPlaces
+                      : []
+                  ).map((place) => {
+                    const tourist = "reviewCount" in place;
+                    const name = place.name;
+                    const count = tourist ? place.reviewCount : place.reviewCount;
+                    return (
+                      <Link
+                        key={name}
+                        className="location-summary location-summary-link suggested-place-card tourist-home-card"
+                        href={`/tourist?name=${encodeURIComponent(name)}`}
+                        aria-label={`فتح تفاصيل ${name}`}
+                      >
+                        <span className="location-icon">{tourist ? "⌖" : place.type === "مقهى" ? "☕" : "🍽️"}</span>
+                        <span className="location-copy">
+                          <strong>{name}</strong>
+                          <small>{tourist ? `${activeCategory} · ${count.toLocaleString("ar-SA")} تعليق` : `${place.type} · ${count.toLocaleString("ar-SA")} تعليق`}</small>
+                        </span>
+                        <span className="location-rating"><b>{count.toLocaleString("ar-SA")}</b><small>تعليق</small></span>
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
