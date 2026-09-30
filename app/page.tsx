@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent } from "react";
+import { touristDestinations } from "./tourist-data";
 
 type Facility = {
   name: string;
@@ -627,7 +628,7 @@ export default function Home() {
 
         <nav className="main-nav" aria-label={t("التنقل الرئيسي")}>
           <a className="nav-active" href="#home">{t("الرئيسية")}</a>
-          <a href="#explore">{t("استكشف")}</a>
+          <Link href="/tourist">{t("استكشف")}</Link>
           
         </nav>
 
@@ -754,6 +755,20 @@ export default function Home() {
                     <small>{t("المدينة المنورة")}</small>
                   </span>
                 </div>
+                {touristDestinations.map((destination) => (
+                  <Link
+                    className="location-summary location-summary-link suggested-place-card tourist-home-card"
+                    href={`/tourist?name=${encodeURIComponent(destination.name)}`}
+                    key={destination.name}
+                    aria-label={`فتح تفاصيل ${destination.name}`}
+                  >
+                    <span className="location-icon">⌖</span>
+                    <span className="location-copy">
+                      <strong>{destination.name}</strong>
+                      <small>منطقة سياحية · {destination.reviewCount.toLocaleString("ar-SA")} تعليق</small>
+                    </span>
+                  </Link>
+                ))}
               </div>
             </div>
           ) : (
