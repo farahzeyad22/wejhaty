@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent } from "react";
 import { touristDestinations } from "./tourist-data";
+import { foodPlaces } from "./food-data";
 
 type Facility = {
   name: string;
@@ -47,7 +48,7 @@ const englishTranslations: Record<string, string> = {
   "أماكن الجلوس": "Seating",
   "سهولة الوصول": "Accessibility",
   "المشي والتنقل": "Walking and mobility",
-  "المعالم الرئيسية": "Main landmarks",
+  "أماكن دينية": "Main landmarks",
   "المناطق السياحية": "Tourist areas",
   "الخدمات الأخرى": "Other services",
   "تجارب حقيقية": "Real experiences",
@@ -475,7 +476,7 @@ export default function Home() {
     { name: "المناطق السياحية", icon: "⌖" },
     { name: "المطاعم والمقاهي", icon: "☕" },
     { name: "المشي والتنقل", icon: "🚶" },
-    { name: "المعالم الرئيسية", icon: "🕌" },
+    { name: "أماكن دينية", icon: "🕌" },
     { name: "الخدمات الأخرى", icon: "＋" },
   ];
 
@@ -504,7 +505,7 @@ export default function Home() {
     { name: "المناطق السياحية", icon: "⌖", description: "المناطق السياحية في المدينة المنورة", category: "المناطق السياحية" },
     { name: "المطاعم والمقاهي", icon: "☕", description: "المطاعم والمقاهي في المدينة المنورة", category: "المطاعم والمقاهي" },
     { name: "المشي والتنقل", icon: "🚶", description: "المشي والتنقل في المدينة المنورة", category: "المشي والتنقل" },
-    { name: "المعالم الرئيسية", icon: "🕌", description: "المعالم الرئيسية في المدينة المنورة", category: "المعالم الرئيسية" },
+    { name: "أماكن دينية", icon: "🕌", description: "الأماكن الدينية في المدينة المنورة", category: "أماكن دينية" },
     { name: "الخدمات الأخرى", icon: "＋", description: "الخدمات الأخرى في المدينة المنورة", category: "الخدمات الأخرى" },
   ];
 
@@ -512,11 +513,18 @@ export default function Home() {
     ...searchCategories,
     ...proposedPlaces,
     ...landmarks.map((landmark) => ({ ...landmark, category: landmark.category || "المعالم الرئيسية" })),
+    ...foodPlaces.map((place) => ({
+      name: place.name,
+      icon: place.type === "مقهى" ? "☕" : "🍽️",
+      description: place.type,
+      category: "المطاعم والمقاهي",
+      googleQuery: place.name + ", المدينة المنورة",
+    })),
     ...touristDestinations.map((destination) => ({
       name: destination.name,
       icon: "⌖",
       description: "وجهة سياحية في المدينة المنورة",
-      category: destination.category,
+      category: destination.category === "المعالم الرئيسية" ? "أماكن دينية" : destination.category,
       googleQuery: destination.name + ", المدينة المنورة",
     })),
   ];
@@ -761,13 +769,13 @@ export default function Home() {
               <div className="suggested-heading">
                 <h2>{t(activeCategory)}</h2>
                 <span className="category-place-count">
-                  {activeCategory === "المناطق السياحية" || activeCategory === "المعالم الرئيسية" || activeCategory === "المشي والتنقل"
+                  {activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
                     ? touristDestinations.filter((place) => place.category === activeCategory).length
                     : facilities.filter((facility) => facility.category === activeCategory).length} مكان
                 </span>
               </div>
               <div className="suggested-place-grid">
-                {(activeCategory === "المناطق السياحية" || activeCategory === "المعالم الرئيسية" || activeCategory === "المشي والتنقل"
+                {(activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
                   ? touristDestinations.filter((place) => place.category === activeCategory)
                   : facilities.filter((facility) => facility.category === activeCategory)
                 ).map((place) => {
