@@ -3592,3 +3592,17 @@ textarea:focus-visible {
   .desktop-explore-category strong { font-size: 9px; }
   .desktop-explore-category small { display: none; }
 }
+
+
+/* Explore dashboard */
+.explore-dashboard-section{padding:34px 0 50px;scroll-margin-top:20px}
+.explore-dashboard{max-width:1180px;margin:0 auto;background:#fffdf9;border:1px solid #ded3c4;border-radius:26px;padding:28px;box-shadow:0 12px 35px rgba(75,51,83,.08)}
+.explore-dashboard-header{display:flex;align-items:center;justify-content:space-between;gap:28px;background:#eee4f3;border-radius:22px;padding:28px 30px}
+.explore-dashboard-header h2{margin:6px 0 5px;font-size:clamp(28px,4vw,48px);color:#493b4d}
+.explore-dashboard-header p{margin:0;max-width:650px;color:#716572;line-height:1.8}
+.explore-dashboard-total{min-width:145px;text-align:center;background:#fff;border:1px solid #d9c9df;border-radius:18px;padding:15px}
+.explore-dashboard-total strong{display:block;font-size:34px;color:#704486}.explore-dashboard-total span{font-size:11px;color:#77697b}
+.explore-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+.explore-metrics article{background:#fff;border:1px solid #e2d9cf;border-radius:17px;padding:17px}.explore-metrics span,.explore-metrics small{display:block;color:#81757e;font-size:11px}.explore-metrics strong{display:block;font-size:27px;color:#514254;margin:5px 0}.explore-metrics strong b{color:#80618a}.explore-dashboard-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:14px}
+.explore-dashboard-card{background:#fff;border:1px solid #e2d9cf;border-radius:20px;padding:22px}.explore-card-title{display:flex;justify-content:space-between;color:#6d6070;font-size:12px;font-weight:800}.explore-card-title b{color:#b6a4bc;font-size:11px}.explore-dashboard-card h3{font-size:23px;line-height:1.6;color:#4c3d50;margin:18px 0 8px}.explore-dashboard-card p{color:#746976;line-height:1.9;font-size:13px}.explore-dashboard-bars{display:grid;gap:12px;margin-top:18px}.explore-dashboard-bars div{display:grid;grid-template-columns:82px 1fr 32px;align-items:center;gap:8px;font-size:11px}.explore-dashboard-bars i{height:8px;background:#eee6f0;border-radius:99px;overflow:hidden}.explore-dashboard-bars em{display:block;height:100%;background:#80618a;border-radius:99px}.explore-dashboard-bars b{font-size:11px;color:#6f6272}.explore-benefits{display:grid;gap:11px;margin-top:18px}.explore-benefits div{padding:12px 14px;background:#faf6fb;border-radius:13px}.explore-benefits strong,.explore-benefits span{display:block}.explore-benefits strong{color:#674d6e;font-size:12px}.explore-benefits span{color:#766b76;font-size:11px;margin-top:3px}.explore-dashboard-quote blockquote{margin:20px 0 10px;padding:18px;border-right:3px solid #80618a;background:#faf6fb;color:#554859;line-height:2;font-size:14px}.explore-dashboard-quote small{color:#827582;font-size:10px}
+@media(max-width:760px){.explore-dashboard-section{padding:20px 0 35px}.explore-dashboard{padding:14px;border-radius:20px}.explore-dashboard-header{padding:22px 18px;display:block}.explore-dashboard-total{margin-top:16px}.explore-metrics{grid-template-columns:repeat(2,1fr)}.explore-dashboard-grid{grid-template-columns:1fr}.explore-dashboard-card h3{font-size:19px}}
