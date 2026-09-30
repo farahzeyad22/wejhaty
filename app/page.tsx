@@ -629,7 +629,7 @@ export default function Home() {
           <div className="location-options" aria-label="اختيار المنطقة">
             <div className="location-summary">
               <span className="location-icon">⌖</span>
-              <span className="location-copy"><strong>{t("المنطقة المركزية")}</strong><small>{t("المدينة المنورة")}</small></span>
+              <span className="location-copy"><strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong><small>{t("المدينة المنورة")}</small></span>
               <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
             </div>
             <Link className="location-summary location-summary-link" href="/quba" aria-label="فتح مقصد قباء">
