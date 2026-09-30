@@ -10,7 +10,7 @@ export default function QubaPage() {
   const [category,setCategory]=useState("الكل");
   const [query,setQuery]=useState("");
   const filtered=useMemo(()=>qubaReviews.filter(r=>{
-    const cat=category==="الكل" || r.categories.includes(category);
+    const cat=category==="الكل" || (r.categories as readonly string[]).includes(category);
     const q=query.trim().toLowerCase();
     return cat && (!q || r.message.toLowerCase().includes(q) || r.name.toLowerCase().includes(q));
   }),[category,query]);
