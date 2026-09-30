@@ -3215,3 +3215,30 @@ textarea:focus-visible {
     margin-bottom: 7px;
   }
 }
+
+
+/* Match the main frame exactly to the Quba page border */
+.app-shell {
+  padding: 18px !important;
+}
+.roshan-edge-top,
+.roshan-edge-bottom {
+  height: 18px !important;
+}
+.roshan-edge-right,
+.roshan-edge-left {
+  width: 18px !important;
+}
+.roshan-edge {
+  background-size: 72px 72px !important;
+}
+.roshan-edge-top::after,
+.roshan-edge-bottom::after {
+  inset: 6px 0;
+  border-width: 1px;
+}
+.roshan-edge-right::after,
+.roshan-edge-left::after {
+  inset: 0 6px;
+  border-width: 1px;
+}
