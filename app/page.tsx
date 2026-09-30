@@ -745,6 +745,8 @@ export default function Home() {
               </>
             ) : (
               <div className="detail-empty review-hero-panel">
+                <div className="review-pattern review-pattern-top" aria-hidden="true" />
+                <div className="review-pattern review-pattern-bottom" aria-hidden="true" />
                 <div className="review-hero-art" aria-hidden="true">
                   <div className="sunset-sun" />
                   <div className="sunset-mountain sunset-mountain-back" />
@@ -763,18 +765,6 @@ export default function Home() {
                   <p className="review-hero-lead">{t("شوف المكان بعيون زواره.")}</p>
                   <div className="review-hero-english">REAL REVIEWS, REAL PLACES</div>
                   <p>{t("تجارب حقيقية من داخل المدينة.")}</p>
-                  <div className="review-preview-list" aria-label={t("تجارب الزوار")}>
-                    <article className="review-preview-card">
-                      <span className="review-preview-stars">★★★★★</span>
-                      <strong>{t("جلسات جميلة والخدمة ممتازة")}</strong>
-                      <small>⌖ {t("المنطقة المركزية")}</small>
-                    </article>
-                    <article className="review-preview-card">
-                      <span className="review-preview-stars">★★★★☆</span>
-                      <strong>{t("تجربة هادئة، وأنصح بزيارتها")}</strong>
-                      <small>⌖ {t("مقصد قباء")}</small>
-                    </article>
-                  </div>
                   <button className="review-hero-button" type="button" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>
                     {t("استكشف تجارب الزوار")} <span aria-hidden="true">←</span>
                   </button>
