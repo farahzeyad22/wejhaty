@@ -3479,3 +3479,116 @@ textarea:focus-visible {
 @media (max-width: 760px) {
   .desktop-explore-panel { display: none !important; }
 }
+
+
+/* Responsive discovery panel: keep the same experience across desktop, tablet and mobile */
+@media (max-width: 1120px) {
+  .explorer-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .78fr) !important;
+    gap: 10px !important;
+  }
+  .desktop-explore-panel {
+    min-height: 560px !important;
+    height: 560px !important;
+    padding: 22px 18px !important;
+  }
+  .desktop-explore-heading h2 { font-size: 22px; }
+  .desktop-explore-categories { gap: 7px; margin-top: 16px; }
+  .desktop-explore-category { min-height: 62px; padding: 9px; }
+}
+
+@media (max-width: 900px) and (min-width: 761px) {
+  .explorer-layout {
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr) !important;
+  }
+  .desktop-explore-panel {
+    min-height: 500px !important;
+    height: 500px !important;
+    padding: 20px 16px !important;
+  }
+  .desktop-explore-heading h2 { font-size: 20px; }
+  .desktop-explore-heading p { font-size: 11px; }
+  .desktop-explore-category { min-height: 58px; grid-template-columns: 26px minmax(0, 1fr); }
+  .desktop-explore-category > span { width: 26px; height: 26px; font-size: 14px; }
+  .desktop-explore-category strong { font-size: 10px; }
+  .desktop-suggested-item { padding: 8px; }
+  .desktop-suggested-item small { font-size: 8px; }
+  .map-reference-canvas { min-height: 500px !important; height: 500px !important; }
+}
+
+@media (max-width: 760px) {
+  .explorer-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  /* On phones the discovery panel becomes the first compact section, then the map. */
+  .details-panel {
+    display: block !important;
+    order: 1 !important;
+    min-height: auto !important;
+    border-radius: 15px !important;
+  }
+  .map-column {
+    order: 2 !important;
+    min-height: auto !important;
+  }
+  .desktop-explore-panel {
+    display: flex !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 20px 15px !important;
+    border-radius: 15px !important;
+  }
+  .desktop-explore-heading h2 {
+    margin-top: 5px;
+    font-size: 22px;
+  }
+  .desktop-explore-heading p {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .desktop-explore-categories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 15px;
+  }
+  .desktop-explore-category {
+    min-height: 58px;
+    padding: 8px;
+    grid-template-columns: 28px minmax(0, 1fr);
+    column-gap: 7px;
+    border-radius: 11px;
+  }
+  .desktop-explore-category > span {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  .desktop-explore-category strong { font-size: 10px; }
+  .desktop-explore-category small { font-size: 8px; }
+  .desktop-explore-divider { margin: 15px 0 12px; }
+  .desktop-suggested-heading h3 { font-size: 14px; }
+  .desktop-suggested-heading span { font-size: 8px; }
+  .desktop-suggested-list { gap: 7px; margin-top: 8px; }
+  .desktop-suggested-item { padding: 8px; border-radius: 10px; }
+  .desktop-suggested-item strong { font-size: 10px; }
+  .desktop-suggested-item small { font-size: 8px; }
+  .desktop-suggested-icon { width: 29px; height: 29px; font-size: 15px; }
+  .map-reference-canvas {
+    min-height: clamp(330px, 88vw, 430px) !important;
+    height: clamp(330px, 88vw, 430px) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .desktop-explore-panel { padding: 17px 12px !important; }
+  .desktop-explore-heading h2 { font-size: 20px; }
+  .desktop-explore-categories { gap: 6px; }
+  .desktop-explore-category { min-height: 54px; padding: 7px; }
+  .desktop-explore-category > span { width: 25px; height: 25px; font-size: 13px; }
+  .desktop-explore-category strong { font-size: 9px; }
+  .desktop-explore-category small { display: none; }
+}
