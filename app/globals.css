@@ -2828,3 +2828,32 @@ textarea:focus-visible {
   .review-preview-list { gap: 7px; }
   .review-preview-card { padding: 9px 10px; }
 }
+
+
+/* Final review artwork — displayed as a single visual, no CTA or extra copy */
+.review-hero-panel {
+  min-height: 600px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: block !important;
+  border-radius: 22px !important;
+  background: #f6f0e7 !important;
+}
+
+.review-hero-image {
+  display: block;
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 760px) {
+  .review-hero-panel {
+    min-height: 470px !important;
+  }
+
+  .review-hero-image {
+    height: 470px;
+  }
+}
