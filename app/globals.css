@@ -2274,15 +2274,11 @@ textarea:focus-visible {
   position: absolute;
   z-index: 20;
   pointer-events: none;
-  background-color: #774d99;
-  background-image:
-    linear-gradient(45deg, transparent 43%, #fff 44% 47%, transparent 48%),
-    linear-gradient(-45deg, transparent 43%, #fff 44% 47%, transparent 48%),
-    linear-gradient(135deg, transparent 38%, #fff 39% 41%, transparent 42%),
-    linear-gradient(45deg, transparent 38%, #fff 39% 41%, transparent 42%);
-  background-size: 92px 92px;
-  background-position: center;
-  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 72%);
+  background-color: #704486;
+  background-image: url("/roshan-border.svg");
+  background-repeat: repeat;
+  background-size: 118px 118px;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 42%);
 }
 
 .roshan-edge-top,
@@ -2290,8 +2286,8 @@ textarea:focus-visible {
   top: 0;
   right: 0;
   left: 0;
-  height: 104px;
-  background-size: 104px 104px;
+  height: 74px;
+  background-size: 118px 118px;
 }
 
 .roshan-edge-top::after,
@@ -2312,8 +2308,8 @@ textarea:focus-visible {
 .roshan-edge-left {
   top: 0;
   bottom: 0;
-  width: 104px;
-  background-size: 104px 104px;
+  width: 74px;
+  background-size: 118px 118px;
 }
 
 .roshan-edge-right {
@@ -2341,19 +2337,19 @@ textarea:focus-visible {
 }
 
 @media (max-width: 1120px) {
-  .app-shell { padding: 76px !important; }
+  .app-shell { padding: 58px !important; }
   .roshan-edge-top,
-  .roshan-edge-bottom { height: 76px; }
+  .roshan-edge-bottom { height: 58px; }
   .roshan-edge-right,
-  .roshan-edge-left { width: 76px; }
+  .roshan-edge-left { width: 58px; }
 }
 
 @media (max-width: 760px) {
-  .app-shell { padding: 34px !important; }
+  .app-shell { padding: 30px !important; }
   .roshan-edge-top,
-  .roshan-edge-bottom { height: 34px; }
+  .roshan-edge-bottom { height: 30px; }
   .roshan-edge-right,
-  .roshan-edge-left { width: 34px; }
+  .roshan-edge-left { width: 30px; }
 }
 
 
@@ -2570,7 +2566,8 @@ textarea:focus-visible {
 
 /* Right-side review panel matching the supplied sunset reference */
 .review-hero-panel {
-  min-height: 600px !important;
+  min-height: 340px !important;
+  height: 340px !important;
   padding: 0 !important;
   display: flex !important;
   flex-direction: column;
@@ -2843,18 +2840,19 @@ textarea:focus-visible {
 .review-hero-image {
   display: block;
   width: 100%;
-  height: 600px;
+  height: 340px;
   object-fit: cover;
   object-position: center;
 }
 
 @media (max-width: 760px) {
   .review-hero-panel {
-    min-height: 470px !important;
+    min-height: 300px !important;
+    height: 300px !important;
   }
 
   .review-hero-image {
-    height: 470px;
+    height: 300px;
   }
 }
 
@@ -3050,6 +3048,31 @@ textarea:focus-visible {
 
 .suggested-place-card .location-rating {
   margin-right: auto;
+}
+
+.category-empty-state {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  border-radius: 18px;
+  background: #fffdfa;
+  color: #746a75;
+  text-align: center;
+  box-shadow: 0 8px 24px rgb(68 47 74 / 4%);
+}
+
+.category-empty-state strong {
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.category-empty-icon {
+  font-size: 22px;
+  opacity: .55;
 }
 
 @media (max-width: 1120px) {
