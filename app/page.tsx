@@ -706,7 +706,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        </section>
 
         <section className="explorer-layout" style={{ direction: language === "ar" ? "rtl" : "ltr" }} aria-label={t("استكشف الخدمات على الخريطة")}>
           <aside className="details-panel" aria-live="polite">
