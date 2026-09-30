@@ -841,8 +841,8 @@ export default function Home() {
         </section>
 
         <footer className="site-footer" id="about">
-          <a className="brand footer-brand" href="#home" aria-label={`${t("وجهتك")} ${t("من الداخل")}`}><span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 3 45 24 24 45 3 24 24 3Z" /><path d="m24 10 14 14-14 14-14-14 14-14Z" /><path d="M24 10v28M10 24h28M14 14l20 20m0-20L14 34" /></svg></span><span className="brand-copy"><strong>{t("وجهتك")}</strong><span>{t("من الداخل")}</span></span></a>
-          <p>{t("اعرف المكان من الداخل.")}</p>
+          <a className="brand footer-brand" href="#home" aria-label={t("وجهتك")}><span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 3 45 24 24 45 3 24 24 3Z" /><path d="m24 10 14 14-14 14-14-14 14-14Z" /><path d="M24 10v28M10 24h28M14 14l20 20m0-20L14 34" /></svg></span><span className="brand-copy"><span>وش قالوا عن</span><strong>{t("وجهتك")}</strong></span></a>
+          <p>وش قالوا عن وجهتك</p>
           <span>المدينة المنورة · المملكة العربية السعودية</span>
         </footer>
       </div>
