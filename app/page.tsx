@@ -850,11 +850,55 @@ export default function Home() {
                 </div>
               </>
             ) : (
-              <div className="detail-empty review-hero-panel">
-                <div className="review-hero-copy-plain">
-                  <span>وش قالوا عن</span>
-                  <h2>وجهتك</h2>
-                  <p>شوف المكان بعيون زواره.</p>
+              <div className="detail-empty desktop-explore-panel">
+                <div className="desktop-explore-heading">
+                  <span>استكشف حسب احتياجك</span>
+                  <h2>وش تبي تعرف؟</h2>
+                  <p>اختر الشيء اللي يهمك، ونوصلك للمكان المناسب.</p>
+                </div>
+
+                <div className="desktop-explore-categories">
+                  {categories.filter((category) => category.name !== "الكل").map((category) => (
+                    <button
+                      key={category.name}
+                      type="button"
+                      className="desktop-explore-category"
+                      onClick={() => {
+                        setActiveCategory(category.name);
+                        setSearchQuery("");
+                      }}
+                    >
+                      <span aria-hidden="true">{category.icon}</span>
+                      <strong>{t(category.name)}</strong>
+                      <small>استكشف</small>
+                    </button>
+                  ))}
+                </div>
+
+                <div className="desktop-explore-divider" />
+
+                <div className="desktop-suggested-heading">
+                  <h3>أماكن مقترحة</h3>
+                  <span>ابدأ من هنا</span>
+                </div>
+
+                <div className="desktop-suggested-list">
+                  <Link className="desktop-suggested-item" href="/quba">
+                    <span className="desktop-suggested-icon">⌖</span>
+                    <span>
+                      <strong>مقصد قباء</strong>
+                      <small>المدينة المنورة · تجارب الزوار</small>
+                    </span>
+                    <b aria-hidden="true">←</b>
+                  </Link>
+
+                  <div className="desktop-suggested-item desktop-suggested-disabled">
+                    <span className="desktop-suggested-icon">⌖</span>
+                    <span>
+                      <strong>المنطقة المركزية</strong>
+                      <small>المدينة المنورة · لم يتم رفع الريفيوز بعد</small>
+                    </span>
+                  </div>
                 </div>
               </div>
             )}
