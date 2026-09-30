@@ -2259,3 +2259,99 @@ textarea:focus-visible {
   .app-shell { padding: 10px !important; }
   .detail-empty { min-height: 360px; padding: 28px !important; }
 }
+
+
+/* Wide four-sided roshan border — based on the supplied geometric reference */
+.app-shell {
+  position: relative;
+  isolation: isolate;
+  padding: 104px !important;
+  background: #774d99 !important;
+  box-shadow: none !important;
+}
+
+.roshan-edge {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  background-color: #774d99;
+  background-image:
+    linear-gradient(45deg, transparent 43%, #fff 44% 47%, transparent 48%),
+    linear-gradient(-45deg, transparent 43%, #fff 44% 47%, transparent 48%),
+    linear-gradient(135deg, transparent 38%, #fff 39% 41%, transparent 42%),
+    linear-gradient(45deg, transparent 38%, #fff 39% 41%, transparent 42%);
+  background-size: 92px 92px;
+  background-position: center;
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 72%);
+}
+
+.roshan-edge-top,
+.roshan-edge-bottom {
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 104px;
+  background-size: 104px 104px;
+}
+
+.roshan-edge-top::after,
+.roshan-edge-bottom::after {
+  content: "";
+  position: absolute;
+  inset: 15px 0;
+  border-top: 3px solid rgb(255 255 255 / 88%);
+  border-bottom: 3px solid rgb(255 255 255 / 88%);
+}
+
+.roshan-edge-bottom {
+  top: auto;
+  bottom: 0;
+}
+
+.roshan-edge-right,
+.roshan-edge-left {
+  top: 0;
+  bottom: 0;
+  width: 104px;
+  background-size: 104px 104px;
+}
+
+.roshan-edge-right {
+  right: 0;
+}
+
+.roshan-edge-left {
+  left: 0;
+}
+
+.roshan-edge-right::after,
+.roshan-edge-left::after {
+  content: "";
+  position: absolute;
+  inset: 0 15px;
+  border-right: 3px solid rgb(255 255 255 / 88%);
+  border-left: 3px solid rgb(255 255 255 / 88%);
+}
+
+.topbar,
+.service-strip,
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1120px) {
+  .app-shell { padding: 76px !important; }
+  .roshan-edge-top,
+  .roshan-edge-bottom { height: 76px; }
+  .roshan-edge-right,
+  .roshan-edge-left { width: 76px; }
+}
+
+@media (max-width: 760px) {
+  .app-shell { padding: 34px !important; }
+  .roshan-edge-top,
+  .roshan-edge-bottom { height: 34px; }
+  .roshan-edge-right,
+  .roshan-edge-left { width: 34px; }
+}
