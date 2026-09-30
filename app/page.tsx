@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import type { PointerEvent } from "react";
+import type { KeyboardEvent, PointerEvent } from "react";
 
 type Facility = {
   name: string;
@@ -501,6 +501,7 @@ export default function Home() {
           item.name, item.description, t(item.name), t(item.description),
           "المدينة المنورة Madinah Medina",
           ...(facilitySearchAliases[item.name] || []),
+          ...(landmarks.some((landmark) => landmark.name === item.name) ? ["المناطق السياحية", "منطقة سياحية", "tourist", "tourist areas"] : []),
           ...generalServiceTerms,
         ].join(" "));
         const words = normalizeSearchTerm(searchQuery).split(" ").filter(Boolean);
@@ -510,22 +511,18 @@ export default function Home() {
 
   const chooseSearchResult = (item: Facility) => {
     setActiveCategory(item.category || "الكل");
-    setSearchQuery("");
-    if (landmarks.some((landmark) => landmark.name === item.name)) {
-      window.open(
-        `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(item.googleQuery || item.name + ", المدينة المنورة")}`,
-        "_blank",
-        "noopener,noreferrer"
-      );
-      return;
-    }
-    selectFacility(item);
-    document.getElementById("explore")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setSearchQuery(item.name);
+    closeModal();
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.googleQuery || item.name + ", المدينة المنورة")}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchQuery + " المدينة المنورة")}`;
 
-  const handleSearchKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleSearchKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       event.preventDefault();
       if (searchResults[0]) {
