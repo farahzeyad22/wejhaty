@@ -816,7 +816,7 @@ export default function Home() {
                         <span className="location-icon">{place.type === "وجهة" ? "⌖" : place.type === "مقهى" ? "☕" : "🍽️"}</span>
                         <span className="location-copy">
                           <strong>{name}</strong>
-                          <small>${place.type} · ${count.toLocaleString("ar-SA")} تعليق</small>
+                          <small>{place.type} · {count.toLocaleString("ar-SA")} تعليق</small>
                         </span>
                         <span className="location-rating"><b>{count.toLocaleString("ar-SA")}</b><small>تعليق</small></span>
                       </Link>
