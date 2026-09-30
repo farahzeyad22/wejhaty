@@ -210,6 +210,17 @@ const facilitySearchAliases: Record<string, string[]> = {
 
 const generalServiceTerms = ["خدمة", "خدمات", "الخدمات", "مرفق", "مرافق", "service", "services", "facility", "facilities"];
 
+const comprehensiveDashboardStats = {
+  totalPlaces: touristDestinations.length + foodPlaces.length,
+  touristPlaces: touristDestinations.length,
+  foodPlaces: foodPlaces.length,
+  totalComments: touristDatasetStats.totalComments + foodPlaces.reduce((sum, place) => sum + place.reviewCount, 0),
+  restaurants: foodPlaces.filter((place) => place.type === "مطاعم").length,
+  cafes: foodPlaces.filter((place) => place.type === "مقهى").length,
+  mixedFood: foodPlaces.filter((place) => place.type === "مطاعم ومقاهي").length,
+  otherFood: foodPlaces.filter((place) => place.type === "محل ايسكريم").length,
+} as const;
+
 const normalizeSearchTerm = (value: string) =>
   value
     .normalize("NFKC")
@@ -745,7 +756,7 @@ export default function Home() {
       </header>
 
       <div className="page-content" id="home">
-        <section className="dashboard-intro" id="explore">
+        <section className="dashboard-intro">
           <div className="dashboard-title">
             <span className="dashboard-kicker"><i /> وجهتك</span>
             <h1>وش قالوا عن وجهتك</h1>
@@ -830,51 +841,153 @@ export default function Home() {
           )}
         </section>
 
+        <section className="explorer-layout" style={{ direction: language === "ar" ? "rtl" : "ltr" }} aria-label={t("استكشف الخدمات على الخريطة")}>
+          <aside className="details-panel" aria-live="polite">
+            {selected ? (
+              <>
+                <div className="detail-cover">
+                  <div className="cover-arch"><span>{selected.icon}</span></div>
+                  <span className="cover-label">{t("المنطقة المركزية · المدينة المنورة")}</span>
+                  <button className="close-detail" onClick={closeModal} type="button" aria-label={t("إغلاق التفاصيل")}>×</button>
+                </div>
+                <div className="detail-content">
+                  <div className="detail-title-row">
+                    <div><span className="eyebrow">{t("مرفق داخل المنطقة")}</span><h2>{t(selected.name)}</h2></div>
+                    <span className="detail-symbol">{selected.icon}</span>
+                  </div>
+                  <p className="detail-description">{t(selected.description)}</p>
+                  <div className="detail-actions">
+                    <a className="detail-action route-action" href={directionsUrl} target="_blank" rel="noreferrer">{t("الاتجاهات")} <span aria-hidden="true">↗</span></a>
+                    <button className="detail-action favorite-action" type="button" onClick={() => toggleFavorite(selected.name)} aria-pressed={favorites.includes(selected.name)} aria-label={t(favorites.includes(selected.name) ? "إزالة من المفضلة" : "أضف إلى المفضلة")}>
+                      <span aria-hidden="true">{favorites.includes(selected.name) ? "♥" : "♡"}</span>
+                      {t(favorites.includes(selected.name) ? "في المفضلة" : "أضف للمفضلة")}
+                    </button>
+                  </div>
+                  <div className="rating-summary">
+                    <span className="rating-star">★</span>
+                    <strong>{average}</strong>
+                    <span>{t("متوسط التقييم")}</span>
+                    <i />
+                    <span><b>{currentReviews.length}</b> {t("تقييم")}</span>
+                  </div>
+                  <div className="review-form">
+                    <h3>{t("أضف تقييمك")}</h3>
+                    <p>{t("كيف كانت تجربتك في هذا المرفق؟")}</p>
+                    <div className="star-picker" dir="ltr" aria-label={t("اختر تقييمًا من خمس نجوم")}>
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <button key={star} type="button" onClick={() => setRating(star)} className={star <= rating ? "star-selected" : ""} aria-label={`${star} ${t("من 5")}`} aria-pressed={rating === star}>★</button>
+                      ))}
+                    </div>
+                    <textarea value={message} onChange={(event) => setMessage(event.target.value)} placeholder={t("اكتب تجربتك هنا...")} aria-label={t("اكتب تجربتك")} />
+                    <button className="submit-review" type="button" onClick={submitRating} disabled={rating === 0}>{t("نشر التقييم")} <span aria-hidden="true">{language === "ar" ? "←" : "→"}</span></button>
+                  </div>
+                  <div className="reviews-list">
+                    <div className="reviews-heading"><h3>{t("تجارب الزوار")}</h3><span>{currentReviews.length}</span></div>
+                    {currentReviews.length > 0 ? currentReviews.map((review, index) => (
+                      <article className="review-item" key={`${selected.name}-${index}`}>
+                        <div className="review-stars" dir="ltr">{"★".repeat(review.rating)}<span>{"★".repeat(5 - review.rating)}</span></div>
+                        <p>{review.message}</p>
+                      </article>
+                    )) : <p className="empty-reviews">{t("كن أول من يشارك تجربته في هذا المرفق.")}</p>}
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="detail-empty desktop-explore-panel">
+                <div className="desktop-explore-heading">
+                  <span>استكشف حسب احتياجك</span>
+                  <h2>وش تبي تعرف؟</h2>
+                  <p>اختر الشيء اللي يهمك، ونوصلك للمكان المناسب.</p>
+                </div>
+                <div className="desktop-explore-categories">
+                  {categories.filter((category) => category.name !== "الكل").map((category) => (
+                    <button key={category.name} type="button" className="desktop-explore-category" onClick={() => { setActiveCategory(category.name); setSearchQuery(""); }}>
+                      <span aria-hidden="true">{category.icon}</span>
+                      <strong>{t(category.name)}</strong>
+                      <small>استكشف</small>
+                    </button>
+                  ))}
+                </div>
+                <div className="desktop-explore-divider" />
+                <div className="desktop-suggested-heading"><h3>أماكن مقترحة</h3><span>ابدأ من هنا</span></div>
+                <div className="desktop-suggested-list">
+                  <Link className="desktop-suggested-item" href="/quba">
+                    <span className="desktop-suggested-icon">⌖</span>
+                    <span><strong>مقصد قباء</strong><small>المدينة المنورة · تجارب الزوار</small></span>
+                    <b aria-hidden="true">←</b>
+                  </Link>
+                  <div className="desktop-suggested-item desktop-suggested-disabled">
+                    <span className="desktop-suggested-icon">⌖</span>
+                    <span><strong>مشروع الحي المغسلة</strong><small>المدينة المنورة · 412 مراجعة</small></span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </aside>
+          <div className="map-column">
+            <div className="map-toolbar">
+              <div><span className="live-dot" /><span>{t("الوصول إلى خريطة المدينة")}</span><small>{t("المدينة المنورة")}</small></div>
+              <button type="button" className="map-control" aria-label={t("توسيط الخريطة")} onClick={centerMap}>⌖ <span>{t("إعادة التوسيط")}</span></button>
+            </div>
+            <div className="map-canvas map-reference-canvas" role="region" aria-label={t("خريطة الخدمات")}>
+              <img className="map-reference-image" src="/madinah-map.svg" alt="خريطة توضيحية للمدينة المنورة" draggable={false} />
+              <a className="map-google-button" href="https://www.google.com/maps/search/?api=1&query=Al%20Madinah%20Al%20Munawwarah" target="_blank" rel="noreferrer">
+                <span>انتقل للخارطة</span><span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div className="map-legend">
+              <span><i className="legend-olive" /> {t("مرافق وخدمات")}</span>
+              <span><i className="legend-mauve" /> {t("تقييمات الزوار")}</span>
+              <span className="legend-note">{t("اختر نقطة لعرض التفاصيل")}</span>
+            </div>
+          </div>
+        </section>
+
         <section id="explore" className="explore-dashboard-section" aria-label="استكشف">
           <div className="explore-dashboard">
             <div className="explore-dashboard-header">
               <div>
-                <span className="dashboard-kicker"><i /> ملخص بيانات الزوار</span>
+                <span className="dashboard-kicker"><i /> ملخص شامل لبيانات وجهتك</span>
                 <h2>وش قالوا عن وجهتك؟</h2>
-                <p>جمعنا تجارب الزوار ونظمناها حسب المكان والخدمة، عشان تشوف وش يهم الزائر قبل ما يروح.</p>
+                <p>لوحة واحدة تلخص جميع الأماكن والوجهات والمطاعم والمقاهي المدرجة في وجهتك، اعتمادًا على بيانات ملف الإكسل الشامل.</p>
               </div>
-              <div className="explore-dashboard-total"><strong>412</strong><span>مراجعة محللة</span></div>
+              <div className="explore-dashboard-total"><strong>{comprehensiveDashboardStats.totalPlaces}</strong><span>مكانًا مدرجًا</span></div>
             </div>
             <div className="explore-metrics">
-              <article><span>متوسط التقييم</span><strong>4.57 <b>★</b></strong><small>من 5 نجوم</small></article>
-              <article><span>تقييمات 5 نجوم</span><strong>324</strong><small>من إجمالي التقييمات</small></article>
-              <article><span>تصنيفات التجربة</span><strong>6</strong><small>أماكن · مطاعم · مقاهي · جلوس · محلات · مواقف</small></article>
-              <article><span>مراجعات متعددة</span><strong>+1</strong><small>المراجعة قد تخدم أكثر من تصنيف</small></article>
+              <article><span>متوسط التقييم</span><strong>—</strong><small>غير متوفر في ملف البيانات الشامل</small></article>
+              <article><span>إجمالي التعليقات</span><strong>{comprehensiveDashboardStats.totalComments.toLocaleString("ar-SA")}</strong><small>تعليقًا ضمن جميع الأماكن</small></article>
+              <article><span>الأماكن والوجهات</span><strong>{comprehensiveDashboardStats.touristPlaces}</strong><small>وجهة ومعلمًا مدرجًا</small></article>
+              <article><span>المطاعم والمقاهي</span><strong>{comprehensiveDashboardStats.foodPlaces}</strong><small>منشأة طعام وشراب</small></article>
             </div>
             <div className="explore-dashboard-grid">
               <article className="explore-dashboard-card explore-dashboard-insight">
                 <div className="explore-card-title"><span>وش سوينا بالبيانات؟</span><b>01</b></div>
-                <h3>حوّلنا كلام الزوار إلى معلومات يقدر الزائر يستخدمها.</h3>
-                <p>بدل ما يقرأ مئات المراجعات بشكل عشوائي، قسمنا التجارب إلى جوانب واضحة: المكان، المطاعم، المقاهي، أماكن الجلوس، المحلات والمواقف.</p>
+                <h3>جمعنا الأماكن والخدمات في صورة واحدة.</h3>
+                <p>الداشبورد يجمع البيانات الموجودة في الموقع عن الوجهات والمعالم والمطاعم والمقاهي، بدل ما تكون المعلومة موزعة بين صفحات مختلفة.</p>
+                <div className="explore-mini-stats"><span><b>{comprehensiveDashboardStats.totalPlaces}</b> مكان</span><span><b>{comprehensiveDashboardStats.totalComments.toLocaleString("ar-SA")}</b> تعليق</span></div>
               </article>
               <article className="explore-dashboard-card">
-                <div className="explore-card-title"><span>وش قالوا عن المكان؟</span><b>02</b></div>
+                <div className="explore-card-title"><span>وش موجود في وجهتك؟</span><b>02</b></div>
                 <div className="explore-dashboard-bars">
-                  <div><span>الأماكن</span><i><em style={{width:"100%"}} /></i><b>397</b></div>
-                  <div><span>المطاعم</span><i><em style={{width:"12%"}} /></i><b>48</b></div>
-                  <div><span>المقاهي</span><i><em style={{width:"9%"}} /></i><b>34</b></div>
-                  <div><span>أماكن الجلوس</span><i><em style={{width:"6%"}} /></i><b>22</b></div>
-                  <div><span>المحلات</span><i><em style={{width:"5%"}} /></i><b>19</b></div>
-                  <div><span>المواقف</span><i><em style={{width:"2%"}} /></i><b>7</b></div>
+                  <div><span>الوجهات والمعالم</span><i><em style={{width: "100%"}} /></i><b>{comprehensiveDashboardStats.touristPlaces}</b></div>
+                  <div><span>المطاعم والمقاهي</span><i><em style={{width: "100%"}} /></i><b>{comprehensiveDashboardStats.foodPlaces}</b></div>
+                  <div><span>المطاعم</span><i><em style={{width: "69%"}} /></i><b>{comprehensiveDashboardStats.restaurants}</b></div>
+                  <div><span>المقاهي</span><i><em style={{width: "26%"}} /></i><b>{comprehensiveDashboardStats.cafes}</b></div>
+                  <div><span>أنواع طعام أخرى</span><i><em style={{width: "6%"}} /></i><b>{comprehensiveDashboardStats.mixedFood + comprehensiveDashboardStats.otherFood}</b></div>
                 </div>
               </article>
               <article className="explore-dashboard-card">
                 <div className="explore-card-title"><span>وش يستفيد الزائر؟</span><b>03</b></div>
                 <div className="explore-benefits">
-                  <div><strong>قبل الزيارة</strong><span>يعرف المكان وما يمكن أن يجده فيه.</span></div>
-                  <div><strong>أثناء الزيارة</strong><span>يصل للخدمة أو المرفق الذي يبحث عنه.</span></div>
+                  <div><strong>قبل الزيارة</strong><span>يشوف الخيارات والأماكن الموجودة في المدينة.</span></div>
+                  <div><strong>أثناء الزيارة</strong><span>يقدر يستكشف الوجهات والخدمات حسب احتياجه.</span></div>
                   <div><strong>بعد الزيارة</strong><span>يشارك تجربته لتفيد زائرًا آخر.</span></div>
                 </div>
               </article>
               <article className="explore-dashboard-card explore-dashboard-quote">
-                <div className="explore-card-title"><span>تجربة حقيقية من البيانات</span><b>04</b></div>
-                <blockquote>«مكان جميل ومقصد سياحي بالمنطقة اعجبني يحتوي على معالم سياحية ومجموعة مطاعم وكافيهات بطابع تراثي جميل ومميز»</blockquote>
-                <small>تصنيفها: الأماكن · المطاعم · المقاهي</small>
+                <div className="explore-card-title"><span>نطاق البيانات</span><b>04</b></div>
+                <blockquote>من المعالم والأماكن السياحية إلى المطاعم والمقاهي، الداشبورد يعطي نظرة شاملة على المحتوى الذي جمعناه داخل وجهتك.</blockquote>
+                <small>{comprehensiveDashboardStats.touristPlaces} وجهة ومعلم · {comprehensiveDashboardStats.foodPlaces} مطعم ومقهى · {comprehensiveDashboardStats.totalComments.toLocaleString("ar-SA")} تعليق</small>
               </article>
             </div>
           </div>
