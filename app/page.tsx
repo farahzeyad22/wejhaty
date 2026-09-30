@@ -759,91 +759,22 @@ export default function Home() {
               <div><span className="live-dot" /><span>{t("الوصول من الداخل")}</span><small>{t("المدينة المنورة")}</small></div>
               <button type="button" className="map-control" aria-label={t("توسيط الخريطة")} onClick={centerMap}>⌖ <span>{t("إعادة التوسيط")}</span></button>
             </div>
-            <div
-              className={`map-canvas${isDraggingMap ? " map-canvas-dragging" : ""}`}
-              role="region"
-              aria-label={t("خريطة الخدمات")}
-              onPointerDown={handleMapPointerDown}
-              onPointerMove={handleMapPointerMove}
-              onPointerUp={handleMapPointerUp}
-              onPointerCancel={handleMapPointerUp}
-            >
-              <div
-                className="map-layer"
-                style={{ transform: `translate3d(${mapOffset.x}px, ${mapOffset.y}px, 0) scale(${mapZoom})` }}
+            <div className="map-canvas map-reference-canvas" role="region" aria-label={t("خريطة الخدمات")}>
+              <img
+                className="map-reference-image"
+                src="/madinah-map.svg"
+                alt="خريطة توضيحية للمدينة المنورة"
+                draggable={false}
+              />
+              <a
+                className="map-google-button"
+                href="https://www.google.com/maps/search/?api=1&query=Al%20Madinah%20Al%20Munawwarah"
+                target="_blank"
+                rel="noreferrer"
               >
-                <div className="map-pattern" />
-                <div className="map-mountain mountain-one" aria-hidden="true" />
-                <div className="map-mountain mountain-two" aria-hidden="true" />
-                <div className="map-mosque mosque-one" aria-hidden="true"><span>مسجد</span></div>
-                <div className="map-mosque mosque-two" aria-hidden="true"><span>معلم</span></div>
-                <div className="map-palm palm-one" aria-hidden="true">🌴</div>
-                <div className="map-palm palm-two" aria-hidden="true">🌴</div>
-                <svg className="map-roads" viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true">
-                <path className="road-main" d="M-40 520 C150 455 185 370 360 385S590 460 740 365 900 270 1040 290" />
-                <path className="road-main" d="M120 -30 C180 120 265 160 270 300S230 500 340 680" />
-                <path className="road-main" d="M690 -20 C610 110 640 210 735 285S890 420 1030 470" />
-                <path className="road-minor" d="M-20 180 C190 250 390 150 560 205S830 165 1020 90" />
-                <path className="road-minor" d="M20 610 C230 530 410 580 530 485S790 530 980 590" />
-                <path className="road-minor" d="M425 -20 C380 140 470 230 420 350S475 530 440 680" />
-                <path className="road-minor" d="M820 -20 C760 120 835 215 800 330S720 515 790 680" />
-                </svg>
-                <div className="map-park park-one"><span>{t("حديقة")}</span><i>✳</i></div>
-                <div className="map-park park-two"><i>✳</i></div>
-                <div className="map-block block-one" />
-                <div className="map-block block-two" />
-                <div className="map-block block-three" />
-                <span className="map-label label-one">{t("طريق الملك فهد")}</span>
-                <span className="map-label label-two">{t("المنطقة المركزية")}</span>
-                <span className="map-label label-three">{t("مسجد قباء")}</span>
-                <div className="map-landmark"><span>{language === "ar" ? "م" : "M"}</span><small>{t("معلم المدينة")}</small></div>
-                {visibleFacilities.map((facility, index) => {
-                const facilityReviews = reviews[facility.name] || [];
-                const facilityAverage = facilityReviews.length
-                  ? (facilityReviews.reduce((sum, review) => sum + review.rating, 0) / facilityReviews.length).toFixed(1)
-                  : null;
-                const positions = [
-                  { left: "24%", top: "28%" },
-                  { left: "62%", top: "25%" },
-                  { left: "44%", top: "48%" },
-                  { left: "76%", top: "58%" },
-                  { left: "24%", top: "68%" },
-                  { left: "57%", top: "77%" },
-                ];
-
-                  return (
-                    <button
-                      key={facility.name}
-                      type="button"
-                      className={`map-pin pin-${index % 4}${selected?.name === facility.name ? " pin-active" : ""}`}
-                      style={positions[index % positions.length]}
-                      onClick={() => selectFacility(facility)}
-                      aria-label={`${t("عرض")} ${t(facility.name)}`}
-                      title={t(facility.name)}
-                    >
-                      <span>{facility.icon}</span>
-                      <small>{t(facility.name)}</small>
-                      {facilityAverage && <b>{facilityAverage} ★</b>}
-                    </button>
-                  );
-                })}
-                {visibleFacilities.length === 0 && (
-                  <div className="map-no-results">{t("لا توجد مرافق مسجلة ضمن هذا التصنيف حاليًا")}</div>
-                )}
-                {userLocated && (
-                  <div className="user-location-marker" style={{ left: "50%", top: "50%" }}>
-                    <span />
-                    <small>{t("موقعك التقريبي")}</small>
-                  </div>
-                )}
-              </div>
-              <button className="map-compass" type="button" onClick={locateUser} aria-label={t("تحديد موقعي")} title={t("تحديد موقعي")}><span>N</span>↑</button>
-              <div className="map-zoom">
-                <button type="button" onClick={() => zoomMap(0.25)} aria-label={t("تكبير الخريطة")} disabled={mapZoom >= 2.5}>+</button>
-                <button type="button" onClick={() => zoomMap(-0.25)} aria-label={t("تصغير الخريطة")} disabled={mapZoom <= 1}>−</button>
-              </div>
-              <div className="map-weather"><span className="weather-icon">☼</span><span><small>{t("الطقس الآن")}</small><strong>{t("بيانات الطقس غير متاحة")}</strong></span></div>
-              <div className="map-credit">{t("خريطة توضيحية · المنطقة المركزية")}</div>
+                <span>انتقل للخارطة</span>
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
             <div className="map-legend">
               <span><i className="legend-olive" /> {t("مرافق وخدمات")}</span>
