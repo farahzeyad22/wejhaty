@@ -570,8 +570,8 @@ export default function Home() {
             </svg>
           </span>
           <span className="brand-copy">
-            <strong>{t("وجهتك")}</strong>
             <span>وش قالوا عن</span>
+            <strong>{t("وجهتك")}</strong>
           </span>
         </a>
 
@@ -801,11 +801,11 @@ export default function Home() {
               </>
             ) : (
               <div className="detail-empty review-hero-panel">
-                <img
-                  className="review-hero-image"
-                  src="/review-hero-light.svg"
-                  alt="وش قالوا الناس؟ — REAL REVIEWS, REAL PLACES"
-                />
+                <div className="review-hero-copy-plain">
+                  <span>وش قالوا عن</span>
+                  <h2>وجهتك</h2>
+                  <p>شوف المكان بعيون زواره.</p>
+                </div>
               </div>
             )}
           </aside>
