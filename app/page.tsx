@@ -19,7 +19,7 @@ type Review = {
   message: string;
 };
 
-type Language = "ar" | "en";
+type Language = "ar" | "en" | "ur";
 
 const englishTranslations: Record<string, string> = {
   "وجهتك": "Your Destination",
@@ -154,6 +154,70 @@ const englishTranslations: Record<string, string> = {
   "سهولة الحركة والتنقل داخل المكان": "Easy movement around the area",
 };
 
+const urduTranslations: Record<string, string> = {
+  "وجهتك": "آپ کی منزل",
+  "الرئيسية": "ہوم",
+  "استكشف": "دریافت کریں",
+  "التنقل الرئيسي": "مرکزی نیویگیشن",
+  "التبديل إلى الإنجليزية": "انگریزی پر جائیں",
+  "التبديل إلى العربية": "عربی پر جائیں",
+  "تفعيل الوضع النهاري": "لائٹ موڈ فعال کریں",
+  "تفعيل الوضع الليلي": "ڈارک موڈ فعال کریں",
+  "تسجيل الدخول": "سائن اِن",
+  "ابحث عن موقع أو خدمة ...": "مقام یا سروس تلاش کریں...",
+  "ابحث عن موقع أو خدمة": "مقام یا سروس تلاش کریں",
+  "تصنيفات الخدمات": "سروس کیٹیگریز",
+  "الكل": "سب",
+  "المطاعم": "ریستوران",
+  "المطاعم والمقاهي": "ریستوران اور کیفے",
+  "المقاهي": "کیفے",
+  "المواقف": "پارکنگ",
+  "دورات المياه": "واش رومز",
+  "أماكن الجلوس": "بیٹھنے کی جگہیں",
+  "سهولة الوصول": "آسان رسائی",
+  "المشي والتنقل": "پیدل چلنا اور آمدورفت",
+  "أماكن دينية": "مذہبی مقامات",
+  "المناطق السياحية": "سیاحتی مقامات",
+  "الخدمات الأخرى": "دیگر خدمات",
+  "المدينة المنورة": "مدینہ منورہ",
+  "المدينة المنورة، المملكة العربية السعودية": "مدینہ منورہ، سعودی عرب",
+  "وش قالوا الناس؟": "لوگوں نے کیا کہا؟",
+  "شوف المكان بعيون زواره.": "جگہ کو اس کے زائرین کی نظر سے دیکھیں۔",
+  "استكشف تجارب الزوار": "زائرین کے تجربات دریافت کریں",
+  "اعرف المكان قبل ما تروح": "جانے سے پہلے جگہ کو جانیں",
+  "متوسط التقييم": "اوسط ریٹنگ",
+  "تقييم": "ریویوز",
+  "أضف تقييمك": "اپنی ریٹنگ دیں",
+  "تجارب الزوار": "زائرین کے تجربات",
+  "نتائج البحث": "تلاش کے نتائج",
+  "لا توجد نتائج مطابقة.": "کوئی مماثل نتیجہ نہیں ملا۔",
+  "الوصول إلى خريطة المدينة": "مدینہ کے نقشے تک رسائی",
+  "إعادة التوسيط": "نقشہ دوبارہ مرکز کریں",
+  "خريطة الخدمات": "سروسز کا نقشہ",
+  "مرافق وخدمات": "سہولیات اور خدمات",
+  "تقييمات الزوار": "زائرین کی ریٹنگز",
+  "اختر نقطة لعرض التفاصيل": "تفصیلات دیکھنے کے لیے ایک مقام منتخب کریں",
+  "استكشف جميع الخدمات": "تمام خدمات دریافت کریں",
+  "أقرب الخدمات لك": "آپ کے قریب ترین خدمات",
+  "لا توجد تقييمات": "ابھی کوئی ریویوز نہیں",
+  "المملكة العربية السعودية": "سعودی عرب",
+  "تجربة بدون تعليق": "بغیر تبصرے کا تجربہ",
+  "إغلاق التفاصيل": "تفصیلات بند کریں",
+  "الاتجاهات": "راستہ",
+  "أضف للمفضلة": "پسندیدہ میں شامل کریں",
+  "في المفضلة": "پسندیدہ میں شامل ہے",
+  "نشر التقييم": "ریٹنگ شائع کریں",
+  "اكتب تجربتك هنا...": "اپنا تجربہ یہاں لکھیں...",
+  "كيف كانت تجربتك في هذا المرفق؟": "اس سہولت میں آپ کا تجربہ کیسا رہا؟",
+  "اختر تقييمًا من خمس نجوم": "ایک سے پانچ ستاروں تک ریٹنگ منتخب کریں",
+  "وش موجود؟": "کیا موجود ہے؟",
+  "وش يقولون الزوار؟": "زائرین کیا کہتے ہیں؟",
+  "كيف أوصل؟": "میں وہاں کیسے پہنچوں؟",
+  "وش تبي تعرف؟": "آپ کیا جاننا چاہتے ہیں؟",
+  "أماكن مقترحة": "تجویز کردہ مقامات",
+  "لم يتم إدراج خدمات بعد": "ابھی کوئی خدمات شامل نہیں کی گئیں",
+};
+
 const landmarks: Facility[] = [
   { name: "المنطقة المركزية", icon: "📍", description: "المعالم الرئيسية في المنطقة المركزية", category: "أماكن دينية", googleQuery: "المنطقة المركزية المدينة المنورة" },
   { name: "مسجد قباء", icon: "🕌", description: "مسجد قباء في المدينة المنورة", category: "أماكن دينية", googleQuery: "مسجد قباء المدينة المنورة" },
@@ -259,7 +323,11 @@ export default function Home() {
   } | null>(null);
   const statusTimer = useRef<number | null>(null);
   const t = (arabicText: string) =>
-    language === "ar" ? arabicText : englishTranslations[arabicText] || arabicText;
+    language === "ar"
+      ? arabicText
+      : language === "en"
+        ? englishTranslations[arabicText] || arabicText
+        : urduTranslations[arabicText] || arabicText;
 
   useEffect(() => {
     const saved = localStorage.getItem("inside-the-box-reviews");
@@ -281,16 +349,16 @@ export default function Home() {
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("inside-the-box-language");
-    if (savedLanguage !== "en") return;
+    if (savedLanguage !== "en" && savedLanguage !== "ur") return;
 
-    const timer = window.setTimeout(() => setLanguage("en"), 0);
+    const timer = window.setTimeout(() => setLanguage(savedLanguage as Language), 0);
     return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     document.documentElement.lang = language;
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-    const localizedTitle = language === "ar" ? "وجهتك | من الداخل" : "Your Destination | From Within";
+    document.documentElement.dir = language === "en" ? "ltr" : "rtl";
+    const localizedTitle = language === "ar" ? "وجهتك | من الداخل" : language === "ur" ? "آپ کی منزل | اندر سے" : "Your Destination | From Within";
     const titleTimer = window.setTimeout(() => {
       document.title = localizedTitle;
     }, 100);
@@ -326,7 +394,7 @@ export default function Home() {
   };
 
   const toggleLanguage = () => {
-    const nextLanguage: Language = language === "ar" ? "en" : "ar";
+    const nextLanguage: Language = language === "ar" ? "en" : language === "en" ? "ur" : "ar";
     setLanguage(nextLanguage);
     localStorage.setItem("inside-the-box-language", nextLanguage);
   };
@@ -735,10 +803,10 @@ export default function Home() {
           <button
             className="language-button"
             type="button"
-            aria-label={language === "ar" ? t("التبديل إلى الإنجليزية") : t("التبديل إلى العربية")}
+            aria-label={language === "ar" ? "التبديل إلى الإنجليزية" : language === "en" ? "اردو میں جائیں" : "التبديل إلى العربية"}
             onClick={toggleLanguage}
           >
-            {language === "ar" ? "EN" : "AR"}
+            {language === "ar" ? "EN" : language === "en" ? "اردو" : "AR"}
           </button>
           <button
             className="icon-button"
