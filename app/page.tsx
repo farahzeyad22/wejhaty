@@ -264,23 +264,6 @@ export default function Home() {
 
     });
 
-    const categoryPlaces =
-    activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
-      ? touristDestinations
-          .filter((place) => place.category === activeCategory)
-          .map((place) => ({
-            name: place.name,
-            type: "وجهة",
-            reviewCount: place.reviewCount,
-          }))
-      : activeCategory === "المطاعم والمقاهي"
-        ? foodPlaces.map((place) => ({
-            name: place.name,
-            type: place.type,
-            reviewCount: place.reviewCount,
-          }))
-        : [];
-
   return () => window.cancelAnimationFrame(frame);
   }, []);
 
@@ -636,6 +619,23 @@ export default function Home() {
         visibleFacilities.some((facility) => facility.name === nearbyFacility.name)
       )
     : nearbyFacilities;
+
+  const categoryPlaces: { name: string; type: string; reviewCount: number }[] =
+    activeCategory === "المناطق السياحية" || activeCategory === "أماكن دينية" || activeCategory === "المشي والتنقل"
+      ? touristDestinations
+          .filter((place) => place.category === activeCategory)
+          .map((place) => ({
+            name: place.name,
+            type: "وجهة",
+            reviewCount: place.reviewCount,
+          }))
+      : activeCategory === "المطاعم والمقاهي"
+        ? foodPlaces.map((place) => ({
+            name: place.name,
+            type: place.type,
+            reviewCount: place.reviewCount,
+          }))
+        : [];
 
   return (
     <main className={`app-shell${darkMode ? " theme-dark" : ""}`} dir={language === "ar" ? "rtl" : "ltr"} lang={language}>
