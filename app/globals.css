@@ -447,6 +447,48 @@ textarea:focus-visible {
   margin: 0 auto;
 }
 
+.discovery-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+  min-height: 510px;
+  align-items: center;
+  gap: 35px;
+  overflow: hidden;
+  margin: 26px 0 28px;
+  padding: 58px 58px 48px;
+  border: 1px solid #dcd6c9;
+  border-radius: 32px;
+  background: #eeeadf;
+  box-shadow: 0 24px 60px rgb(58 54 42 / 8%);
+}
+.discovery-hero::before {
+  position:absolute;inset:0;content:"";opacity:.38;
+  background-image:linear-gradient(#b7b09f22 1px,transparent 1px),linear-gradient(90deg,#b7b09f22 1px,transparent 1px);
+  background-size:38px 38px;
+}
+.discovery-hero-copy,.discovery-visual{position:relative;z-index:1}
+.discovery-hero-copy{max-width:690px}
+.discovery-kicker{display:inline-flex;align-items:center;gap:9px;color:#81748a;font-size:11px;font-weight:700;letter-spacing:.08em}
+.discovery-kicker i{width:7px;height:7px;border-radius:50%;background:var(--mauve);box-shadow:0 0 0 5px #ded1df}
+.discovery-hero h1{margin:18px 0 4px;color:#3f4937;font-size:clamp(48px,7vw,92px);font-weight:750;letter-spacing:-3px;line-height:1.02}
+.discovery-hero h2{margin:0;color:#806986;font-size:clamp(20px,2.5vw,31px);font-weight:500;line-height:1.4}
+.discovery-hero-copy>p{margin:12px 0 0;color:#77776e;font-size:17px;font-weight:500}
+.discovery-rule{display:flex;align-items:center;gap:10px;width:min(470px,100%);margin:30px 0 23px;color:#9b9588}
+.discovery-rule span{height:1px;flex:1;background:#c9c2b4}.discovery-rule b{font-size:10px;font-weight:500}
+.discovery-hero .location-options{position:relative;z-index:2}
+.discovery-visual{height:390px;min-width:0}
+.visual-grid{position:absolute;inset:25px 15px;background-image:linear-gradient(#b0aa9c25 1px,transparent 1px),linear-gradient(90deg,#b0aa9c25 1px,transparent 1px);background-size:28px 28px;transform:perspective(500px) rotateX(58deg) rotateZ(-7deg);transform-origin:center bottom;opacity:.7}
+.visual-orbit{position:absolute;border:1px solid #a89e8d55;border-radius:50%;transform:rotate(-18deg)}
+.orbit-one{width:350px;height:180px;top:82px;left:45px}.orbit-two{width:290px;height:145px;top:108px;left:75px}
+.visual-route{position:absolute;left:105px;top:105px;width:245px;height:130px;transform:rotate(-10deg)}
+.visual-route::before{content:"";position:absolute;inset:0;border:2px solid #8b9278;border-color:#8b9278 transparent transparent #8b9278;border-radius:55%}
+.visual-route i{position:absolute;width:8px;height:8px;border-radius:50%;background:#9b8aa0}.visual-route i:nth-child(1){left:12px;top:86px}.visual-route i:nth-child(2){left:78px;top:58px}.visual-route i:nth-child(3){left:151px;top:38px}.visual-route i:nth-child(4){right:15px;top:14px;background:#78856c}
+.visual-card{position:absolute;display:grid;gap:3px;padding:13px 15px;border:1px solid #ffffffb8;border-radius:16px;background:#fffdf8dd;backdrop-filter:blur(9px);box-shadow:0 16px 35px #00000012}
+.visual-card span{font-size:19px}.visual-card small{color:#77776e;font-size:9px}.visual-card strong{color:#3f4937;font-size:12px}.visual-card-main{top:45px;right:20px;min-width:150px}.visual-card-main span{color:#806986}.visual-card-review{right:0;bottom:65px;min-width:112px}.visual-card-review b{font-size:20px;color:#9a7a47}.visual-card-review span{position:absolute;right:12px;top:15px;font-size:11px;color:#b58c57}.visual-card-service{left:5px;bottom:38px}.visual-card-food{left:78px;top:45px}.visual-card-food span{color:#866d89}
+@media(max-width:900px){.discovery-hero{grid-template-columns:1fr;min-height:0;padding:42px 28px}.discovery-visual{height:300px;order:-1}.discovery-hero h1{font-size:clamp(48px,13vw,72px)}}
+@media(max-width:760px){.discovery-hero{margin-top:18px;padding:32px 20px 25px;border-radius:24px}.discovery-visual{height:245px}.visual-grid{inset:10px 0}.orbit-one{width:270px;height:140px;left:5px}.orbit-two{width:220px;height:110px;left:30px}.visual-route{left:55px;top:78px;width:190px}.visual-card-main{top:18px;right:0}.visual-card-review{right:0;bottom:20px}.visual-card-service{left:0;bottom:15px}.visual-card-food{left:45px;top:20px}.discovery-hero-copy>p{font-size:14px}.discovery-rule{margin:22px 0 17px}}
+
 .intro-row {
   display: flex;
   align-items: end;
