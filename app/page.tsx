@@ -747,7 +747,7 @@ export default function Home() {
               <div className="detail-empty review-hero-panel">
                 <img
                   className="review-hero-image"
-                  src="/review-hero.jpg"
+                  src="/review-hero-light.svg"
                   alt="وش قالوا الناس؟ — REAL REVIEWS, REAL PLACES"
                 />
               </div>
