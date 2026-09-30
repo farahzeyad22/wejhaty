@@ -775,9 +775,10 @@ export default function Home() {
                   <span className="location-copy"><strong>مقصد قباء</strong><small>{t("المدينة المنورة")}</small></span>
                   <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
                 </Link>
-                <Link className="location-summary location-summary-link suggested-place-card" href="/tourist?name=%D9%85%D8%AA%D8%AD%D9%81%20%D8%AE%D9%8A%D8%B1%20%D8%A7%D9%84%D8%AE%D9%84%D9%82" aria-label="فتح متحف خير الخلق">
+                <Link className="location-summary location-summary-link suggested-place-card" href="/maqyas" aria-label="فتح مشروع مقياس">
                   <span className="location-icon">⌖</span>
-                  <span className="location-copy"><strong>متحف خير الخلق</strong><small>معلم رئيسي · 133 تعليق</small></span>
+                  <span className="location-copy"><strong>مشروع مقياس</strong><small>مشروع الحي المغيسلة · 412 مراجعة</small></span>
+                  <span className="location-rating"><b>4.57</b> <i>★</i><small>متوسط التقييم</small></span>
                 </Link>
               </div>
             </div>
