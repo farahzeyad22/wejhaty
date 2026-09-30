@@ -24,7 +24,7 @@ export default function TouristPage(){
   <div><span>03</span><strong>ثم الوصول</strong><p>اختيار الوجهة والانتقال للخريطة مباشرة.</p></div>
 </section>
 <div className="tourist-toolbar"><input className="tourist-search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث عن وجهة سياحية..." /></div>
-{selected&&<section className="tourist-detail tourist-review-only"><p>لم يتم جمع الريفيوز بعد.</p></section>}}
+{selected&&<section className="tourist-detail tourist-review-only"><p>لم يتم جمع الريفيوز بعد.</p></section>}
 <div className="tourist-grid">{filtered.map(d=><button className={`tourist-card ${selectedName===d.name?"active":""}`} key={d.name} onClick={()=>{setSelectedName(d.name);window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"})}}><div className="tourist-card-head"><h2>{d.name}</h2><span className="tourist-pin">⌖</span></div><small><strong>{d.reviewCount.toLocaleString("ar-SA")}</strong> تعليق · منطقة سياحية</small></button>)}</div>
 {!filtered.length&&<div className="tourist-empty">لا توجد وجهة مطابقة.</div>}
 </div></div></div></main>;
