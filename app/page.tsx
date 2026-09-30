@@ -777,7 +777,7 @@ export default function Home() {
                 </Link>
                 <Link className="location-summary location-summary-link suggested-place-card" href="/maqyas" aria-label="فتح مشروع الحي المغسلة">
                   <span className="location-icon">⌖</span>
-                  <span className="location-copy"><strong>مشروع مقياس</strong><small>مشروع الحي المغسلة · 412 مراجعة</small></span>
+                  <span className="location-copy"><strong>مشروع الحي المغسلة</strong><small>المدينة المنورة · 412 مراجعة</small></span>
                   <span className="location-rating"><b>4.57</b> <i>★</i><small>متوسط التقييم</small></span>
                 </Link>
               </div>
