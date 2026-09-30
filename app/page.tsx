@@ -105,7 +105,7 @@ const englishTranslations: Record<string, string> = {
   "اعرف أقرب المرافق وكيف تصل إليها من داخل الموقع.": "Find nearby facilities and how to reach them from inside the site.",
   "اكتشف حسب احتياجك": "Discover by what you need",
   "المكان أولًا، ثم التفاصيل التي تهمك.": "The place first, then the details that matter to you.",
-  "الوصول من الداخل": "Getting around from within",
+  "الوصول إلى خريطة المدينة": "Access the city map",
   "توسيط الخريطة": "Center map",
   "إعادة التوسيط": "Recenter",
   "خريطة الخدمات": "Service map",
@@ -661,6 +661,9 @@ export default function Home() {
       </header>
 
       <div className="page-content" id="home">
+        <div className="mobile-review-hero" aria-label="وش قالوا الناس عن وجهتك">
+          <img className="mobile-review-hero-image" src="/review-hero-light.svg" alt="وش قالوا الناس عن وجهتك" />
+        </div>
         <section className="dashboard-intro" id="explore">
           <div className="dashboard-title">
             <span className="dashboard-kicker"><i /> وجهتك · من الداخل</span>
@@ -689,14 +692,6 @@ export default function Home() {
                 <h2>أماكن مقترحة</h2>
               </div>
               <div className="suggested-place-grid">
-                <div className="location-summary suggested-place-card">
-                  <span className="location-icon">⌖</span>
-                  <span className="location-copy">
-                    <strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong>
-                    <small>{t("المدينة المنورة")}</small>
-                  </span>
-                  <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
-                </div>
                 <Link className="location-summary location-summary-link suggested-place-card" href="/quba" aria-label="فتح مقصد قباء">
                   <span className="location-icon location-icon-quba">⌖</span>
                   <span className="location-copy">
@@ -705,6 +700,13 @@ export default function Home() {
                   </span>
                   <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
                 </Link>
+                <div className="location-summary suggested-place-card">
+                  <span className="location-icon">⌖</span>
+                  <span className="location-copy">
+                    <strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong>
+                    <small>{t("المدينة المنورة")}</small>
+                  </span>
+                </div>
               </div>
             </div>
           ) : (
@@ -813,7 +815,7 @@ export default function Home() {
 
           <div className="map-column">
             <div className="map-toolbar">
-              <div><span className="live-dot" /><span>{t("الوصول من الداخل")}</span><small>{t("المدينة المنورة")}</small></div>
+              <div><span className="live-dot" /><span>{t("الوصول إلى خريطة المدينة")}</span><small>{t("المدينة المنورة")}</small></div>
               <button type="button" className="map-control" aria-label={t("توسيط الخريطة")} onClick={centerMap}>⌖ <span>{t("إعادة التوسيط")}</span></button>
             </div>
             <div className="map-canvas map-reference-canvas" role="region" aria-label={t("خريطة الخدمات")}>
