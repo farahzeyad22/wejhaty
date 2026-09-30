@@ -393,8 +393,7 @@ export default function Home() {
     statusTimer.current = window.setTimeout(() => setStatusMessage(""), duration);
   };
 
-  const toggleLanguage = () => {
-    const nextLanguage: Language = language === "ar" ? "en" : language === "en" ? "ur" : "ar";
+  const changeLanguage = (nextLanguage: Language) => {
     setLanguage(nextLanguage);
     localStorage.setItem("inside-the-box-language", nextLanguage);
   };
@@ -800,14 +799,23 @@ export default function Home() {
         </div>
 
         <div className="header-actions">
-          <button
-            className="language-button"
-            type="button"
-            aria-label={language === "ar" ? "التبديل إلى الإنجليزية" : language === "en" ? "اردو میں جائیں" : "التبديل إلى العربية"}
-            onClick={toggleLanguage}
-          >
-            {language === "ar" ? "EN" : language === "en" ? "اردو" : "AR"}
-          </button>
+          <div className="language-switcher" aria-label="اختيار اللغة">
+            {language !== "ar" && (
+              <button className="language-button" type="button" onClick={() => changeLanguage("ar")} aria-label="التبديل إلى العربية">
+                AR
+              </button>
+            )}
+            {language !== "en" && (
+              <button className="language-button" type="button" onClick={() => changeLanguage("en")} aria-label="Switch to English">
+                EN
+              </button>
+            )}
+            {language !== "ur" && (
+              <button className="language-button" type="button" onClick={() => changeLanguage("ur")} aria-label="اردو میں جائیں">
+                اردو
+              </button>
+            )}
+          </div>
           <button
             className="icon-button"
             type="button"
