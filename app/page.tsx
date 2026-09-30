@@ -626,15 +626,17 @@ export default function Home() {
             <h1>{t("اكتشف المدينة")} <span>{t("من الداخل")}</span></h1>
             <p>{t("تفاصيل صغيرة تصنع زيارة أجمل. استكشف المرافق والخدمات كما يراها أهل المكان.")}</p>
           </div>
-          <div className="location-summary">
-            <span className="location-icon">⌖</span>
-            <span><strong>{t("المنطقة المركزية")}</strong><small>{t("المدينة المنورة")}</small></span>
-            <Link className="location-destination" href="/quba" aria-label="فتح مقصد قباء">
-              <span className="location-destination-icon">⌖</span>
-              <span><strong>مقصد قباء</strong><small>موقع للاستكشاف</small></span>
-              <span className="location-destination-arrow" aria-hidden="true">↗</span>
+          <div className="location-options" aria-label="اختيار المنطقة">
+            <div className="location-summary">
+              <span className="location-icon">⌖</span>
+              <span className="location-copy"><strong>{t("المنطقة المركزية")}</strong><small>{t("المدينة المنورة")}</small></span>
+              <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+            </div>
+            <Link className="location-summary location-summary-link" href="/quba" aria-label="فتح مقصد قباء">
+              <span className="location-icon location-icon-quba">⌖</span>
+              <span className="location-copy"><strong>مقصد قباء</strong><small>المدينة المنورة</small></span>
+              <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
             </Link>
-            <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
           </div>
         </section>
 
