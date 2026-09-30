@@ -1,32 +1,76 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900">
 <defs>
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9b78a0"/><stop offset=".58" stop-color="#e3a77d"/><stop offset="1" stop-color="#6d526f"/></linearGradient>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#fbf8f3"/>
+    <stop offset=".55" stop-color="#f7f0f8"/>
+    <stop offset="1" stop-color="#eee1f2"/>
+  </linearGradient>
+  <radialGradient id="glow" cx=".72" cy=".18" r=".62">
+    <stop stop-color="#caa8d4" stop-opacity=".52"/>
+    <stop offset="1" stop-color="#caa8d4" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="18"/>
+  </filter>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#694675" flood-opacity=".14"/>
+  </filter>
 </defs>
-<rect width="720" height="900" fill="url(#sky)"/>
-<circle cx="545" cy="170" r="54" fill="#f1c98e" opacity=".9"/>
-<path d="M0 570 Q120 500 220 565 T430 545 T720 535 V900 H0Z" fill="#6a526d"/>
-<path d="M0 635 Q150 565 290 635 T520 610 T720 625 V900 H0Z" fill="#463b50" opacity=".95"/>
-<g fill="#3e3544">
-  <rect x="125" y="585" width="470" height="210" rx="5"/>
-  <path d="M245 590 Q360 470 475 590Z"/>
-  <path d="M300 590 Q360 515 420 590Z" fill="#2f6b55"/>
-  <g>
-    <rect x="92" y="440" width="32" height="355" rx="7"/><path d="M82 440h52l-26-42z"/>
-    <rect x="596" y="455" width="32" height="340" rx="7"/><path d="M586 455h52l-26-42z"/>
-    <rect x="205" y="505" width="24" height="290" rx="6"/><path d="M197 505h40l-20-31z"/>
-    <rect x="491" y="505" width="24" height="290" rx="6"/><path d="M483 505h40l-20-31z"/>
-  </g>
+
+<rect width="720" height="900" rx="34" fill="url(#bg)"/>
+<ellipse cx="520" cy="160" rx="270" ry="220" fill="url(#glow)"/>
+<ellipse cx="80" cy="650" rx="210" ry="150" fill="#e6d4eb" opacity=".38" filter="url(#soft)"/>
+
+<!-- elegant organic skyline -->
+<path d="M0 690 C90 645 145 660 215 684 C292 711 355 705 420 674 C500 636 570 650 720 695 V900 H0Z"
+      fill="#d8c3df" opacity=".42"/>
+<path d="M0 735 C100 695 170 713 248 742 C335 774 420 728 492 704 C575 677 648 700 720 732 V900 H0Z"
+      fill="#bca3c7" opacity=".5"/>
+
+<!-- mosque silhouette, soft and minimal -->
+<g filter="url(#shadow)" fill="#80618a">
+  <path d="M128 750 V620 C128 596 147 577 171 577 H549 C573 577 592 596 592 620 V750Z"/>
+  <path d="M236 578 C253 532 285 505 316 493 C347 505 379 532 396 578Z" fill="#76567f"/>
+  <path d="M276 578 C289 544 304 526 316 519 C329 526 344 544 356 578Z" fill="#9b75a4"/>
+  <rect x="92" y="455" width="31" height="295" rx="15"/>
+  <path d="M82 455 Q108 420 134 455Z"/>
+  <rect x="597" y="445" width="31" height="305" rx="15"/>
+  <path d="M587 445 Q613 410 639 445Z"/>
+  <rect x="188" y="515" width="22" height="235" rx="11" opacity=".9"/>
+  <rect x="510" y="505" width="22" height="245" rx="11" opacity=".9"/>
 </g>
-<g fill="#5d495e" opacity=".8"><rect x="0" y="770" width="720" height="130"/></g>
-<g fill="#fff" font-family="Arial, sans-serif" text-anchor="end">
-  <text x="650" y="100" font-size="18" opacity=".78">REAL REVIEWS, REAL PLACES</text>
-  <text x="650" y="205" font-size="58" font-weight="700">وش قالوا الناس؟</text>
-  <text x="650" y="250" font-size="25" opacity=".92">شوف المكان بعيون زواره.</text>
+
+<!-- subtle green dome accent -->
+<path d="M284 578 Q316 535 348 578Z" fill="#6e927c"/>
+<circle cx="316" cy="520" r="5" fill="#6e927c"/>
+
+<!-- soft decorative palms -->
+<g fill="none" stroke="#9a7ba2" stroke-linecap="round" opacity=".48">
+  <path d="M70 760 Q75 700 88 654 M88 678 Q55 655 42 625 M88 680 Q112 648 137 636"/>
+  <path d="M650 760 Q644 704 632 664 M632 686 Q606 658 585 650 M632 685 Q660 660 682 650"/>
 </g>
-<g transform="translate(55 720)">
-  <rect width="610" height="105" rx="22" fill="#fff" opacity=".9"/>
-  <circle cx="58" cy="52" r="25" fill="#714486"/>
-  <path d="M48 54h20v15H48zM46 54l12-12 12 12" fill="#fff"/>
-  <text x="535" y="62" fill="#493f48" font-size="24" font-family="Arial,sans-serif" font-weight="700" text-anchor="end">تجارب حقيقية من زوار المدينة</text>
+
+<!-- copy -->
+<g font-family="Arial, sans-serif" text-anchor="end">
+  <text x="640" y="92" font-size="16" font-weight="700" fill="#80618a">وجهتك · من الداخل</text>
+  <text x="640" y="170" font-size="27" font-weight="700" fill="#514653">هناك أكثر من وجهة سياحية في المدينة</text>
+  <text x="640" y="252" font-size="58" font-weight="800" fill="#6f4b78">وش قالوا الناس؟</text>
+  <text x="640" y="298" font-size="25" font-weight="600" fill="#75677a">شوف المكان بعيون زواره.</text>
+</g>
+
+<!-- floating review note -->
+<g filter="url(#shadow)">
+  <rect x="58" y="72" width="82" height="82" rx="41" fill="#fffdf9" opacity=".88"/>
+  <circle cx="99" cy="113" r="23" fill="#e8d9eb"/>
+  <path d="M86 111 Q99 96 112 111 V124 H86Z" fill="#80618a"/>
+  <circle cx="99" cy="104" r="4" fill="#fffdf9"/>
+</g>
+
+<!-- gentle glass footer -->
+<g filter="url(#shadow)">
+  <rect x="54" y="786" width="612" height="76" rx="26" fill="#fffdf9" fill-opacity=".82" stroke="#fff" stroke-width="2"/>
+  <text x="610" y="833" font-size="20" font-weight="700" fill="#5d4d61" text-anchor="end" font-family="Arial, sans-serif">تجارب حقيقية من زوار المدينة</text>
+  <circle cx="112" cy="824" r="22" fill="#80618a" opacity=".14"/>
+  <text x="112" y="832" font-size="21" text-anchor="middle" font-family="Arial, sans-serif">✦</text>
 </g>
 </svg>
