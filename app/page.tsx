@@ -513,6 +513,10 @@ export default function Home() {
 
   return (
     <main className={`app-shell${darkMode ? " theme-dark" : ""}`} dir={language === "ar" ? "rtl" : "ltr"} lang={language}>
+      <div className="roshan-edge roshan-edge-top" aria-hidden="true" />
+      <div className="roshan-edge roshan-edge-right" aria-hidden="true" />
+      <div className="roshan-edge roshan-edge-bottom" aria-hidden="true" />
+      <div className="roshan-edge roshan-edge-left" aria-hidden="true" />
       <header className="topbar">
         <a className="brand" href="#home" aria-label={`${t("وجهتك")} ${t("من الداخل")}`}>
           <span className="brand-mark" aria-hidden="true">
