@@ -1100,8 +1100,8 @@ export default function Home() {
           <div className="explore-dashboard">
             <div className="explore-dashboard-header">
               <div>
-                <span className="dashboard-kicker"><i /> ملخص شامل لبيانات وجهتك</span>
-                <h2>وش قالوا عن وجهتك؟</h2>
+                <span className="dashboard-kicker"><i /> {t("ملخص شامل لبيانات وجهتك")}</span>
+                <h2>{t("وش قالوا عن وجهتك؟")}</h2>
                 <p>{t("لوحة واحدة تلخص جميع الأماكن والوجهات والمطاعم والمقاهي المدرجة في وجهتك، اعتمادًا على بيانات ملف الإكسل الشامل.")}</p>
               </div>
               <div className="explore-dashboard-total"><strong>{comprehensiveDashboardStats.totalPlaces}</strong><span>{t("مكانًا مدرجًا")}</span></div>
