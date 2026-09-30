@@ -2780,3 +2780,51 @@ textarea:focus-visible {
   .review-hero-copy h2 { font-size: 29px; }
   .review-hero-lead { font-size: 16px !important; }
 }
+
+
+/* Review preview cards inside the sunset panel */
+.review-preview-list {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 15px;
+}
+
+.review-preview-card {
+  display: grid;
+  gap: 4px;
+  border: 1px solid rgb(75 52 77 / 12%);
+  border-radius: 13px;
+  background: rgb(255 252 247 / 96%);
+  padding: 10px 12px;
+  color: #4b414b;
+  box-shadow: 0 8px 18px rgb(35 20 42 / 14%);
+  text-align: right;
+}
+
+.review-preview-stars {
+  color: #d89d3e;
+  font-size: 10px;
+  letter-spacing: 1px;
+  direction: ltr;
+  text-align: right;
+}
+
+.review-preview-card strong {
+  color: #514650;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.review-preview-card small {
+  color: #8b8087;
+  font-size: 9px;
+}
+
+.review-hero-button {
+  transition: transform 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+
+@media (max-width: 760px) {
+  .review-preview-list { gap: 7px; }
+  .review-preview-card { padding: 9px 10px; }
+}
