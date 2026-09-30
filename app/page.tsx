@@ -745,30 +745,11 @@ export default function Home() {
               </>
             ) : (
               <div className="detail-empty review-hero-panel">
-                <div className="review-pattern review-pattern-top" aria-hidden="true" />
-                <div className="review-pattern review-pattern-bottom" aria-hidden="true" />
-                <div className="review-hero-art" aria-hidden="true">
-                  <div className="sunset-sun" />
-                  <div className="sunset-mountain sunset-mountain-back" />
-                  <div className="sunset-mountain sunset-mountain-front" />
-                  <div className="sunset-mosque">
-                    <span className="dome dome-main" />
-                    <span className="minaret minaret-one" />
-                    <span className="minaret minaret-two" />
-                    <span className="minaret minaret-three" />
-                    <span className="mosque-body" />
-                  </div>
-                </div>
-                <div className="review-hero-copy">
-                  <span className="eyebrow">{t("تجارب حقيقية")}</span>
-                  <h2>{t("وش قالوا الناس؟")}</h2>
-                  <p className="review-hero-lead">{t("شوف المكان بعيون زواره.")}</p>
-                  <div className="review-hero-english">REAL REVIEWS, REAL PLACES</div>
-                  <p>{t("تجارب حقيقية من داخل المدينة.")}</p>
-                  <button className="review-hero-button" type="button" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>
-                    {t("استكشف تجارب الزوار")} <span aria-hidden="true">←</span>
-                  </button>
-                </div>
+                <img
+                  className="review-hero-image"
+                  src="/review-hero.jpg"
+                  alt="وش قالوا الناس؟ — REAL REVIEWS, REAL PLACES"
+                />
               </div>
             )}
           </aside>
