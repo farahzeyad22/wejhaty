@@ -49,6 +49,9 @@ const englishTranslations: Record<string, string> = {
   "استكشف مرافق المدينة وخدماتها وتقييمات الزوار من الداخل.": "Explore Madinah's facilities, services, and visitor reviews from within.",
   "اكتشف المدينة": "Discover Madinah",
   "اكتشف المدينة من الداخل": "Discover the city from within",
+  "هناك أكثر من وجهة سياحية في المدينة": "There is more than one tourist destination in the city",
+  "خريطتك معك": "Your map is with you",
+  "قم باكتشاف المدينة": "Discover the city",
   "تفاصيل صغيرة تصنع زيارة أجمل. استكشف المرافق والخدمات كما يراها أهل المكان.": "Small details make for a better visit. Explore facilities and services through the eyes of local visitors.",
   "المنطقة المركزية": "Central Area",
   "المدينة المنورة": "Madinah",
@@ -731,11 +734,9 @@ export default function Home() {
             ) : (
               <div className="detail-empty">
                 <span className="empty-emblem">⌖</span>
-                <span className="eyebrow">{t("مساحتك لاكتشاف التفاصيل")}</span>
-                <h2>{t("كل شيء")}<br />{t("على خريطتك.")}</h2>
-                <p>{t("اختر إحدى نقاط الخدمة على الخريطة لتتعرف على تفاصيلها وتقييمات الزوار.")}</p>
-                <div className="empty-divider" />
-                <span className="empty-note"><b>{t("٦")}</b> {t("مرافق متاحة للاستكشاف")}</span>
+                <span className="eyebrow">{t("اكتشف المدينة")}</span>
+                <h2>{t("هناك أكثر من وجهة سياحية في المدينة")}</h2>
+                <p>{t("خريطتك معك")}<br />{t("قم باكتشاف المدينة")}</p>
               </div>
             )}
           </aside>
@@ -759,6 +760,12 @@ export default function Home() {
                 style={{ transform: `translate3d(${mapOffset.x}px, ${mapOffset.y}px, 0) scale(${mapZoom})` }}
               >
                 <div className="map-pattern" />
+                <div className="map-mountain mountain-one" aria-hidden="true" />
+                <div className="map-mountain mountain-two" aria-hidden="true" />
+                <div className="map-mosque mosque-one" aria-hidden="true"><span>مسجد</span></div>
+                <div className="map-mosque mosque-two" aria-hidden="true"><span>معلم</span></div>
+                <div className="map-palm palm-one" aria-hidden="true">🌴</div>
+                <div className="map-palm palm-two" aria-hidden="true">🌴</div>
                 <svg className="map-roads" viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true">
                 <path className="road-main" d="M-40 520 C150 455 185 370 360 385S590 460 740 365 900 270 1040 290" />
                 <path className="road-main" d="M120 -30 C180 120 265 160 270 300S230 500 340 680" />
