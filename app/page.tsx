@@ -48,6 +48,7 @@ const englishTranslations: Record<string, string> = {
   "المدينة المنورة، المملكة العربية السعودية": "Madinah, Saudi Arabia",
   "استكشف مرافق المدينة وخدماتها وتقييمات الزوار من الداخل.": "Explore Madinah's facilities, services, and visitor reviews from within.",
   "اكتشف المدينة": "Discover Madinah",
+  "اكتشف المدينة من الداخل": "Discover the city from within",
   "تفاصيل صغيرة تصنع زيارة أجمل. استكشف المرافق والخدمات كما يراها أهل المكان.": "Small details make for a better visit. Explore facilities and services through the eyes of local visitors.",
   "المنطقة المركزية": "Central Area",
   "المدينة المنورة": "Madinah",
@@ -79,6 +80,17 @@ const englishTranslations: Record<string, string> = {
   "مرافق متاحة للاستكشاف": "facilities to explore",
   "٦": "6",
   "استكشف المنطقة المركزية": "Explore the Central Area",
+  "اعرف المكان قبل ما تروح": "Know the place before you go",
+  "من الداخل، مو بس على الخريطة": "From within, not just on the map",
+  "وش موجود؟": "What is there?",
+  "تعرف على الخدمات والمرافق الموجودة داخل المكان.": "Discover the services and facilities inside the place.",
+  "وش يقولون الزوار؟": "What do visitors say?",
+  "اقرأ تجارب الزوار مصنفة حسب المكان والخدمة.": "Read visitor experiences organized by place and service.",
+  "كيف أوصل؟": "How do I get there?",
+  "اعرف أقرب المرافق وكيف تصل إليها من داخل الموقع.": "Find nearby facilities and how to reach them from inside the site.",
+  "اكتشف حسب احتياجك": "Discover by what you need",
+  "المكان أولًا، ثم التفاصيل التي تهمك.": "The place first, then the details that matter to you.",
+  "الوصول من الداخل": "Getting around from within",
   "توسيط الخريطة": "Center map",
   "إعادة التوسيط": "Recenter",
   "خريطة الخدمات": "Service map",
@@ -623,7 +635,7 @@ export default function Home() {
         <section className="intro-row" id="explore">
           <div>
             <span className="eyebrow"><i /> {t("المدينة المنورة، المملكة العربية السعودية")}</span>
-            <h1>{t("اكتشف المدينة")} <span>{t("من الداخل")}</span></h1>
+            <h1>{t("اكتشف المدينة من الداخل")}</h1>
             <p>{t("تفاصيل صغيرة تصنع زيارة أجمل. استكشف المرافق والخدمات كما يراها أهل المكان.")}</p>
           </div>
           <div className="location-options" aria-label="اختيار المنطقة">
@@ -637,6 +649,29 @@ export default function Home() {
               <span className="location-copy"><strong>مقصد قباء</strong><small>المدينة المنورة</small></span>
               <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
             </Link>
+          </div>
+        </section>
+
+        <section className="inside-discovery" aria-label={t("من الداخل، مو بس على الخريطة")}>
+          <div className="inside-discovery-heading">
+            <span className="eyebrow">{t("من الداخل، مو بس على الخريطة")}</span>
+            <h2>{t("اعرف المكان قبل ما تروح")}</h2>
+            <p>{t("المكان أولًا، ثم التفاصيل التي تهمك.")}</p>
+          </div>
+          <div className="inside-discovery-grid">
+            <article className="inside-discovery-card"><span className="inside-discovery-icon">⌘</span><div><h3>{t("وش موجود؟")}</h3><p>{t("تعرف على الخدمات والمرافق الموجودة داخل المكان.")}</p></div></article>
+            <article className="inside-discovery-card"><span className="inside-discovery-icon">✦</span><div><h3>{t("وش يقولون الزوار؟")}</h3><p>{t("اقرأ تجارب الزوار مصنفة حسب المكان والخدمة.")}</p></div></article>
+            <article className="inside-discovery-card"><span className="inside-discovery-icon">↗</span><div><h3>{t("كيف أوصل؟")}</h3><p>{t("اعرف أقرب المرافق وكيف تصل إليها من داخل الموقع.")}</p></div></article>
+          </div>
+          <div className="inside-discovery-categories">
+            <span>{t("اكتشف حسب احتياجك")}</span>
+            <div>
+              {categories.slice(1,7).map((category) => (
+                <button key={category.name} type="button" onClick={() => { setActiveCategory(category.name); document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }); }}>
+                  <b>{category.icon}</b>{t(category.name)}
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -729,7 +764,7 @@ export default function Home() {
 
           <div className="map-column">
             <div className="map-toolbar">
-              <div><span className="live-dot" /><span>{t("استكشف المنطقة المركزية")}</span><small>{t("المدينة المنورة")}</small></div>
+              <div><span className="live-dot" /><span>{t("الوصول من الداخل")}</span><small>{t("المدينة المنورة")}</small></div>
               <button type="button" className="map-control" aria-label={t("توسيط الخريطة")} onClick={centerMap}>⌖ <span>{t("إعادة التوسيط")}</span></button>
             </div>
             <div
