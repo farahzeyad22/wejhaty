@@ -42,7 +42,7 @@ export default function QubaPage() {
       @media(max-width:700px){.quba-page{padding:20px 16px 50px}.quba-hero{padding:28px 22px}.quba-top{align-items:flex-start}}
     `}</style>
     <div className="quba-wrap">
-      <div className="quba-top"><Link className="quba-brand" href="/">وجهتك | من الداخل</Link><Link className="quba-back" href="/">العودة للمنطقة المركزية</Link></div>
+      <div className="quba-top"><Link className="quba-brand" href="/">وجهتك | من الداخل</Link><Link className="quba-back" href="/">العودة للقائمة الرئيسية</Link></div>
       <section className="quba-hero">
         <span className="quba-kicker">المدينة المنورة · مقصد قباء</span>
         <h1>مقصد قباء</h1>
