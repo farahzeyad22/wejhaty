@@ -3255,3 +3255,33 @@ textarea:focus-visible {
 .app-shell > .roshan-edge {
   display: none !important;
 }
+
+
+/* Search dropdown: keep results fully visible on desktop and mobile */
+.topbar {
+  overflow: visible !important;
+}
+.search-control {
+  z-index: 50;
+}
+.search-results {
+  z-index: 999 !important;
+  max-height: min(460px, 68vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+@media (max-width: 760px) {
+  .topbar {
+    overflow: visible !important;
+  }
+  .search-control {
+    z-index: 60;
+  }
+  .search-results {
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: 52vh;
+    border-radius: 14px;
+  }
+}
