@@ -8,6 +8,8 @@ type Facility = {
   name: string;
   icon: string;
   description: string;
+  category?: string;
+  googleQuery?: string;
 };
 
 type Review = {
@@ -44,6 +46,9 @@ const englishTranslations: Record<string, string> = {
   "سهولة الوصول": "Accessibility",
   "المشي والتنقل": "Walking and mobility",
   "المعالم الرئيسية": "Main landmarks",
+  "المناطق السياحية": "Tourist areas",
+  "الكل": "All",
+  "الخدمات الأخرى": "Other services",
   "الخدمات الأخرى": "Other services",
   "تجارب حقيقية": "Real experiences",
   "تجربة هادئة، وأنصح بزيارتها": "A calm experience, I recommend visiting",
@@ -148,34 +153,46 @@ const englishTranslations: Record<string, string> = {
   "سهولة الحركة والتنقل داخل المكان": "Easy movement around the area",
 };
 
+const landmarks: Facility[] = [
+  { name: "المنطقة المركزية", icon: "📍", description: "المعالم الرئيسية في المنطقة المركزية", category: "المعالم الرئيسية", googleQuery: "المنطقة المركزية المدينة المنورة" },
+  { name: "مسجد قباء", icon: "🕌", description: "مسجد قباء في المدينة المنورة", category: "المعالم الرئيسية", googleQuery: "مسجد قباء المدينة المنورة" },
+  { name: "جبل أحد", icon: "⛰️", description: "جبل أحد في المدينة المنورة", category: "المعالم الرئيسية", googleQuery: "جبل أحد المدينة المنورة" },
+];
+
 const facilities: Facility[] = [
   {
     name: "دورات المياه",
+    category: "الخدمات الأخرى",
     icon: "🚻",
     description: "نظافة دورات المياه وسهولة الوصول إليها",
   },
   {
     name: "المواقف",
+    category: "الخدمات الأخرى",
     icon: "🅿️",
     description: "توفر المواقف وسهولة الدخول والخروج",
   },
   {
     name: "أماكن الجلوس",
+    category: "الخدمات الأخرى",
     icon: "🪑",
     description: "توفر أماكن مريحة للجلوس والانتظار",
   },
   {
     name: "المطاعم",
+    category: "المطاعم والمقاهي",
     icon: "🍽️",
     description: "توفر خيارات الطعام والمشروبات",
   },
   {
     name: "سهولة الوصول",
+    category: "الخدمات الأخرى",
     icon: "♿",
     description: "سهولة الوصول والتنقل لجميع الزوار",
   },
   {
     name: "المشي والتنقل",
+    category: "المشي والتنقل",
     icon: "🚶",
     description: "سهولة الحركة والتنقل داخل المكان",
   },
@@ -209,6 +226,7 @@ export default function Home() {
   const [rating, setRating] = useState(0);
   const [message, setMessage] = useState("");
   const [activeCategory, setActiveCategory] = useState("الكل");
+  const [showTouristCategories, setShowTouristCategories] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [darkMode, setDarkMode] = useState(false);
   const [language, setLanguage] = useState<Language>("ar");
@@ -454,41 +472,58 @@ export default function Home() {
 
   const categories = [
     { name: "الكل", icon: "⌘" },
-    { name: "المطاعم", icon: "♨" },
-    { name: "المقاهي", icon: "☕" },
-    { name: "المواقف", icon: "P" },
-    { name: "دورات المياه", icon: "♧" },
-    { name: "أماكن الجلوس", icon: "⌑" },
-    { name: "سهولة الوصول", icon: "↗" },
-    { name: "المشي والتنقل", icon: "⌁" },
-    { name: "المعالم الرئيسية", icon: "◇" },
+    { name: "المطاعم والمقاهي", icon: "☕" },
+    { name: "المشي والتنقل", icon: "🚶" },
+    { name: "المعالم الرئيسية", icon: "🕌" },
     { name: "الخدمات الأخرى", icon: "＋" },
   ];
 
+  const searchItems = [...landmarks, ...facilities];
   const visibleFacilities = facilities.filter((facility) => {
     const matchesCategory =
-      activeCategory === "الكل" || facility.name === activeCategory;
+      activeCategory === "الكل" ||
+      activeCategory === "المناطق السياحية" ||
+      facility.category === activeCategory ||
+      facility.name === activeCategory;
     const searchableText = normalizeSearchTerm([
-      facility.name,
-      facility.description,
-      t(facility.name),
-      t(facility.description),
+      facility.name, facility.description, t(facility.name), t(facility.description),
       "المنطقة المركزية المدينة المنورة Central Area Madinah",
-      ...facilitySearchAliases[facility.name],
+      ...facilitySearchAliases[facility.name] || [],
       ...generalServiceTerms,
     ].join(" "));
     const queryWords = normalizeSearchTerm(searchQuery).split(" ").filter(Boolean);
-    const matchesSearch = queryWords.every((word) => searchableText.includes(word));
-
-    return matchesCategory && matchesSearch;
+    return matchesCategory && queryWords.every((word) => searchableText.includes(word));
   });
 
-  const chooseSearchResult = (facility: Facility) => {
-    setActiveCategory("الكل");
+  const searchResults = searchQuery.trim()
+    ? searchItems.filter((item) => {
+        const searchableText = normalizeSearchTerm([
+          item.name, item.description, t(item.name), t(item.description),
+          "المدينة المنورة Madinah Medina",
+          ...(facilitySearchAliases[item.name] || []),
+          ...generalServiceTerms,
+        ].join(" "));
+        const words = normalizeSearchTerm(searchQuery).split(" ").filter(Boolean);
+        return words.every((word) => searchableText.includes(word));
+      })
+    : [];
+
+  const chooseSearchResult = (item: Facility) => {
+    setActiveCategory(item.category || "الكل");
     setSearchQuery("");
-    selectFacility(facility);
+    if (landmarks.some((landmark) => landmark.name === item.name)) {
+      window.open(
+        `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(item.googleQuery || item.name + ", المدينة المنورة")}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+      return;
+    }
+    selectFacility(item);
     document.getElementById("explore")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchQuery + " المدينة المنورة")}`;
 
   const handleSearchKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
@@ -543,9 +578,7 @@ export default function Home() {
         <nav className="main-nav" aria-label={t("التنقل الرئيسي")}>
           <a className="nav-active" href="#home">{t("الرئيسية")}</a>
           <a href="#explore">{t("استكشف")}</a>
-          <a href="#services">{t("الخدمات")}</a>
-          <a href="#landmarks">{t("المعالم")}</a>
-          <a href="#about">{t("عن وجهتك")}</a>
+          
         </nav>
 
         <div className="search-control">
@@ -571,9 +604,9 @@ export default function Home() {
           {searchQuery.trim() && (
             <div className="search-results" id="search-results" role="listbox" aria-label={t("نتائج البحث")}>
               <div className="search-results-heading">
-                {t("نتائج البحث")} <span>{visibleFacilities.length}</span>
+                {t("نتائج البحث")} <span>{searchResults.length}</span>
               </div>
-              {visibleFacilities.length > 0 ? visibleFacilities.map((facility) => {
+              {searchResults.length > 0 ? searchResults.map((facility) => {
                 const facilityReviews = reviews[facility.name] || [];
                 const facilityAverage = facilityReviews.length
                   ? (facilityReviews.reduce((sum, review) => sum + review.rating, 0) / facilityReviews.length).toFixed(1)
@@ -628,16 +661,24 @@ export default function Home() {
       </header>
 
       <section className="service-strip" id="services" aria-label={t("تصنيفات الخدمات")}>
-        <div className="service-strip-inner">{categories.map((category) => (
+        <div className="service-strip-inner">
+          <button
+            className={`category-chip${activeCategory === "الكل" ? " category-active" : ""}`}
+            type="button"
+            onClick={() => { setActiveCategory("الكل"); setShowTouristCategories(false); closeModal(); }}
+          >الكل</button>
+          <button
+            className={`category-chip tourist-toggle${showTouristCategories ? " category-active" : ""}`}
+            type="button"
+            onClick={() => { setShowTouristCategories((v) => !v); setActiveCategory("المناطق السياحية"); closeModal(); }}
+            aria-expanded={showTouristCategories}
+          >المناطق السياحية <span className="category-icon" aria-hidden="true">⌄</span></button>
+          {showTouristCategories && categories.slice(1).map((category) => (
             <button
               className={`category-chip${activeCategory === category.name ? " category-active" : ""}`}
               key={category.name}
               type="button"
-              onClick={() => {
-                setActiveCategory(category.name);
-                closeModal();
-              }}
-              aria-pressed={activeCategory === category.name}
+              onClick={() => { setActiveCategory(category.name); closeModal(); }}
             >
               <span className="category-icon" aria-hidden="true">{category.icon}</span>
               {t(category.name)}
@@ -781,44 +822,6 @@ export default function Home() {
               <span><i className="legend-mauve" /> {t("تقييمات الزوار")}</span>
               <span className="legend-note">{t("اختر نقطة لعرض التفاصيل")}</span>
             </div>
-          </div>
-        </section>
-
-        <section className="nearby-section" id="landmarks">
-          <div className="section-heading">
-            <div><span className="eyebrow">{t("حولك في المنطقة")}</span><h2>{t("أقرب الخدمات لك")}</h2></div>
-            <a href="#services">{t("استكشف جميع الخدمات")} <span>{language === "ar" ? "←" : "→"}</span></a>
-          </div>
-          <div className="nearby-grid">
-            {matchingNearbyFacilities.map((facility, index) => {
-              const actualFacility = facilities.find((item) => item.name === facility.name);
-              const itemReviews = actualFacility ? reviews[actualFacility.name] || [] : [];
-              const itemAverage = itemReviews.length
-                ? (itemReviews.reduce((sum, review) => sum + review.rating, 0) / itemReviews.length).toFixed(1)
-                : null;
-
-              return (
-                <button
-                  className="nearby-card"
-                  key={`${facility.name}-${index}`}
-                  type="button"
-                  onClick={() => {
-                    if (actualFacility) {
-                      selectFacility(actualFacility);
-                      setActiveCategory("الكل");
-                    } else {
-                      closeModal();
-                      setActiveCategory(facility.name);
-                    }
-                    document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  <span className={`nearby-photo photo-${index}`}><span>{facility.icon}</span></span>
-                  <span className="nearby-info"><strong>{t(facility.name)}</strong><small>{t(facility.description)}</small><span className="nearby-meta"><b>{itemAverage ? `${itemAverage} ★` : t("لا توجد تقييمات")}</b><i />{t(actualFacility ? "المنطقة المركزية" : "الموقع غير محدد")}</span></span>
-                  <span className="nearby-arrow" aria-hidden="true">↗</span>
-                </button>
-              );
-            })}
           </div>
         </section>
 
