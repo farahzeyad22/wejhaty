@@ -152,6 +152,46 @@ const englishTranslations: Record<string, string> = {
   "توفر خيارات الطعام والمشروبات": "Food and drink options",
   "سهولة الوصول والتنقل لجميع الزوار": "Easy access and navigation for all visitors",
   "سهولة الحركة والتنقل داخل المكان": "Easy movement around the area",
+  "وش قالوا عن": "What did visitors say about",
+  "وش قالوا عن وجهتك": "What did visitors say about Your Destination?",
+  "أماكن مقترحة": "Suggested places",
+  "مقصد قباء": "Quba Destination",
+  "مشروع الحي المغسلة": "Al-Mughassilah Neighborhood Project",
+  "المدينة المنورة · 412 مراجعة": "Madinah · 412 reviews",
+  "لم يتم إدراج خدمات بعد": "No services have been added yet",
+  "تعليق": "comments",
+  "استكشف حسب احتياجك": "Explore by what you need",
+  "وش تبي تعرف؟": "What do you want to know?",
+  "اختر الشيء اللي يهمك، ونوصلك للمكان المناسب.": "Choose what matters to you and we’ll take you to the right place.",
+  "ابدأ من هنا": "Start here",
+  "المدينة المنورة · تجارب الزوار": "Madinah · Visitor experiences",
+  "انتقل للخارطة": "Open map",
+  "ملخص شامل لبيانات وجهتك": "Comprehensive destination data summary",
+  "لوحة واحدة تلخص جميع الأماكن والوجهات والمطاعم والمقاهي المدرجة في وجهتك، اعتمادًا على بيانات ملف الإكسل الشامل.": "One dashboard summarizing all places, destinations, restaurants, and cafes listed in Your Destination, based on the comprehensive dataset.",
+  "مكانًا مدرجًا": "listed places",
+  "غير متوفر في ملف البيانات الشامل": "Not available in the comprehensive dataset",
+  "إجمالي التعليقات": "Total comments",
+  "تعليقًا ضمن جميع الأماكن": "comments across all places",
+  "الأماكن والوجهات": "Places and destinations",
+  "وجهة ومعلمًا مدرجًا": "listed destinations and landmarks",
+  "منشأة طعام وشراب": "food and drink venues",
+  "وش سوينا بالبيانات؟": "What did we do with the data?",
+  "جمعنا الأماكن والخدمات في صورة واحدة.": "We brought the places and services together in one view.",
+  "الداشبورد يجمع البيانات الموجودة في الموقع عن الوجهات والمعالم والمطاعم والمقاهي، بدل ما تكون المعلومة موزعة بين صفحات مختلفة.": "The dashboard brings together the destination, landmark, restaurant, and cafe data instead of spreading the information across different pages.",
+  "مكان": "place",
+  "وش موجود في وجهتك؟": "What’s available in Your Destination?",
+  "الوجهات والمعالم": "Destinations and landmarks",
+  "أنواع طعام أخرى": "Other food options",
+  "وش يستفيد الزائر؟": "How does this help visitors?",
+  "قبل الزيارة": "Before the visit",
+  "يشوف الخيارات والأماكن الموجودة في المدينة.": "See the available options and places in the city.",
+  "أثناء الزيارة": "During the visit",
+  "يقدر يستكشف الوجهات والخدمات حسب احتياجه.": "Explore destinations and services based on their needs.",
+  "بعد الزيارة": "After the visit",
+  "يشارك تجربته لتفيد زائرًا آخر.": "Share their experience to help another visitor.",
+  "نطاق البيانات": "Data scope",
+  "من المعالم والأماكن السياحية إلى المطاعم والمقاهي، الداشبورد يعطي نظرة شاملة على المحتوى الذي جمعناه داخل وجهتك.": "From landmarks and tourist places to restaurants and cafes, the dashboard gives a complete view of the content we have collected in Your Destination.",
+  "المدينة المنورة · المملكة العربية السعودية": "Madinah · Saudi Arabia",
 };
 
 const urduTranslations: Record<string, string> = {
@@ -216,6 +256,43 @@ const urduTranslations: Record<string, string> = {
   "وش تبي تعرف؟": "آپ کیا جاننا چاہتے ہیں؟",
   "أماكن مقترحة": "تجویز کردہ مقامات",
   "لم يتم إدراج خدمات بعد": "ابھی کوئی خدمات شامل نہیں کی گئیں",
+  "وش قالوا عن": "زائرین نے کیا کہا؟",
+  "وش قالوا عن وجهتك": "آپ کی منزل کے بارے میں زائرین نے کیا کہا؟",
+  "مقصد قباء": "قباء منزل",
+  "مشروع الحي المغسلة": "المغیسلہ محلہ منصوبہ",
+  "المدينة المنورة · 412 مراجعة": "مدینہ منورہ · 412 ریویوز",
+  "تعليق": "تبصرے",
+  "استكشف حسب احتياجك": "اپنی ضرورت کے مطابق دریافت کریں",
+  "اختر الشيء اللي يهمك، ونوصلك للمكان المناسب.": "جو چیز آپ کے لیے اہم ہے اسے منتخب کریں، ہم آپ کو مناسب جگہ تک پہنچائیں گے۔",
+  "ابدأ من هنا": "یہاں سے شروع کریں",
+  "المدينة المنورة · تجارب الزوار": "مدینہ منورہ · زائرین کے تجربات",
+  "انتقل للخارطة": "نقشے پر جائیں",
+  "ملخص شامل لبيانات وجهتك": "آپ کی منزل کے بيانات کا جامع خلاصہ",
+  "لوحة واحدة تلخص جميع الأماكن والوجهات والمطاعم والمقاهي المدرجة في وجهتك، اعتمادًا على بيانات ملف الإكسل الشامل.": "ایک ہی ڈیش بورڈ آپ کی منزل میں شامل تمام مقامات، سیاحتی مقامات، ریستوران اور کیفے کا خلاصہ پیش کرتا ہے۔",
+  "مكانًا مدرجًا": "شامل مقامات",
+  "غير متوفر في ملف البيانات الشامل": "جامع ڈیٹا میں دستیاب نہیں",
+  "إجمالي التعليقات": "کل تبصرے",
+  "تعليقًا ضمن جميع الأماكن": "تمام مقامات کے تبصرے",
+  "الأماكن والوجهات": "مقامات اور منزلیں",
+  "وجهة ومعلمًا مدرجًا": "شامل سیاحتی مقامات اور نشانیاں",
+  "منشأة طعام وشراب": "کھانے پینے کی جگہیں",
+  "وش سوينا بالبيانات؟": "ہم نے ڈیٹا کے ساتھ کیا کیا؟",
+  "جمعنا الأماكن والخدمات في صورة واحدة.": "ہم نے مقامات اور خدمات کو ایک جگہ جمع کیا۔",
+  "الداشبورد يجمع البيانات الموجودة في الموقع عن الوجهات والمعالم والمطاعم والمقاهي، بدل ما تكون المعلومة موزعة بين صفحات مختلفة.": "ڈیش بورڈ میں سیاحتی مقامات، نشانیاں، ریستوران اور کیفے کا ڈیٹا ایک جگہ جمع کیا گیا ہے۔",
+  "مكان": "مقام",
+  "وش موجود في وجهتك؟": "آپ کی منزل میں کیا موجود ہے؟",
+  "الوجهات والمعالم": "سیاحتی مقامات اور نشانیاں",
+  "أنواع طعام أخرى": "دیگر کھانے کے اختیارات",
+  "وش يستفيد الزائر؟": "زائر کو کیا فائدہ ہوگا؟",
+  "قبل الزيارة": "دورے سے پہلے",
+  "يشوف الخيارات والأماكن الموجودة في المدينة.": "شہر میں موجود اختیارات اور مقامات دیکھیں۔",
+  "أثناء الزيارة": "دورے کے دوران",
+  "يقدر يستكشف الوجهات والخدمات حسب احتياجه.": "اپنی ضرورت کے مطابق مقامات اور خدمات دریافت کریں۔",
+  "بعد الزيارة": "دورے کے بعد",
+  "يشارك تجربته لتفيد زائرًا آخر.": "اپنا تجربہ شیئر کریں تاکہ دوسرے زائر کو فائدہ ہو۔",
+  "نطاق البيانات": "ڈیٹا کا دائرہ",
+  "من المعالم والأماكن السياحية إلى المطاعم والمقاهي، الداشبورد يعطي نظرة شاملة على المحتوى الذي جمعناه داخل وجهتك.": "نشانیوں اور سیاحتی مقامات سے لے کر ریستوران اور کیفے تک، ڈیش بورڈ آپ کی منزل میں جمع کیے گئے مواد کا جامع جائزہ دیتا ہے۔",
+  "المدينة المنورة · المملكة العربية السعودية": "مدینہ منورہ · سعودی عرب",
 };
 
 const landmarks: Facility[] = [
@@ -732,7 +809,7 @@ export default function Home() {
             </svg>
           </span>
           <span className="brand-copy">
-            <span>وش قالوا عن</span>
+            <span>{t("وش قالوا عن")}</span>
             <strong>{t("وجهتك")}</strong>
           </span>
         </a>
@@ -835,8 +912,8 @@ export default function Home() {
         <section className="dashboard-intro">
           <div className="dashboard-title">
             <span className="dashboard-kicker"><i /> وجهتك</span>
-            <h1>وش قالوا عن وجهتك</h1>
-            <p>شوف المكان بعيون زواره.</p>
+            <h1>{t("وش قالوا عن وجهتك")}</h1>
+            <p>{t("شوف المكان بعيون زواره.")}</p>
             <strong>{t("اعرف المكان قبل ما تروح")}</strong>
           </div>
 
@@ -856,17 +933,17 @@ export default function Home() {
 
           {activeCategory === "الكل" ? (
             <div className="suggested-places">
-              <div className="suggested-heading"><h2>أماكن مقترحة</h2></div>
+              <div className="suggested-heading"><h2>{t("أماكن مقترحة")}</h2></div>
               <div className="suggested-place-grid">
                 <Link className="location-summary location-summary-link suggested-place-card" href="/quba" aria-label="فتح مقصد قباء">
                   <span className="location-icon location-icon-quba">⌖</span>
-                  <span className="location-copy"><strong>مقصد قباء</strong><small>{t("المدينة المنورة")}</small></span>
+                  <span className="location-copy"><strong>{t("مقصد قباء")}</strong><small>{t("المدينة المنورة")}</small></span>
                   <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
                 </Link>
                 <Link className="location-summary location-summary-link suggested-place-card" href="/maqyas" aria-label="فتح مشروع الحي المغسلة">
                   <span className="location-icon">⌖</span>
-                  <span className="location-copy"><strong>مشروع الحي المغسلة</strong><small>المدينة المنورة · 412 مراجعة</small></span>
-                  <span className="location-rating"><b>4.57</b> <i>★</i><small>متوسط التقييم</small></span>
+                  <span className="location-copy"><strong>{t("مشروع الحي المغسلة")}</strong><small>{t("المدينة المنورة · 412 مراجعة")}</small></span>
+                  <span className="location-rating"><b>4.57</b> <i>★</i><small>{t("متوسط التقييم")}</small></span>
                 </Link>
               </div>
             </div>
@@ -888,7 +965,7 @@ export default function Home() {
               {activeCategory === "الخدمات الأخرى" ? (
                 <div className="category-empty-state" role="status">
                   <span className="category-empty-icon" aria-hidden="true">＋</span>
-                  <strong>لم يتم إدراج خدمات بعد</strong>
+                  <strong>{t("لم يتم إدراج خدمات بعد")}</strong>
                 </div>
               ) : (
                 <div className="suggested-place-grid">
@@ -907,7 +984,7 @@ export default function Home() {
                           <strong>{name}</strong>
                           <small>{place.type} · {count.toLocaleString("ar-SA")} تعليق</small>
                         </span>
-                        <span className="location-rating"><b>{count.toLocaleString("ar-SA")}</b><small>تعليق</small></span>
+                        <span className="location-rating"><b>{count.toLocaleString("ar-SA")}</b><small>{t("تعليق")}</small></span>
                       </Link>
                     );
                   })}
@@ -971,30 +1048,30 @@ export default function Home() {
             ) : (
               <div className="detail-empty desktop-explore-panel">
                 <div className="desktop-explore-heading">
-                  <span>استكشف حسب احتياجك</span>
-                  <h2>وش تبي تعرف؟</h2>
-                  <p>اختر الشيء اللي يهمك، ونوصلك للمكان المناسب.</p>
+                  <span>{t("استكشف حسب احتياجك")}</span>
+                  <h2>{t("وش تبي تعرف؟")}</h2>
+                  <p>{t("اختر الشيء اللي يهمك، ونوصلك للمكان المناسب.")}</p>
                 </div>
                 <div className="desktop-explore-categories">
                   {categories.filter((category) => category.name !== "الكل").map((category) => (
                     <button key={category.name} type="button" className="desktop-explore-category" onClick={() => { setActiveCategory(category.name); setSearchQuery(""); }}>
                       <span aria-hidden="true">{category.icon}</span>
                       <strong>{t(category.name)}</strong>
-                      <small>استكشف</small>
+                      <small>{t("استكشف")}</small>
                     </button>
                   ))}
                 </div>
                 <div className="desktop-explore-divider" />
-                <div className="desktop-suggested-heading"><h3>أماكن مقترحة</h3><span>ابدأ من هنا</span></div>
+                <div className="desktop-suggested-heading"><h3>{t("أماكن مقترحة")}</h3><span>{t("ابدأ من هنا")}</span></div>
                 <div className="desktop-suggested-list">
                   <Link className="desktop-suggested-item" href="/quba">
                     <span className="desktop-suggested-icon">⌖</span>
-                    <span><strong>مقصد قباء</strong><small>المدينة المنورة · تجارب الزوار</small></span>
+                    <span><strong>{t("مقصد قباء")}</strong><small>{t("المدينة المنورة · تجارب الزوار")}</small></span>
                     <b aria-hidden="true">←</b>
                   </Link>
                   <div className="desktop-suggested-item desktop-suggested-disabled">
                     <span className="desktop-suggested-icon">⌖</span>
-                    <span><strong>مشروع الحي المغسلة</strong><small>المدينة المنورة · 412 مراجعة</small></span>
+                    <span><strong>{t("مشروع الحي المغسلة")}</strong><small>{t("المدينة المنورة · 412 مراجعة")}</small></span>
                   </div>
                 </div>
               </div>
@@ -1008,7 +1085,7 @@ export default function Home() {
             <div className="map-canvas map-reference-canvas" role="region" aria-label={t("خريطة الخدمات")}>
               <img className="map-reference-image" src="/madinah-map.svg" alt="خريطة توضيحية للمدينة المنورة" draggable={false} />
               <a className="map-google-button" href="https://www.google.com/maps/search/?api=1&query=Al%20Madinah%20Al%20Munawwarah" target="_blank" rel="noreferrer">
-                <span>انتقل للخارطة</span><span aria-hidden="true">↗</span>
+                <span>{t("انتقل للخارطة")}</span><span aria-hidden="true">↗</span>
               </a>
             </div>
             <div className="map-legend">
@@ -1025,44 +1102,44 @@ export default function Home() {
               <div>
                 <span className="dashboard-kicker"><i /> ملخص شامل لبيانات وجهتك</span>
                 <h2>وش قالوا عن وجهتك؟</h2>
-                <p>لوحة واحدة تلخص جميع الأماكن والوجهات والمطاعم والمقاهي المدرجة في وجهتك، اعتمادًا على بيانات ملف الإكسل الشامل.</p>
+                <p>{t("لوحة واحدة تلخص جميع الأماكن والوجهات والمطاعم والمقاهي المدرجة في وجهتك، اعتمادًا على بيانات ملف الإكسل الشامل.")}</p>
               </div>
-              <div className="explore-dashboard-total"><strong>{comprehensiveDashboardStats.totalPlaces}</strong><span>مكانًا مدرجًا</span></div>
+              <div className="explore-dashboard-total"><strong>{comprehensiveDashboardStats.totalPlaces}</strong><span>{t("مكانًا مدرجًا")}</span></div>
             </div>
             <div className="explore-metrics">
-              <article><span>متوسط التقييم</span><strong>—</strong><small>غير متوفر في ملف البيانات الشامل</small></article>
-              <article><span>إجمالي التعليقات</span><strong>{comprehensiveDashboardStats.totalComments.toLocaleString("ar-SA")}</strong><small>تعليقًا ضمن جميع الأماكن</small></article>
-              <article><span>الأماكن والوجهات</span><strong>{comprehensiveDashboardStats.touristPlaces}</strong><small>وجهة ومعلمًا مدرجًا</small></article>
-              <article><span>المطاعم والمقاهي</span><strong>{comprehensiveDashboardStats.foodPlaces}</strong><small>منشأة طعام وشراب</small></article>
+              <article><span>{t("متوسط التقييم")}</span><strong>—</strong><small>{t("غير متوفر في ملف البيانات الشامل")}</small></article>
+              <article><span>{t("إجمالي التعليقات")}</span><strong>{comprehensiveDashboardStats.totalComments.toLocaleString("ar-SA")}</strong><small>{t("تعليقًا ضمن جميع الأماكن")}</small></article>
+              <article><span>{t("الأماكن والوجهات")}</span><strong>{comprehensiveDashboardStats.touristPlaces}</strong><small>{t("وجهة ومعلمًا مدرجًا")}</small></article>
+              <article><span>{t("المطاعم والمقاهي")}</span><strong>{comprehensiveDashboardStats.foodPlaces}</strong><small>{t("منشأة طعام وشراب")}</small></article>
             </div>
             <div className="explore-dashboard-grid">
               <article className="explore-dashboard-card explore-dashboard-insight">
-                <div className="explore-card-title"><span>وش سوينا بالبيانات؟</span><b>01</b></div>
-                <h3>جمعنا الأماكن والخدمات في صورة واحدة.</h3>
-                <p>الداشبورد يجمع البيانات الموجودة في الموقع عن الوجهات والمعالم والمطاعم والمقاهي، بدل ما تكون المعلومة موزعة بين صفحات مختلفة.</p>
+                <div className="explore-card-title"><span>{t("وش سوينا بالبيانات؟")}</span><b>01</b></div>
+                <h3>{t("جمعنا الأماكن والخدمات في صورة واحدة.")}</h3>
+                <p>{t("الداشبورد يجمع البيانات الموجودة في الموقع عن الوجهات والمعالم والمطاعم والمقاهي، بدل ما تكون المعلومة موزعة بين صفحات مختلفة.")}</p>
                 <div className="explore-mini-stats"><span><b>{comprehensiveDashboardStats.totalPlaces}</b> مكان</span><span><b>{comprehensiveDashboardStats.totalComments.toLocaleString("ar-SA")}</b> تعليق</span></div>
               </article>
               <article className="explore-dashboard-card">
-                <div className="explore-card-title"><span>وش موجود في وجهتك؟</span><b>02</b></div>
+                <div className="explore-card-title"><span>{t("وش موجود في وجهتك؟")}</span><b>02</b></div>
                 <div className="explore-dashboard-bars">
-                  <div><span>الوجهات والمعالم</span><i><em style={{width: "100%"}} /></i><b>{comprehensiveDashboardStats.touristPlaces}</b></div>
-                  <div><span>المطاعم والمقاهي</span><i><em style={{width: "100%"}} /></i><b>{comprehensiveDashboardStats.foodPlaces}</b></div>
-                  <div><span>المطاعم</span><i><em style={{width: "69%"}} /></i><b>{comprehensiveDashboardStats.restaurants}</b></div>
-                  <div><span>المقاهي</span><i><em style={{width: "26%"}} /></i><b>{comprehensiveDashboardStats.cafes}</b></div>
-                  <div><span>أنواع طعام أخرى</span><i><em style={{width: "6%"}} /></i><b>{comprehensiveDashboardStats.mixedFood + comprehensiveDashboardStats.otherFood}</b></div>
+                  <div><span>{t("الوجهات والمعالم")}</span><i><em style={{width: "100%"}} /></i><b>{comprehensiveDashboardStats.touristPlaces}</b></div>
+                  <div><span>{t("المطاعم والمقاهي")}</span><i><em style={{width: "100%"}} /></i><b>{comprehensiveDashboardStats.foodPlaces}</b></div>
+                  <div><span>{t("المطاعم")}</span><i><em style={{width: "69%"}} /></i><b>{comprehensiveDashboardStats.restaurants}</b></div>
+                  <div><span>{t("المقاهي")}</span><i><em style={{width: "26%"}} /></i><b>{comprehensiveDashboardStats.cafes}</b></div>
+                  <div><span>{t("أنواع طعام أخرى")}</span><i><em style={{width: "6%"}} /></i><b>{comprehensiveDashboardStats.mixedFood + comprehensiveDashboardStats.otherFood}</b></div>
                 </div>
               </article>
               <article className="explore-dashboard-card">
-                <div className="explore-card-title"><span>وش يستفيد الزائر؟</span><b>03</b></div>
+                <div className="explore-card-title"><span>{t("وش يستفيد الزائر؟")}</span><b>03</b></div>
                 <div className="explore-benefits">
-                  <div><strong>قبل الزيارة</strong><span>يشوف الخيارات والأماكن الموجودة في المدينة.</span></div>
-                  <div><strong>أثناء الزيارة</strong><span>يقدر يستكشف الوجهات والخدمات حسب احتياجه.</span></div>
-                  <div><strong>بعد الزيارة</strong><span>يشارك تجربته لتفيد زائرًا آخر.</span></div>
+                  <div><strong>{t("قبل الزيارة")}</strong><span>{t("يشوف الخيارات والأماكن الموجودة في المدينة.")}</span></div>
+                  <div><strong>{t("أثناء الزيارة")}</strong><span>{t("يقدر يستكشف الوجهات والخدمات حسب احتياجه.")}</span></div>
+                  <div><strong>{t("بعد الزيارة")}</strong><span>{t("يشارك تجربته لتفيد زائرًا آخر.")}</span></div>
                 </div>
               </article>
               <article className="explore-dashboard-card explore-dashboard-quote">
-                <div className="explore-card-title"><span>نطاق البيانات</span><b>04</b></div>
-                <blockquote>من المعالم والأماكن السياحية إلى المطاعم والمقاهي، الداشبورد يعطي نظرة شاملة على المحتوى الذي جمعناه داخل وجهتك.</blockquote>
+                <div className="explore-card-title"><span>{t("نطاق البيانات")}</span><b>04</b></div>
+                <blockquote>{t("من المعالم والأماكن السياحية إلى المطاعم والمقاهي، الداشبورد يعطي نظرة شاملة على المحتوى الذي جمعناه داخل وجهتك.")}</blockquote>
                 <small>{comprehensiveDashboardStats.touristPlaces} وجهة ومعلم · {comprehensiveDashboardStats.foodPlaces} مطعم ومقهى · {comprehensiveDashboardStats.totalComments.toLocaleString("ar-SA")} تعليق</small>
               </article>
             </div>
@@ -1070,9 +1147,9 @@ export default function Home() {
         </section>
 
         <footer className="site-footer" id="about">
-          <a className="brand footer-brand" href="#home" aria-label={t("وجهتك")}><span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 3 45 24 24 45 3 24 24 3Z" /><path d="m24 10 14 14-14 14-14-14 14-14Z" /><path d="M24 10v28M10 24h28M14 14l20 20m0-20L14 34" /></svg></span><span className="brand-copy"><span>وش قالوا عن</span><strong>{t("وجهتك")}</strong></span></a>
-          <p>وش قالوا عن وجهتك</p>
-          <span>المدينة المنورة · المملكة العربية السعودية</span>
+          <a className="brand footer-brand" href="#home" aria-label={t("وجهتك")}><span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 3 45 24 24 45 3 24 24 3Z" /><path d="m24 10 14 14-14 14-14-14 14-14Z" /><path d="M24 10v28M10 24h28M14 14l20 20m0-20L14 34" /></svg></span><span className="brand-copy"><span>{t("وش قالوا عن")}</span><strong>{t("وجهتك")}</strong></span></a>
+          <p>{t("وش قالوا عن وجهتك")}</p>
+          <span>{t("المدينة المنورة · المملكة العربية السعودية")}</span>
         </footer>
       </div>
       {statusMessage && <div className="status-toast" role="status" aria-live="polite">{t(statusMessage)}</div>}
