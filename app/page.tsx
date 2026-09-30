@@ -632,23 +632,35 @@ export default function Home() {
       </section>
 
       <div className="page-content" id="home">
-        <section className="intro-row" id="explore">
-          <div>
-            <span className="eyebrow"><i /> {t("المدينة المنورة، المملكة العربية السعودية")}</span>
+        <section className="discovery-hero" id="explore">
+          <div className="discovery-hero-copy">
+            <span className="discovery-kicker"><i /> وجهتك · من الداخل</span>
             <h1>{t("اكتشف المدينة من الداخل")}</h1>
-            <p>{t("تفاصيل صغيرة تصنع زيارة أجمل. استكشف المرافق والخدمات كما يراها أهل المكان.")}</p>
-          </div>
-          <div className="location-options" aria-label="اختيار المنطقة">
-            <div className="location-summary">
-              <span className="location-icon">⌖</span>
-              <span className="location-copy"><strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong><small>{t("المدينة المنورة")}</small></span>
-              <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+            <h2>{t("من الداخل، مو بس على الخريطة")}</h2>
+            <p>{t("اعرف المكان قبل ما تروح")}</p>
+            <div className="discovery-rule"><span /><b>01</b><span /></div>
+            <div className="location-options" aria-label="اختيار المنطقة">
+              <div className="location-summary">
+                <span className="location-icon">⌖</span>
+                <span className="location-copy"><strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong><small>{t("المدينة المنورة")}</small></span>
+                <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+              </div>
+              <Link className="location-summary location-summary-link" href="/quba" aria-label="فتح مقصد قباء">
+                <span className="location-icon location-icon-quba">⌖</span>
+                <span className="location-copy"><strong>مقصد قباء</strong><small>المدينة المنورة</small></span>
+                <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+              </Link>
             </div>
-            <Link className="location-summary location-summary-link" href="/quba" aria-label="فتح مقصد قباء">
-              <span className="location-icon location-icon-quba">⌖</span>
-              <span className="location-copy"><strong>مقصد قباء</strong><small>المدينة المنورة</small></span>
-              <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
-            </Link>
+          </div>
+          <div className="discovery-visual" aria-hidden="true">
+            <div className="visual-orbit orbit-one" />
+            <div className="visual-orbit orbit-two" />
+            <div className="visual-grid" />
+            <div className="visual-card visual-card-main"><span>⌖</span><strong>داخل المكان</strong><small>تفاصيل · خدمات · تجارب</small></div>
+            <div className="visual-card visual-card-review"><b>4.8</b><span>★</span><small>تجارب الزوار</small></div>
+            <div className="visual-card visual-card-service"><span>♧</span><small>دورات المياه</small></div>
+            <div className="visual-card visual-card-food"><span>☕</span><small>المقاهي</small></div>
+            <div className="visual-route"><i /><i /><i /><i /></div>
           </div>
         </section>
 
