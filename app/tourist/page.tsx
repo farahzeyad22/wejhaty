@@ -1,13 +1,14 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { touristDestinations } from "../tourist-data";
 
 export default function TouristPage(){
   const params=typeof window!=="undefined"?new URLSearchParams(window.location.search):null;
   const initial=params?.get("name")||"";
-  const [selectedName,setSelectedName]=useState(initial);
+  const [selectedName,setSelectedName]=useState("");
   const [query,setQuery]=useState("");
+  useEffect(()=>{ const value=new URLSearchParams(window.location.search).get("name")||""; setSelectedName(value); },[]);
   const selected=useMemo(()=>touristDestinations.find(x=>x.name===selectedName)||null,[selectedName]);
   const filtered=touristDestinations.filter(x=>!query.trim()||x.name.includes(query.trim()));
   return <main dir="rtl" className="tourist-page"><style>{`
