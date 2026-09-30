@@ -1935,3 +1935,105 @@ textarea:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* روشن frame: warm wood surround + clean white inner dashboard */
+.app-shell {
+  border: 22px solid #76553b;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, rgb(118 85 59 / 9%) 1px, transparent 1px) 0 0 / 18px 18px,
+    linear-gradient(rgb(118 85 59 / 7%) 1px, transparent 1px) 0 0 / 18px 18px,
+    #dcc8ad;
+  box-shadow:
+    inset 0 0 0 2px #b99a7c,
+    inset 0 0 0 5px rgb(255 244 224 / 28%);
+}
+
+.topbar {
+  margin: 14px 14px 0;
+  border: 1px solid #d7c6b1;
+  border-bottom-color: #cdb99f;
+  border-radius: 12px 12px 0 0;
+  background: #fffefa;
+  box-shadow: 0 4px 18px rgb(67 48 33 / 5%);
+}
+
+.service-strip {
+  margin: 0 14px;
+  border-right: 1px solid #d7c6b1;
+  border-left: 1px solid #d7c6b1;
+  background: #fffefa;
+}
+
+.page-content {
+  width: calc(100% - 28px);
+  max-width: 1450px;
+  margin: 0 auto 24px;
+  border: 1px solid #d7c6b1;
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
+  background: #fffefa;
+  padding: 0 24px 30px;
+  box-shadow: 0 12px 30px rgb(67 48 33 / 7%);
+}
+
+.dashboard-intro {
+  padding-top: 28px;
+}
+
+.explorer-layout {
+  gap: 16px;
+}
+
+.details-panel,
+.map-column {
+  border: 2px solid #c9b497;
+  border-radius: 14px;
+  background: #fffefa;
+  box-shadow: 0 8px 24px rgb(67 48 33 / 7%);
+}
+
+.map-column {
+  background: #f4eee4;
+}
+
+.map-toolbar {
+  border-color: #d2c0a8;
+  background: #fffaf2;
+}
+
+.map-canvas {
+  border-color: #c9b497;
+}
+
+.location-summary {
+  border-color: #d0bea5;
+  background: #fffefa;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    border-width: 10px;
+  }
+
+  .topbar {
+    margin: 8px 8px 0;
+  }
+
+  .service-strip {
+    margin: 0 8px;
+  }
+
+  .page-content {
+    width: calc(100% - 16px);
+    margin-bottom: 12px;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .details-panel,
+  .map-column {
+    border-width: 1px;
+  }
+}
