@@ -561,7 +561,7 @@ export default function Home() {
       <div className="roshan-edge roshan-edge-bottom" aria-hidden="true" />
       <div className="roshan-edge roshan-edge-left" aria-hidden="true" />
       <header className="topbar">
-        <a className="brand" href="#home" aria-label={`${t("وجهتك")} ${t("من الداخل")}`}>
+        <a className="brand" href="#home" aria-label={t("وجهتك")}>
           <span className="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none">
               <path d="M24 3 45 24 24 45 3 24 24 3Z" />
@@ -571,7 +571,7 @@ export default function Home() {
           </span>
           <span className="brand-copy">
             <strong>{t("وجهتك")}</strong>
-            <span>{t("من الداخل")}</span>
+            <span>وش قالوا عن</span>
           </span>
         </a>
 
@@ -661,14 +661,11 @@ export default function Home() {
       </header>
 
       <div className="page-content" id="home">
-        <div className="mobile-review-hero" aria-label="وش قالوا الناس عن وجهتك">
-          <img className="mobile-review-hero-image" src="/review-hero-light.svg" alt="وش قالوا الناس عن وجهتك" />
-        </div>
         <section className="dashboard-intro" id="explore">
           <div className="dashboard-title">
-            <span className="dashboard-kicker"><i /> وجهتك · من الداخل</span>
-            <h1>{t("اكتشف المدينة من الداخل")}</h1>
-            <p>{t("من الداخل، مو بس على الخريطة")}</p>
+            <span className="dashboard-kicker"><i /> وجهتك</span>
+            <h1>وش قالوا عن وجهتك</h1>
+            <p>شوف المكان بعيون زواره.</p>
             <strong>{t("اعرف المكان قبل ما تروح")}</strong>
           </div>
 
