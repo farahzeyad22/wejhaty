@@ -490,21 +490,43 @@ textarea:focus-visible {
   line-height: 1.8;
 }
 
+.location-options {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  min-width: min(610px, 100%);
+}
+
 .location-summary {
   display: flex;
-  min-width: 276px;
+  width: 285px;
+  min-width: 0;
   align-items: center;
   gap: 12px;
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgb(255 254 250 / 72%);
+  background: rgb(255 254 250 / 92%);
   padding: 11px 14px;
+  box-shadow: 0 5px 18px rgb(58 54 42 / 5%);
+}
+
+.location-summary-link {
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.location-summary-link:hover,
+.location-summary-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--wood-soft);
+  box-shadow: 0 9px 22px rgb(58 54 42 / 9%);
 }
 
 .location-icon {
   display: grid;
   width: 37px;
   height: 37px;
+  flex: 0 0 auto;
   place-items: center;
   border-radius: 12px;
   background: var(--olive-pale);
@@ -512,8 +534,14 @@ textarea:focus-visible {
   font-size: 24px;
 }
 
-.location-summary > span:nth-child(2) {
+.location-icon-quba {
+  background: var(--lavender);
+  color: #866d89;
+}
+
+.location-copy {
   display: grid;
+  min-width: 0;
   gap: 3px;
 }
 
