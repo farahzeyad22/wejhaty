@@ -659,33 +659,6 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="service-strip" id="services" aria-label={t("تصنيفات الخدمات")}>
-        <div className="service-strip-inner">
-          <button
-            className={`category-chip${activeCategory === "الكل" ? " category-active" : ""}`}
-            type="button"
-            onClick={() => { setActiveCategory("الكل"); setShowTouristCategories(false); closeModal(); }}
-          >الكل</button>
-          <button
-            className={`category-chip tourist-toggle${showTouristCategories ? " category-active" : ""}`}
-            type="button"
-            onClick={() => { setShowTouristCategories((v) => !v); setActiveCategory("المناطق السياحية"); closeModal(); }}
-            aria-expanded={showTouristCategories}
-          >المناطق السياحية <span className="category-icon" aria-hidden="true">⌄</span></button>
-          {showTouristCategories && categories.slice(1).map((category) => (
-            <button
-              className={`category-chip${activeCategory === category.name ? " category-active" : ""}`}
-              key={category.name}
-              type="button"
-              onClick={() => { setActiveCategory(category.name); closeModal(); }}
-            >
-              <span className="category-icon" aria-hidden="true">{category.icon}</span>
-              {t(category.name)}
-            </button>
-          ))}
-        </div>
-      </section>
-
       <div className="page-content" id="home">
         <section className="dashboard-intro" id="explore">
           <div className="dashboard-title">
@@ -694,18 +667,45 @@ export default function Home() {
             <p>{t("من الداخل، مو بس على الخريطة")}</p>
             <strong>{t("اعرف المكان قبل ما تروح")}</strong>
           </div>
-          <div className="dashboard-locations" aria-label="اختيار المنطقة">
-            <div className="location-summary">
-              <span className="location-icon">⌖</span>
-              <span className="location-copy"><strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong><small>{t("المدينة المنورة")}</small></span>
-              <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
-            </div>
-            <Link className="location-summary location-summary-link" href="/quba" aria-label="فتح مقصد قباء">
-              <span className="location-icon location-icon-quba">⌖</span>
-              <span className="location-copy"><strong>مقصد قباء</strong><small>المدينة المنورة</small></span>
-              <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
-            </Link>
+
+          <div className="home-categories" aria-label={t("تصنيفات الخدمات")}>
+            {categories.map((category) => (
+              <button
+                className={`home-category-card${activeCategory === category.name ? " home-category-active" : ""}`}
+                key={category.name}
+                type="button"
+                onClick={() => { setActiveCategory(category.name); setSearchQuery(""); closeModal(); }}
+              >
+                <span className="home-category-icon" aria-hidden="true">{category.icon}</span>
+                <span>{t(category.name)}</span>
+              </button>
+            ))}
           </div>
+
+          <div className="suggested-places">
+            <div className="suggested-heading">
+              <h2>أماكن مقترحة</h2>
+            </div>
+            <div className="suggested-place-grid">
+              <div className="location-summary suggested-place-card">
+                <span className="location-icon">⌖</span>
+                <span className="location-copy">
+                  <strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong>
+                  <small>{t("المدينة المنورة")}</small>
+                </span>
+                <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+              </div>
+              <Link className="location-summary location-summary-link suggested-place-card" href="/quba" aria-label="فتح مقصد قباء">
+                <span className="location-icon location-icon-quba">⌖</span>
+                <span className="location-copy">
+                  <strong>مقصد قباء</strong>
+                  <small>{t("المدينة المنورة")}</small>
+                </span>
+                <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+              </Link>
+            </div>
+          </div>
+        </section>
         </section>
 
         <section className="explorer-layout" style={{ direction: language === "ar" ? "rtl" : "ltr" }} aria-label={t("استكشف الخدمات على الخريطة")}>
@@ -827,7 +827,7 @@ export default function Home() {
         <footer className="site-footer" id="about">
           <a className="brand footer-brand" href="#home" aria-label={`${t("وجهتك")} ${t("من الداخل")}`}><span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 3 45 24 24 45 3 24 24 3Z" /><path d="m24 10 14 14-14 14-14-14 14-14Z" /><path d="M24 10v28M10 24h28M14 14l20 20m0-20L14 34" /></svg></span><span className="brand-copy"><strong>{t("وجهتك")}</strong><span>{t("من الداخل")}</span></span></a>
           <p>{t("اعرف المكان من الداخل.")}</p>
-          <span>مدينة نور · المملكة العربية السعودية</span>
+          <span>المدينة المنورة · المملكة العربية السعودية</span>
         </footer>
       </div>
       {statusMessage && <div className="status-toast" role="status" aria-live="polite">{t(statusMessage)}</div>}
