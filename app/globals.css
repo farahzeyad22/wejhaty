@@ -2857,3 +2857,68 @@ textarea:focus-visible {
     height: 470px;
   }
 }
+
+
+/* Static reference-style Madinah map */
+.map-reference-canvas {
+  position: relative !important;
+  min-height: 600px !important;
+  height: 600px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 17px !important;
+  background: #eee7d7 !important;
+}
+
+.map-reference-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.map-google-button {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 17px;
+  border: 1px solid rgb(255 255 255 / 68%);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 72%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #4d3b52;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgb(48 34 43 / 16%);
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.map-google-button:hover {
+  background: rgb(255 255 255 / 88%);
+  transform: translateY(-2px);
+  box-shadow: 0 13px 28px rgb(48 34 43 / 20%);
+}
+
+@media (max-width: 760px) {
+  .map-reference-canvas {
+    min-height: 430px !important;
+    height: 430px !important;
+  }
+
+  .map-google-button {
+    right: 12px;
+    bottom: 12px;
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+}
