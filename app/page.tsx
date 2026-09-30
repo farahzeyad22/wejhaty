@@ -632,58 +632,24 @@ export default function Home() {
       </section>
 
       <div className="page-content" id="home">
-        <section className="discovery-hero" id="explore">
-          <div className="discovery-hero-copy">
-            <span className="discovery-kicker"><i /> وجهتك · من الداخل</span>
+        <section className="dashboard-intro" id="explore">
+          <div className="dashboard-title">
+            <span className="dashboard-kicker"><i /> وجهتك · من الداخل</span>
             <h1>{t("اكتشف المدينة من الداخل")}</h1>
-            <h2>{t("من الداخل، مو بس على الخريطة")}</h2>
-            <p>{t("اعرف المكان قبل ما تروح")}</p>
-            <div className="discovery-rule"><span /><b>01</b><span /></div>
-            <div className="location-options" aria-label="اختيار المنطقة">
-              <div className="location-summary">
-                <span className="location-icon">⌖</span>
-                <span className="location-copy"><strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong><small>{t("المدينة المنورة")}</small></span>
-                <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
-              </div>
-              <Link className="location-summary location-summary-link" href="/quba" aria-label="فتح مقصد قباء">
-                <span className="location-icon location-icon-quba">⌖</span>
-                <span className="location-copy"><strong>مقصد قباء</strong><small>المدينة المنورة</small></span>
-                <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
-              </Link>
+            <p>{t("من الداخل، مو بس على الخريطة")}</p>
+            <strong>{t("اعرف المكان قبل ما تروح")}</strong>
+          </div>
+          <div className="dashboard-locations" aria-label="اختيار المنطقة">
+            <div className="location-summary">
+              <span className="location-icon">⌖</span>
+              <span className="location-copy"><strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong><small>{t("المدينة المنورة")}</small></span>
+              <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
             </div>
-          </div>
-          <div className="discovery-visual" aria-hidden="true">
-            <div className="visual-orbit orbit-one" />
-            <div className="visual-orbit orbit-two" />
-            <div className="visual-grid" />
-            <div className="visual-card visual-card-main"><span>⌖</span><strong>داخل المكان</strong><small>تفاصيل · خدمات · تجارب</small></div>
-            <div className="visual-card visual-card-review"><b>4.8</b><span>★</span><small>تجارب الزوار</small></div>
-            <div className="visual-card visual-card-service"><span>♧</span><small>دورات المياه</small></div>
-            <div className="visual-card visual-card-food"><span>☕</span><small>المقاهي</small></div>
-            <div className="visual-route"><i /><i /><i /><i /></div>
-          </div>
-        </section>
-
-        <section className="inside-discovery" aria-label={t("من الداخل، مو بس على الخريطة")}>
-          <div className="inside-discovery-heading">
-            <span className="eyebrow">{t("من الداخل، مو بس على الخريطة")}</span>
-            <h2>{t("اعرف المكان قبل ما تروح")}</h2>
-            <p>{t("المكان أولًا، ثم التفاصيل التي تهمك.")}</p>
-          </div>
-          <div className="inside-discovery-grid">
-            <article className="inside-discovery-card"><span className="inside-discovery-icon">⌘</span><div><h3>{t("وش موجود؟")}</h3><p>{t("تعرف على الخدمات والمرافق الموجودة داخل المكان.")}</p></div></article>
-            <article className="inside-discovery-card"><span className="inside-discovery-icon">✦</span><div><h3>{t("وش يقولون الزوار؟")}</h3><p>{t("اقرأ تجارب الزوار مصنفة حسب المكان والخدمة.")}</p></div></article>
-            <article className="inside-discovery-card"><span className="inside-discovery-icon">↗</span><div><h3>{t("كيف أوصل؟")}</h3><p>{t("اعرف أقرب المرافق وكيف تصل إليها من داخل الموقع.")}</p></div></article>
-          </div>
-          <div className="inside-discovery-categories">
-            <span>{t("اكتشف حسب احتياجك")}</span>
-            <div>
-              {categories.slice(1,7).map((category) => (
-                <button key={category.name} type="button" onClick={() => { setActiveCategory(category.name); document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }); }}>
-                  <b>{category.icon}</b>{t(category.name)}
-                </button>
-              ))}
-            </div>
+            <Link className="location-summary location-summary-link" href="/quba" aria-label="فتح مقصد قباء">
+              <span className="location-icon location-icon-quba">⌖</span>
+              <span className="location-copy"><strong>مقصد قباء</strong><small>المدينة المنورة</small></span>
+              <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+            </Link>
           </div>
         </section>
 
