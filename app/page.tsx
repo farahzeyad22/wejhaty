@@ -39,6 +39,7 @@ const englishTranslations: Record<string, string> = {
   "تصنيفات الخدمات": "Service categories",
   "الكل": "All",
   "المطاعم": "Restaurants",
+  "المطاعم والمقاهي": "Restaurants & Cafes",
   "المقاهي": "Cafes",
   "المواقف": "Parking",
   "دورات المياه": "Restrooms",
@@ -47,8 +48,6 @@ const englishTranslations: Record<string, string> = {
   "المشي والتنقل": "Walking and mobility",
   "المعالم الرئيسية": "Main landmarks",
   "المناطق السياحية": "Tourist areas",
-  "الكل": "All",
-  "الخدمات الأخرى": "Other services",
   "الخدمات الأخرى": "Other services",
   "تجارب حقيقية": "Real experiences",
   "تجربة هادئة، وأنصح بزيارتها": "A calm experience, I recommend visiting",
@@ -528,8 +527,8 @@ export default function Home() {
   const handleSearchKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      if (visibleFacilities[0]) {
-        chooseSearchResult(visibleFacilities[0]);
+      if (searchResults[0]) {
+        chooseSearchResult(searchResults[0]);
       } else {
         notify("لا توجد نتائج مطابقة.");
       }
