@@ -155,9 +155,9 @@ const englishTranslations: Record<string, string> = {
 };
 
 const landmarks: Facility[] = [
-  { name: "المنطقة المركزية", icon: "📍", description: "المعالم الرئيسية في المنطقة المركزية", category: "المعالم الرئيسية", googleQuery: "المنطقة المركزية المدينة المنورة" },
-  { name: "مسجد قباء", icon: "🕌", description: "مسجد قباء في المدينة المنورة", category: "المعالم الرئيسية", googleQuery: "مسجد قباء المدينة المنورة" },
-  { name: "جبل أحد", icon: "⛰️", description: "جبل أحد في المدينة المنورة", category: "المعالم الرئيسية", googleQuery: "جبل أحد المدينة المنورة" },
+  { name: "المنطقة المركزية", icon: "📍", description: "المعالم الرئيسية في المنطقة المركزية", category: "أماكن دينية", googleQuery: "المنطقة المركزية المدينة المنورة" },
+  { name: "مسجد قباء", icon: "🕌", description: "مسجد قباء في المدينة المنورة", category: "أماكن دينية", googleQuery: "مسجد قباء المدينة المنورة" },
+  { name: "جبل أحد", icon: "⛰️", description: "جبل أحد في المدينة المنورة", category: "أماكن دينية", googleQuery: "جبل أحد المدينة المنورة" },
 ];
 
 const facilities: Facility[] = [
@@ -512,7 +512,7 @@ export default function Home() {
   const searchItems: Facility[] = [
     ...searchCategories,
     ...proposedPlaces,
-    ...landmarks.map((landmark) => ({ ...landmark, category: landmark.category || "المعالم الرئيسية" })),
+    ...landmarks.map((landmark) => ({ ...landmark, category: landmark.category || "أماكن دينية" })),
     ...foodPlaces.map((place) => ({
       name: place.name,
       icon: place.type === "مقهى" ? "☕" : "🍽️",
