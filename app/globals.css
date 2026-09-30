@@ -3285,3 +3285,41 @@ textarea:focus-visible {
     border-radius: 14px;
   }
 }
+
+
+/* Search results must float above the dashboard content on every screen */
+.app-shell {
+  overflow: visible !important;
+}
+.topbar {
+  position: relative !important;
+  z-index: 200 !important;
+  overflow: visible !important;
+}
+.search-control {
+  position: relative !important;
+  z-index: 300 !important;
+}
+.search-results {
+  position: absolute !important;
+  z-index: 9999 !important;
+  top: calc(100% + 7px) !important;
+  right: 0 !important;
+  left: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+@media (max-width: 760px) {
+  .app-shell {
+    overflow: visible !important;
+  }
+  .topbar {
+    z-index: 200 !important;
+  }
+  .search-results {
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-height: 52vh !important;
+  }
+}
