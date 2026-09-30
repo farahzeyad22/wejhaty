@@ -45,6 +45,12 @@ const englishTranslations: Record<string, string> = {
   "المشي والتنقل": "Walking and mobility",
   "المعالم الرئيسية": "Main landmarks",
   "الخدمات الأخرى": "Other services",
+  "تجارب حقيقية": "Real experiences",
+  "وش قالوا الناس؟": "What did people say?",
+  "شوف المكان بعيون زواره.": "See the place through visitors' eyes.",
+  "REAL REVIEWS, REAL PLACES": "REAL REVIEWS, REAL PLACES",
+  "تجارب حقيقية من داخل المدينة.": "Real experiences from inside the city.",
+  "استكشف تجارب الزوار": "Explore visitor experiences",
   "المدينة المنورة، المملكة العربية السعودية": "Madinah, Saudi Arabia",
   "استكشف مرافق المدينة وخدماتها وتقييمات الزوار من الداخل.": "Explore Madinah's facilities, services, and visitor reviews from within.",
   "اكتشف المدينة": "Discover Madinah",
@@ -736,11 +742,29 @@ export default function Home() {
                 </div>
               </>
             ) : (
-              <div className="detail-empty">
-                <span className="empty-emblem">⌖</span>
-                <span className="eyebrow">{t("اكتشف المدينة")}</span>
-                <h2>{t("هناك أكثر من وجهة سياحية في المدينة")}</h2>
-                <p>{t("خريطتك معك")}<br />{t("قم باكتشاف المدينة")}</p>
+              <div className="detail-empty review-hero-panel">
+                <div className="review-hero-art" aria-hidden="true">
+                  <div className="sunset-sun" />
+                  <div className="sunset-mountain sunset-mountain-back" />
+                  <div className="sunset-mountain sunset-mountain-front" />
+                  <div className="sunset-mosque">
+                    <span className="dome dome-main" />
+                    <span className="minaret minaret-one" />
+                    <span className="minaret minaret-two" />
+                    <span className="minaret minaret-three" />
+                    <span className="mosque-body" />
+                  </div>
+                </div>
+                <div className="review-hero-copy">
+                  <span className="eyebrow">{t("تجارب حقيقية")}</span>
+                  <h2>{t("وش قالوا الناس؟")}</h2>
+                  <p className="review-hero-lead">{t("شوف المكان بعيون زواره.")}</p>
+                  <div className="review-hero-english">REAL REVIEWS, REAL PLACES</div>
+                  <p>{t("تجارب حقيقية من داخل المدينة.")}</p>
+                  <button className="review-hero-button" type="button" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>
+                    {t("استكشف تجارب الزوار")} <span aria-hidden="true">←</span>
+                  </button>
+                </div>
               </div>
             )}
           </aside>
