@@ -2355,3 +2355,428 @@ textarea:focus-visible {
   .roshan-edge-right,
   .roshan-edge-left { width: 34px; }
 }
+
+
+/* Reference-faithful visual pass: purple roshan, illustrated Madinah map, sunset review panel */
+.app-shell {
+  --reference-purple: #714486;
+  --reference-purple-deep: #59336d;
+  position: relative !important;
+  padding: 112px !important;
+  overflow: hidden;
+  background:
+    linear-gradient(45deg, transparent 44%, rgb(255 255 255 / 88%) 45% 49%, transparent 50%) 0 0 / 74px 74px,
+    linear-gradient(-45deg, transparent 44%, rgb(255 255 255 / 88%) 45% 49%, transparent 50%) 0 0 / 74px 74px,
+    linear-gradient(45deg, transparent 70%, rgb(255 255 255 / 45%) 71% 74%, transparent 75%) 0 0 / 74px 74px,
+    #714486 !important;
+  box-shadow: inset 0 0 0 5px rgb(255 255 255 / 86%), inset 0 0 0 11px rgb(83 45 105 / 55%) !important;
+}
+
+.app-shell::before,
+.app-shell::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border: 3px solid rgb(255 255 255 / 88%);
+}
+
+.app-shell::before {
+  inset: 17px;
+}
+
+.app-shell::after {
+  inset: 31px;
+  border-color: rgb(255 255 255 / 48%);
+}
+
+.roshan-edge {
+  z-index: 3 !important;
+  background-color: #714486 !important;
+  background-image:
+    linear-gradient(45deg, transparent 41%, #fff 42% 48%, transparent 49%),
+    linear-gradient(-45deg, transparent 41%, #fff 42% 48%, transparent 49%),
+    linear-gradient(90deg, transparent 0 18%, rgb(255 255 255 / 22%) 19% 20%, transparent 21% 79%, rgb(255 255 255 / 22%) 80% 81%, transparent 82%),
+    linear-gradient(0deg, transparent 0 18%, rgb(255 255 255 / 22%) 19% 20%, transparent 21% 79%, rgb(255 255 255 / 22%) 80% 81%, transparent 82%) !important;
+  background-size: 74px 74px, 74px 74px, 74px 74px, 74px 74px !important;
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 92%) !important;
+}
+
+.roshan-edge::after {
+  border-color: rgb(255 255 255 / 90%) !important;
+  border-width: 2px !important;
+}
+
+.topbar,
+.service-strip,
+.page-content {
+  position: relative !important;
+  z-index: 4 !important;
+}
+
+.topbar {
+  min-height: 86px;
+  border-radius: 24px 24px 0 0 !important;
+  padding-inline: 28px;
+}
+
+.service-strip {
+  padding-inline: 18px;
+}
+
+.service-strip-inner {
+  min-height: 64px;
+}
+
+.page-content {
+  border-radius: 0 0 24px 24px !important;
+  padding: 0 34px 34px !important;
+  background: #fffdf9 !important;
+}
+
+.dashboard-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(390px, .9fr);
+  align-items: end;
+  gap: 26px;
+  padding: 28px 8px 22px;
+}
+
+.dashboard-title h1 {
+  margin-top: 6px;
+  color: #3e3740;
+  font-size: clamp(30px, 3.2vw, 48px);
+  letter-spacing: -.035em;
+}
+
+.dashboard-title p {
+  margin-top: 5px;
+  color: #7d7180;
+}
+
+.dashboard-title > strong {
+  color: #714486;
+}
+
+.dashboard-locations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.location-summary {
+  min-height: 72px;
+  border-radius: 16px;
+  box-shadow: 0 7px 18px rgb(68 47 74 / 6%);
+}
+
+.explorer-layout {
+  grid-template-columns: minmax(360px, .82fr) minmax(0, 1.72fr) !important;
+  gap: 18px !important;
+}
+
+.map-column,
+.details-panel {
+  border: 1px solid #d8cabd !important;
+  border-radius: 22px !important;
+  box-shadow: 0 15px 30px rgb(76 56 41 / 9%) !important;
+}
+
+.map-column {
+  padding: 12px !important;
+  background: #f5efe4 !important;
+}
+
+.map-toolbar {
+  margin-bottom: 9px;
+  border-radius: 13px !important;
+  background: #fffaf3 !important;
+}
+
+.map-canvas {
+  min-height: 600px;
+  border-radius: 17px !important;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 51% 48%, rgb(210 194 164 / 48%), transparent 39%),
+    radial-gradient(circle at 17% 76%, rgb(188 207 157 / 55%), transparent 16%),
+    linear-gradient(145deg, #e8e0cf 0%, #d8d0bd 100%) !important;
+}
+
+.map-pattern {
+  opacity: .18 !important;
+  background-image:
+    repeating-linear-gradient(30deg, transparent 0 24px, #a99a7d 25px 26px),
+    repeating-linear-gradient(120deg, transparent 0 35px, #b6a98e 36px 37px) !important;
+}
+
+.map-roads .road-main {
+  stroke: #fffaf0 !important;
+  stroke-width: 31px !important;
+}
+
+.map-roads .road-minor {
+  stroke: #faf6ed !important;
+  stroke-width: 12px !important;
+}
+
+.map-park {
+  background: #d6dfc2 !important;
+  border-color: #bdca9f !important;
+  box-shadow: inset 0 0 0 7px rgb(255 255 255 / 16%);
+}
+
+.map-block {
+  background: rgb(181 164 130 / 22%) !important;
+  border-color: rgb(154 133 95 / 27%) !important;
+}
+
+.map-mountain {
+  opacity: .65 !important;
+  background: linear-gradient(145deg, #b8aa90, #8f8068) !important;
+}
+
+.map-mountain::after {
+  content: "";
+  position: absolute;
+  inset: 19px 32px 0 47px;
+  background: #c9bba1;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  opacity: .8;
+}
+
+.map-mosque {
+  background: #bda783 !important;
+  opacity: .72 !important;
+  box-shadow:
+    12px -20px 0 -7px #987c5a,
+    34px -29px 0 -12px #987c5a,
+    57px -20px 0 -7px #987c5a !important;
+}
+
+.map-palm {
+  opacity: .78 !important;
+  filter: sepia(.18) saturate(.8) !important;
+}
+
+.map-label {
+  color: #6f6251 !important;
+  font-weight: 700 !important;
+}
+
+.map-pin {
+  box-shadow: 0 7px 15px rgb(67 47 38 / 15%) !important;
+}
+
+/* Right-side review panel matching the supplied sunset reference */
+.review-hero-panel {
+  min-height: 600px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-end !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 22px !important;
+  color: #fff !important;
+  isolation: isolate;
+  background:
+    linear-gradient(180deg, rgb(89 48 106 / 8%) 0%, rgb(64 37 73 / 72%) 72%, rgb(56 32 65 / 95%) 100%),
+    radial-gradient(circle at 70% 19%, rgb(239 198 137 / 82%) 0 7%, transparent 8%),
+    linear-gradient(180deg, #8d658e 0%, #c7897a 39%, #efb174 56%, #72566e 100%) !important;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 30%) !important;
+}
+
+.review-hero-art {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 58%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.review-hero-art::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -4%;
+  height: 45%;
+  background: #4c3b55;
+  clip-path: polygon(0 100%, 12% 54%, 24% 72%, 39% 24%, 51% 66%, 64% 42%, 78% 75%, 91% 28%, 100% 63%, 100% 100%);
+  opacity: .8;
+}
+
+.sunset-sun {
+  position: absolute;
+  top: 17%;
+  right: 19%;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: #e8c38d;
+  box-shadow: 0 0 36px rgb(246 213 157 / 30%);
+}
+
+.sunset-mountain {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: 4%;
+  height: 40%;
+  clip-path: polygon(0 100%, 14% 61%, 27% 73%, 40% 31%, 55% 72%, 69% 42%, 82% 70%, 100% 47%, 100% 100%);
+}
+
+.sunset-mountain-back {
+  background: #9b7487;
+  opacity: .7;
+}
+
+.sunset-mountain-front {
+  bottom: -4%;
+  background: #5c4a61;
+  opacity: .9;
+  transform: scale(1.1);
+}
+
+.sunset-mosque {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 2%;
+  height: 40%;
+  opacity: .92;
+}
+
+.mosque-body {
+  position: absolute;
+  right: 12%;
+  bottom: 0;
+  width: 62%;
+  height: 48%;
+  border-radius: 48% 48% 4px 4px;
+  background: #403746;
+  box-shadow: inset 0 15px 0 rgb(255 255 255 / 4%);
+}
+
+.dome {
+  position: absolute;
+  bottom: 35%;
+  right: 35%;
+  width: 35%;
+  height: 30%;
+  border-radius: 100% 100% 8% 8%;
+  background: #403746;
+}
+
+.minaret {
+  position: absolute;
+  bottom: 0;
+  width: 6%;
+  height: 100%;
+  border-radius: 4px 4px 0 0;
+  background: #403746;
+}
+
+.minaret::before {
+  content: "";
+  position: absolute;
+  top: 8%;
+  left: -45%;
+  width: 190%;
+  height: 7%;
+  border-radius: 50%;
+  background: #403746;
+}
+
+.minaret-one { right: 5%; }
+.minaret-two { left: 8%; height: 82%; }
+.minaret-three { right: 25%; height: 72%; }
+
+.review-hero-copy {
+  position: relative;
+  z-index: 2;
+  padding: 28px 27px 25px;
+  background: linear-gradient(180deg, transparent 0%, rgb(49 29 57 / 14%) 12%, rgb(49 29 57 / 76%) 100%);
+  text-align: right;
+}
+
+.review-hero-copy .eyebrow {
+  color: rgb(255 255 255 / 72%);
+  font-size: 10px;
+  letter-spacing: .13em;
+}
+
+.review-hero-copy h2 {
+  margin: 7px 0 0;
+  color: #fff;
+  font-size: clamp(29px, 3vw, 42px);
+  line-height: 1.25;
+  letter-spacing: -.035em;
+}
+
+.review-hero-lead {
+  margin: 7px 0 12px !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: 650;
+}
+
+.review-hero-english {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  direction: ltr;
+  text-align: right;
+}
+
+.review-hero-copy > p:not(.review-hero-lead) {
+  margin: 6px 0 18px;
+  color: rgb(255 255 255 / 84%) !important;
+  font-size: 12px;
+}
+
+.review-hero-button {
+  display: flex;
+  width: 100%;
+  min-height: 49px;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  border-radius: 15px;
+  background: #714486;
+  color: #fff;
+  padding: 0 18px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgb(29 16 36 / 18%);
+}
+
+.review-hero-button:hover {
+  background: #603673;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1120px) {
+  .app-shell { padding: 78px !important; }
+  .dashboard-intro { grid-template-columns: 1fr; }
+  .explorer-layout { grid-template-columns: minmax(300px, .8fr) minmax(0, 1.5fr) !important; }
+}
+
+@media (max-width: 760px) {
+  .app-shell { padding: 34px !important; }
+  .app-shell::before { inset: 10px; }
+  .app-shell::after { inset: 20px; }
+  .page-content { padding-inline: 14px !important; }
+  .dashboard-intro { padding-inline: 2px; }
+  .dashboard-locations { grid-template-columns: 1fr; }
+  .map-canvas { min-height: 430px; }
+  .review-hero-panel { min-height: 470px !important; }
+  .review-hero-art { height: 56%; }
+  .review-hero-copy { padding: 22px 20px 20px; }
+  .review-hero-copy h2 { font-size: 29px; }
+  .review-hero-lead { font-size: 16px !important; }
+}
