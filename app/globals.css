@@ -2922,3 +2922,21 @@ textarea:focus-visible {
     font-size: 12px;
   }
 }
+
+
+/* Search fallback + compact tourist category navigation */
+.search-google-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 14px 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #eee3f2;
+  color: #684873;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.search-empty-wrap { display: flex; flex-direction: column; }
+.tourist-toggle { gap: 7px; }
