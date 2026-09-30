@@ -21,10 +21,10 @@ export default function QubaPage() {
       .quba-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:34px}
       .quba-brand{font-size:18px;font-weight:800;color:inherit;text-decoration:none}
       .quba-back{padding:10px 15px;border:1px solid #cfc8b9;border-radius:999px;text-decoration:none;color:inherit;background:#fff}
-      .quba-hero{background:#27271f;color:#fff;border-radius:28px;padding:42px;display:grid;gap:18px;box-shadow:0 18px 50px #0001}
+      .quba-hero{background:#27271f;color:#fff;border-radius:28px;padding:42px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,420px);align-items:center;gap:28px;box-shadow:0 18px 50px #0001}
       .quba-kicker{opacity:.7;font-size:13px}
       .quba-hero h1{font-size:clamp(34px,5vw,64px);margin:0;letter-spacing:-1px}
-      .quba-hero p{max-width:760px;line-height:1.9;margin:0;color:#ddd9cf}
+      .quba-hero-copy{display:grid;gap:18px}.quba-hero p{max-width:760px;line-height:1.9;margin:0;color:#ddd9cf}.quba-summary{border:1px solid #ffffff1c;border-radius:20px;background:#ffffff08;padding:18px 18px 16px}.quba-summary-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;font-size:13px}.quba-summary-title small{color:#aaa69b;font-size:10px}.quba-bars{display:grid;gap:10px}.quba-bar-row{display:grid;grid-template-columns:78px 1fr 34px;align-items:center;gap:8px;font-size:10px}.quba-bar-track{height:7px;border-radius:999px;background:#ffffff12;overflow:hidden}.quba-bar-fill{height:100%;border-radius:999px;background:#c9b99d}.quba-bar-count{text-align:left;color:#d7d1c5;font-size:10px}
       .quba-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
       .quba-stat{background:#ffffff12;border:1px solid #ffffff20;border-radius:14px;padding:11px 15px}
       .quba-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
@@ -39,15 +39,27 @@ export default function QubaPage() {
       .quba-message{line-height:1.9;margin:15px 0 13px;white-space:pre-wrap}
       .quba-tags{display:flex;flex-wrap:wrap;gap:6px}.quba-tag{font-size:11px;background:#f1ede4;padding:5px 9px;border-radius:999px}
       .quba-empty{text-align:center;padding:50px;background:#fff;border-radius:20px}
-      @media(max-width:700px){.quba-page{padding:20px 16px 50px}.quba-hero{padding:28px 22px}.quba-top{align-items:flex-start}}
+      @media(max-width:850px){.quba-hero{grid-template-columns:1fr}}@media(max-width:700px){.quba-page{padding:20px 16px 50px}.quba-hero{padding:28px 22px}.quba-top{align-items:flex-start}.quba-bar-row{grid-template-columns:70px 1fr 30px}}
     `}</style>
     <div className="quba-wrap">
       <div className="quba-top"><Link className="quba-brand" href="/">وجهتك | من الداخل</Link><Link className="quba-back" href="/">العودة للقائمة الرئيسية</Link></div>
       <section className="quba-hero">
-        <span className="quba-kicker">المدينة المنورة · مقصد قباء</span>
-        <h1>مقصد قباء</h1>
-        <p>تجارب الزوار كما كُتبت، مع تصنيف المراجعة حسب الموضوع. المراجعة تبقى بنصها الأصلي، ويمكن أن تظهر في أكثر من تصنيف عند ارتباطها بأكثر من جانب.</p>
-        <div className="quba-stats"><span className="quba-stat"><b>{qubaReviewStats.writtenReviews}</b> مراجعة مكتوبة</span><span className="quba-stat"><b>{qubaReviewStats.totalRatings}</b> تقييم إجمالي</span><span className="quba-stat"><b>{Object.keys(qubaReviewStats.categoryCounts).length}</b> تركيبة تصنيف</span></div>
+        <div className="quba-hero-copy">
+          <span className="quba-kicker">المدينة المنورة · مقصد قباء</span>
+          <h1>مقصد قباء</h1>
+          <p>تجارب الزوار كما كُتبت، مع تصنيف المراجعة حسب الموضوع. المراجعة تبقى بنصها الأصلي، ويمكن أن تظهر في أكثر من تصنيف عند ارتباطها بأكثر من جانب.</p>
+          <div className="quba-stats"><span className="quba-stat"><b>{qubaReviewStats.writtenReviews}</b> مراجعة مكتوبة</span><span className="quba-stat"><b>{qubaReviewStats.totalRatings}</b> تقييم إجمالي</span><span className="quba-stat"><b>{Object.keys(qubaReviewStats.categoryCounts).length}</b> تركيبة تصنيف</span></div>
+        </div>
+        <aside className="quba-summary" aria-label="ملخص تصنيفات تجارب الزوار">
+          <div className="quba-summary-title"><strong>ملخص تجارب الزوار</strong><small>حسب التصنيف</small></div>
+          <div className="quba-bars">
+            {Object.entries(qubaReviewStats.categoryCounts).map(([name,count])=>{
+              const max=Math.max(...Object.values(qubaReviewStats.categoryCounts));
+              const width=Math.max(8,Math.round((count/max)*100));
+              return <div className="quba-bar-row" key={name}><span>{name}</span><div className="quba-bar-track"><div className="quba-bar-fill" style={{width:width + "%"}} /></div><span className="quba-bar-count">{count}</span></div>;
+            })}
+          </div>
+        </aside>
       </section>
       <div className="quba-toolbar">
         <input className="quba-search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث داخل تجارب الزوار..." />
