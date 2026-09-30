@@ -2115,3 +2115,147 @@ textarea:focus-visible {
     border-width: 1px !important;
   }
 }
+
+
+/* Madinah illustrated map + mashrabiya identity */
+.app-shell {
+  padding: 32px !important;
+  background:
+    radial-gradient(circle at 12% 18%, rgb(255 239 208 / 28%), transparent 24%),
+    repeating-linear-gradient(45deg, rgb(82 53 32 / 7%) 0 2px, transparent 2px 18px),
+    linear-gradient(135deg, #c8a57c, #9b704b 52%, #c3a079) !important;
+}
+
+.page-content {
+  padding-bottom: 28px !important;
+}
+
+.detail-empty {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  justify-content: center;
+  padding: 44px !important;
+  background:
+    radial-gradient(circle at 80% 20%, rgb(226 214 232 / 40%), transparent 25%),
+    linear-gradient(145deg, #fffdf8 0%, #f4eee3 100%) !important;
+}
+
+.detail-empty::after {
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgb(198 177 147 / 17%);
+  content: "";
+}
+
+.detail-empty h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+  font-size: clamp(30px, 3vw, 43px);
+  line-height: 1.45;
+}
+
+.detail-empty p {
+  position: relative;
+  z-index: 1;
+  color: #76695d;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.map-canvas {
+  background:
+    radial-gradient(circle at 48% 45%, rgb(217 202 171 / 42%), transparent 40%),
+    linear-gradient(145deg, #e8dfc9, #d7ceb8) !important;
+}
+
+.map-pattern {
+  opacity: .12;
+  background-image:
+    repeating-linear-gradient(35deg, transparent 0 28px, #9e8e72 29px 30px),
+    repeating-linear-gradient(120deg, transparent 0 42px, #b4a384 43px 44px);
+}
+
+.map-roads .road-main {
+  stroke: #fffaf0;
+  stroke-width: 30px;
+  filter: drop-shadow(0 1px 0 rgb(183 166 136 / 40%));
+}
+
+.map-roads .road-minor {
+  stroke: #f9f4e9;
+  stroke-width: 13px;
+}
+
+.map-park {
+  background: #d8dfc2;
+  border-color: #c3cda5;
+}
+
+.map-block {
+  background: rgb(194 175 143 / 25%);
+  border-color: rgb(170 148 111 / 30%);
+}
+
+.map-landmark span {
+  background: #d7c5a8;
+  border-color: #b89568;
+  color: #76553b;
+}
+
+.map-mountain {
+  position: absolute;
+  z-index: -1;
+  width: 180px;
+  height: 70px;
+  border-radius: 70% 45% 0 0;
+  background: linear-gradient(145deg, #c7b99f, #aa9b80);
+  opacity: .42;
+  clip-path: polygon(0 100%, 30% 40%, 43% 65%, 64% 10%, 100% 100%);
+}
+.mountain-one { top: 8%; right: 4%; }
+.mountain-two { bottom: 8%; left: 3%; transform: scale(.72); opacity: .28; }
+
+.map-mosque {
+  position: absolute;
+  z-index: -1;
+  width: 82px;
+  height: 52px;
+  border-radius: 42px 42px 6px 6px;
+  background: #c8b18e;
+  opacity: .42;
+  box-shadow:
+    12px -20px 0 -7px #a58b68,
+    34px -29px 0 -12px #a58b68,
+    57px -20px 0 -7px #a58b68;
+}
+.map-mosque span {
+  position: absolute;
+  right: 50%;
+  bottom: 6px;
+  transform: translateX(50%);
+  color: #796a56;
+  font-size: 8px;
+}
+.mosque-one { top: 22%; left: 20%; }
+.mosque-two { right: 18%; bottom: 20%; transform: scale(.78); }
+
+.map-palm {
+  position: absolute;
+  z-index: -1;
+  opacity: .55;
+  font-size: 34px;
+  filter: sepia(.25);
+}
+.palm-one { top: 19%; left: 39%; }
+.palm-two { right: 31%; bottom: 18%; transform: scale(.82); }
+
+@media (max-width: 760px) {
+  .app-shell { padding: 10px !important; }
+  .detail-empty { min-height: 360px; padding: 28px !important; }
+}
