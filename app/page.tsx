@@ -46,6 +46,8 @@ const englishTranslations: Record<string, string> = {
   "المعالم الرئيسية": "Main landmarks",
   "الخدمات الأخرى": "Other services",
   "تجارب حقيقية": "Real experiences",
+  "تجربة هادئة، وأنصح بزيارتها": "A calm experience, I recommend visiting",
+  "جلسات جميلة والخدمة ممتازة": "Beautiful seating and excellent service",
   "وش قالوا الناس؟": "What did people say?",
   "شوف المكان بعيون زواره.": "See the place through visitors' eyes.",
   "REAL REVIEWS, REAL PLACES": "REAL REVIEWS, REAL PLACES",
@@ -761,6 +763,18 @@ export default function Home() {
                   <p className="review-hero-lead">{t("شوف المكان بعيون زواره.")}</p>
                   <div className="review-hero-english">REAL REVIEWS, REAL PLACES</div>
                   <p>{t("تجارب حقيقية من داخل المدينة.")}</p>
+                  <div className="review-preview-list" aria-label={t("تجارب الزوار")}>
+                    <article className="review-preview-card">
+                      <span className="review-preview-stars">★★★★★</span>
+                      <strong>{t("جلسات جميلة والخدمة ممتازة")}</strong>
+                      <small>⌖ {t("المنطقة المركزية")}</small>
+                    </article>
+                    <article className="review-preview-card">
+                      <span className="review-preview-stars">★★★★☆</span>
+                      <strong>{t("تجربة هادئة، وأنصح بزيارتها")}</strong>
+                      <small>⌖ {t("مقصد قباء")}</small>
+                    </article>
+                  </div>
                   <button className="review-hero-button" type="button" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>
                     {t("استكشف تجارب الزوار")} <span aria-hidden="true">←</span>
                   </button>
