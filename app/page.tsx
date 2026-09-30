@@ -562,6 +562,7 @@ export default function Home() {
     // Category results are navigation/filter results, not places to send to Google Maps.
     if (item.name === item.category) {
       setActiveCategory(item.name);
+      setSearchQuery("");
       return;
     }
 
@@ -673,7 +674,7 @@ export default function Home() {
                     <span className="search-result-icon" aria-hidden="true">{facility.icon}</span>
                     <span className="search-result-copy">
                       <strong>{t(facility.name)}</strong>
-                      <small>{t(facility.description)}</small>
+                      <small>{facility.name !== facility.category && facility.category ? t(facility.category) + " · " : ""}{t(facility.description)}</small>
                     </span>
                     <span className="search-result-rating">{facilityAverage ? `${facilityAverage} ★` : ""}</span>
                   </button>
