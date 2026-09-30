@@ -516,7 +516,7 @@ export default function Home() {
       name: destination.name,
       icon: "⌖",
       description: "وجهة سياحية في المدينة المنورة",
-      category: "المناطق السياحية",
+      category: destination.category,
       googleQuery: destination.name + ", المدينة المنورة",
     })),
   ];
