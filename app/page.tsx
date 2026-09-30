@@ -227,6 +227,7 @@ export default function Home() {
   const [rating, setRating] = useState(0);
   const [message, setMessage] = useState("");
   const [activeCategory, setActiveCategory] = useState("الكل");
+  const [activeNav, setActiveNav] = useState<"home" | "explore">("home");
   const [showTouristCategories, setShowTouristCategories] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [darkMode, setDarkMode] = useState(false);
@@ -659,8 +660,8 @@ export default function Home() {
         </a>
 
         <nav className="main-nav" aria-label={t("التنقل الرئيسي")}>
-          <a className="nav-active" href="#home">{t("الرئيسية")}</a>
-          <Link href="/tourist">{t("استكشف")}</Link>
+          <a className={activeNav === "home" ? "nav-active" : ""} href="#home" onClick={() => setActiveNav("home")}>{t("الرئيسية")}</a>
+          <a className={activeNav === "explore" ? "nav-active" : ""} href="#explore" onClick={() => setActiveNav("explore")}>{t("استكشف")}</a>
           
         </nav>
 
@@ -829,7 +830,7 @@ export default function Home() {
           )}
         </section>
 
-        <section className="explorer-layout" style={{ direction: language === "ar" ? "rtl" : "ltr" }} aria-label={t("استكشف الخدمات على الخريطة")}>
+        <section id="explore" className="explorer-layout" style={{ direction: language === "ar" ? "rtl" : "ltr" }} aria-label={t("استكشف الخدمات على الخريطة")}>
           <aside className="details-panel" aria-live="polite">
             {selected ? (
               <>
