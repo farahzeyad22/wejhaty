@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { PointerEvent } from "react";
 
@@ -600,7 +601,7 @@ export default function Home() {
       </header>
 
       <section className="service-strip" id="services" aria-label={t("تصنيفات الخدمات")}>
-        <div className="service-strip-inner">
+        <div className="service-strip-inner"><Link className="category-chip" href="/quba">مقصد قباء</Link>
           {categories.map((category) => (
             <button
               className={`category-chip${activeCategory === category.name ? " category-active" : ""}`}
