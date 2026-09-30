@@ -471,6 +471,7 @@ export default function Home() {
 
   const categories = [
     { name: "الكل", icon: "⌘" },
+    { name: "المناطق السياحية", icon: "⌖" },
     { name: "المطاعم والمقاهي", icon: "☕" },
     { name: "المشي والتنقل", icon: "🚶" },
     { name: "المعالم الرئيسية", icon: "🕌" },
@@ -682,29 +683,46 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="suggested-places">
-            <div className="suggested-heading">
-              <h2>أماكن مقترحة</h2>
-            </div>
-            <div className="suggested-place-grid">
-              <div className="location-summary suggested-place-card">
-                <span className="location-icon">⌖</span>
-                <span className="location-copy">
-                  <strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong>
-                  <small>{t("المدينة المنورة")}</small>
-                </span>
-                <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+          {activeCategory === "الكل" ? (
+            <div className="suggested-places">
+              <div className="suggested-heading">
+                <h2>أماكن مقترحة</h2>
               </div>
-              <Link className="location-summary location-summary-link suggested-place-card" href="/quba" aria-label="فتح مقصد قباء">
-                <span className="location-icon location-icon-quba">⌖</span>
-                <span className="location-copy">
-                  <strong>مقصد قباء</strong>
-                  <small>{t("المدينة المنورة")}</small>
-                </span>
-                <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
-              </Link>
+              <div className="suggested-place-grid">
+                <div className="location-summary suggested-place-card">
+                  <span className="location-icon">⌖</span>
+                  <span className="location-copy">
+                    <strong>{t("المنطقة المركزية")} <em className="reviews-status">(لم يتم رفع الريفيوز بعد)</em></strong>
+                    <small>{t("المدينة المنورة")}</small>
+                  </span>
+                  <span className="location-rating"><b>4.8</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+                </div>
+                <Link className="location-summary location-summary-link suggested-place-card" href="/quba" aria-label="فتح مقصد قباء">
+                  <span className="location-icon location-icon-quba">⌖</span>
+                  <span className="location-copy">
+                    <strong>مقصد قباء</strong>
+                    <small>{t("المدينة المنورة")}</small>
+                  </span>
+                  <span className="location-rating"><b>4.7</b> <i>★</i><small>{t("تقييم المكان")}</small></span>
+                </Link>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="category-empty-state" role="status">
+              <span className="category-empty-icon" aria-hidden="true">{categories.find((category) => category.name === activeCategory)?.icon}</span>
+              <strong>
+                {activeCategory === "المناطق السياحية"
+                  ? "لم يتم إضافة مناطق سياحية بعد"
+                  : activeCategory === "المطاعم والمقاهي"
+                    ? "لم يتم إضافة مطاعم ومقاهي بعد"
+                    : activeCategory === "المشي والتنقل"
+                      ? "لم يتم إضافة مشي وتنقل بعد"
+                      : activeCategory === "المعالم الرئيسية"
+                        ? "لم يتم إضافة معالم رئيسية بعد"
+                        : "لم يتم إضافة خدمات أخرى بعد"}
+              </strong>
+            </div>
+          )}
         </section>
 
         <section className="explorer-layout" style={{ direction: language === "ar" ? "rtl" : "ltr" }} aria-label={t("استكشف الخدمات على الخريطة")}>
