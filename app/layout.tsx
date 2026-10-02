@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/apple-touch-icon.png",
+        url: "/apple-touch-icon.png?v=3",
         width: 180,
         height: 180,
         alt: "شعار وجهتك",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "وش قالوا عن | وجهتك",
     description: "شوف المكان بعيون زواره.",
-    images: ["/apple-touch-icon.png"],
+    images: ["/apple-touch-icon.png?v=3"],
   },
   icons: {
     icon: "/site-icon.svg",
