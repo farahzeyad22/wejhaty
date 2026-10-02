@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   title: "وش قالوا عن | وجهتك",
   description: "شوف المكان بعيون زواره.",
   icons: {
-    icon: "/site-logo-preview.png",
-    apple: "/site-logo-preview.png",
+    icon: "/apple-touch-icon.png",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -28,6 +28,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       dir="rtl"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
