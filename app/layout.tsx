@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://reviews-wejhaty-med.vercel.app";
-const shareLogo = siteUrl + "/whatsapp-image";
+const shareLogo = siteUrl + "/site-logo-preview.png";
 
 export const metadata: Metadata = {
   title: "وش قالوا عن | وجهتك",
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: shareLogo,
-        width: 1200,
-        height: 1200,
+        width: 512,
+        height: 512,
         alt: "شعار وجهتك",
       },
     ],
