@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "شوف المكان بعيون زواره.",
   icons: {
     icon: "/site-icon.svg",
-    apple: "/site-icon.svg",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <link rel="icon" href="/site-icon.svg" />
-        <link rel="apple-touch-icon" href="/site-icon.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
