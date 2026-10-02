@@ -435,7 +435,7 @@ export default function Home() {
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = language === "en" ? "ltr" : "rtl";
-    const localizedTitle = language === "ar" ? "وجهتك | من الداخل" : language === "ur" ? "آپ کی منزل | اندر سے" : "Your Destination | From Within";
+    const localizedTitle = language === "ar" ? "وش قالوا عن | وجهتك" : language === "ur" ? "زائرین نے کیا کہا؟ | آپ کی منزل" : "What Visitors Said | Your Destination";
     const titleTimer = window.setTimeout(() => {
       document.title = localizedTitle;
     }, 100);
