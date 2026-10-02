@@ -16,15 +16,15 @@ export const metadata: Metadata = {
   title: "وش قالوا عن | وجهتك",
   description: "شوف المكان بعيون زواره.",
   icons: {
-    icon: "/site-logo.png",
-    apple: "/site-logo.png",
+    icon: "/site-logo-preview.png",
+    apple: "/site-logo-preview.png",
   },
   openGraph: {
     title: "وش قالوا عن وجهتك",
     description: "شوف المكان بعيون زواره.",
     images: [
       {
-        url: "/site-logo.png",
+        url: "/site-logo-preview.png",
         width: 128,
         height: 128,
         alt: "وش قالوا عن وجهتك",
