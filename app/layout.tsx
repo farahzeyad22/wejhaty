@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://reviews-wejhaty-med.vercel.app";
-const shareLogo = "/apple-touch-icon.png?v=5";
+const shareLogo = siteUrl + "/social-share.png";
 
 export const metadata: Metadata = {
   title: "وش قالوا عن | وجهتك",
