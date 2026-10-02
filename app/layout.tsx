@@ -19,24 +19,6 @@ export const metadata: Metadata = {
     icon: "/site-logo-preview.png",
     apple: "/site-logo-preview.png",
   },
-  openGraph: {
-    title: "وش قالوا عن وجهتك",
-    description: "شوف المكان بعيون زواره.",
-    images: [
-      {
-        url: "/site-logo-preview.png",
-        width: 1024,
-        height: 1024,
-        alt: "وش قالوا عن وجهتك",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "وش قالوا عن وجهتك",
-    description: "شوف المكان بعيون زواره.",
-    images: ["/site-logo-preview.png"],
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
