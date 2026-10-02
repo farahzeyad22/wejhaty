@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/site-logo-preview.png",
-        width: 128,
-        height: 128,
+        width: 1024,
+        height: 1024,
         alt: "وش قالوا عن وجهتك",
       },
     ],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "وش قالوا عن وجهتك",
     description: "شوف المكان بعيون زواره.",
-    images: ["/opengraph-image"],
+    images: ["/site-logo-preview.png"],
   },
 };
 
