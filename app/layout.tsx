@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://reviews-wejhaty-med.vercel.app";
-const shareLogo = "/share-logo-v4.png";
+const shareLogo = "/apple-touch-icon.png?v=5";
 
 export const metadata: Metadata = {
   title: "وش قالوا عن | وجهتك",
@@ -41,7 +41,8 @@ export const metadata: Metadata = {
     images: [shareLogo],
   },
   icons: {
-    icon: "/site-icon.svg",
+    icon: "/apple-touch-icon.png",
+    shortcut: "/apple-touch-icon.png",
     apple: "/apple-touch-icon.png",
   },
 };
@@ -54,7 +55,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <link rel="icon" href="/site-icon.svg" />
+        <link rel="icon" type="image/png" href="/apple-touch-icon.png" />
+        <link rel="shortcut icon" type="image/png" href="/apple-touch-icon.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
