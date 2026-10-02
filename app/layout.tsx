@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "وجهتك | من الداخل",
+  title: "وش قالوا عن | وجهتك",
   description: "استكشف مرافق المدينة وخدماتها وتقييمات الزوار من الداخل.",
 };
 
