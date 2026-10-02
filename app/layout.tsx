@@ -16,15 +16,15 @@ export const metadata: Metadata = {
   title: "وش قالوا عن | وجهتك",
   description: "شوف المكان بعيون زواره.",
   icons: {
-    icon: "/site-logo-preview.svg",
-    apple: "/site-logo-preview.svg",
+    icon: "/site-logo-preview.png",
+    apple: "/site-logo-preview.png",
   },
   openGraph: {
     title: "وش قالوا عن وجهتك",
     description: "شوف المكان بعيون زواره.",
     images: [
       {
-        url: "/site-logo-preview.svg",
+        url: "/site-logo-preview.png",
         width: 128,
         height: 128,
         alt: "وش قالوا عن وجهتك",
@@ -32,10 +32,10 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "وش قالوا عن وجهتك",
     description: "شوف المكان بعيون زواره.",
-    images: ["/site-logo-preview.svg"],
+    images: ["/site-logo-preview.png"],
   },
 };
 
