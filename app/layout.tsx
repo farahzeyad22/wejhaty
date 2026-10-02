@@ -14,7 +14,29 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "وش قالوا عن | وجهتك",
-  description: "استكشف مرافق المدينة وخدماتها وتقييمات الزوار من الداخل.",
+  description: "شوف المكان بعيون زواره.",
+  icons: {
+    icon: "/site-logo.svg",
+    apple: "/site-logo.svg",
+  },
+  openGraph: {
+    title: "وش قالوا عن وجهتك",
+    description: "شوف المكان بعيون زواره.",
+    images: [
+      {
+        url: "/site-logo.svg",
+        width: 512,
+        height: 512,
+        alt: "وش قالوا عن وجهتك",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "وش قالوا عن وجهتك",
+    description: "شوف المكان بعيون زواره.",
+    images: ["/site-logo.svg"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
